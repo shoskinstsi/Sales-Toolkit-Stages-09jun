@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CTM Global Sales Toolkit - Simplified Regions Section</title>
+<title>CTM Global Sales Toolkit - Clean Regions Section</title>
 <style>
   :root{
     --ctm-navy:#003b49;
@@ -373,6 +373,34 @@
   .simple-region-pill{background:#f8fafc;border:1px solid var(--line);border-radius:999px;padding:7px 10px;color:#475467;font-size:12px;font-weight:800}
   @media(max-width:800px){.simple-region-grid{grid-template-columns:1fr}}
 
+
+  .region-tab-links{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+  .region-tab-link{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:10px 11px;color:#344054;font-size:12px;font-weight:800;line-height:1.25;text-decoration:none;cursor:pointer;text-align:center}
+  .region-tab-link:hover{background:#eef8fb;border-color:#d7edf2;color:var(--ctm-navy)}
+  .north-america-hub-note{margin-top:18px;background:#eef8fb;border:1px solid #d7edf2;border-radius:14px;padding:14px;color:var(--ctm-navy);font-weight:800;line-height:1.45}
+  @media(max-width:800px){.region-tab-links{grid-template-columns:1fr 1fr}}
+
+
+  .clean-region-intro{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 2px 8px rgba(15,23,42,.06);margin-bottom:20px}
+  .clean-region-intro h2{margin:0 0 10px;color:#0b1f35;font-size:25px}
+  .clean-region-intro p{margin:0;color:#475467;line-height:1.6;max-width:980px}
+  .clean-region-layout{display:grid;gap:18px}
+  .na-hub-card{background:linear-gradient(115deg,#003b49 0%,#007c94 100%);border-radius:24px;padding:30px;color:#fff;text-decoration:none;display:flex;justify-content:space-between;align-items:center;gap:20px;box-shadow:0 8px 24px rgba(15,23,42,.12)}
+  .na-hub-card h2{margin:0 0 8px;color:#fff;font-size:28px}
+  .na-hub-card p{margin:0;color:rgba(255,255,255,.9);line-height:1.55;max-width:850px}
+  .na-hub-arrow{width:48px;height:48px;min-width:48px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900}
+  .clean-region-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .clean-region-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 2px 8px rgba(15,23,42,.06)}
+  .clean-region-card h3{margin:0 0 8px;color:#0b1f35;font-size:25px}
+  .clean-region-card p{margin:0;color:#667085;line-height:1.5;font-size:14px}
+  .clean-region-primary{display:block;margin-top:16px;background:#eef8fb;border:1px solid #d7edf2;color:var(--ctm-navy);border-radius:14px;padding:13px 14px;text-decoration:none;font-weight:900;text-align:center;cursor:pointer}
+  .clean-region-links{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+  .clean-region-link{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:10px;color:#344054;font-size:12px;font-weight:800;text-align:center;cursor:pointer}
+  .clean-region-link:hover,.clean-region-primary:hover{background:#fff;box-shadow:0 4px 12px rgba(15,23,42,.08)}
+  .clean-region-more{margin-top:12px;color:#667085;font-size:12px;line-height:1.4;text-align:center}
+  @media(max-width:1000px){.clean-region-grid{grid-template-columns:1fr}.na-hub-card{align-items:flex-start}}
+  @media(max-width:650px){.clean-region-links{grid-template-columns:1fr}.na-hub-card{flex-direction:column}}
+
 </style>
 </head>
 <body>
@@ -526,75 +554,70 @@
       <section class="hero">
         <div class="eyebrow">Regional Sales Hubs</div>
         <h1>Regions</h1>
-        <p>Choose a region to open its focused sales hub with contacts, templates, bid support, training, partner agency resources, and win/loss insights.</p>
+        <p>Use this page to quickly open the main Global Sales Toolkit hub or jump into a regional resource area.</p>
         <span class="owner">Page owner: Global Sales / Regional Sales Leadership</span>
       </section>
 
-      <section class="simple-region-intro">
+      <section class="clean-region-intro">
         <h2>Select a Region</h2>
-        <p>This view is simplified so users can quickly pick the correct regional hub without extra dashboard content or crowded preview cards.</p>
+        <p>North America routes to the main Global Sales Toolkit hub. ANZ, Asia, and EMEA provide simple quick links to the most-used regional sections, with the full regional hub still available.</p>
       </section>
 
-      <section class="simple-region-grid">
-        <a class="simple-region-card" data-target="north-america">
-          <div class="simple-region-top">
-            <div>
-              <h3>North America</h3>
-              <p>Regional sales resources, contacts, templates, bid guidance, CRM support, and training.</p>
-            </div>
-            <div class="simple-region-arrow">›</div>
+      <section class="clean-region-layout">
+        <a class="na-hub-card" data-target="home">
+          <div>
+            <h2>North America</h2>
+            <p>Open the main Global Sales Toolkit Hub for shared global content, sales tools, dashboards, templates, and enablement resources.</p>
           </div>
-          <div class="simple-region-links">
-            <span class="simple-region-pill">Contacts</span>
-            <span class="simple-region-pill">Bid Toolkit</span>
-            <span class="simple-region-pill">Sales Stages</span>
-          </div>
+          <div class="na-hub-arrow">›</div>
         </a>
 
-        <a class="simple-region-card" data-target="anz">
-          <div class="simple-region-top">
-            <div>
-              <h3>ANZ</h3>
-              <p>ANZ-specific owners, resources, templates, partner agency guidance, and customer proof.</p>
+        <div class="clean-region-grid">
+          <div class="clean-region-card">
+            <h3>ANZ</h3>
+            <p>Regional resources, owners, templates, partner guidance, and customer proof.</p>
+            <span class="clean-region-primary" data-target="anz">Open ANZ Hub</span>
+            <div class="clean-region-links">
+              <span class="clean-region-link" data-target="anz-overview">Overview</span>
+              <span class="clean-region-link" data-target="anz-contacts">Contacts</span>
+              <span class="clean-region-link" data-target="anz-bid-toolkit">Bid Toolkit</span>
+              <span class="clean-region-link" data-target="anz-templates">Templates</span>
+              <span class="clean-region-link" data-target="anz-win-loss">Win / Loss</span>
+              <span class="clean-region-link" data-target="anz-training">Training</span>
             </div>
-            <div class="simple-region-arrow">›</div>
+            <div class="clean-region-more">Additional tabs remain available inside the ANZ hub.</div>
           </div>
-          <div class="simple-region-links">
-            <span class="simple-region-pill">Overview</span>
-            <span class="simple-region-pill">Contacts</span>
-            <span class="simple-region-pill">Templates</span>
-          </div>
-        </a>
 
-        <a class="simple-region-card" data-target="asia">
-          <div class="simple-region-top">
-            <div>
-              <h3>Asia</h3>
-              <p>Asia regional sales guidance, pursuit support, contacts, templates, and training resources.</p>
+          <div class="clean-region-card">
+            <h3>Asia</h3>
+            <p>Regional sales guidance, pursuit support, contacts, templates, and training.</p>
+            <span class="clean-region-primary" data-target="asia">Open Asia Hub</span>
+            <div class="clean-region-links">
+              <span class="clean-region-link" data-target="asia-overview">Overview</span>
+              <span class="clean-region-link" data-target="asia-contacts">Contacts</span>
+              <span class="clean-region-link" data-target="asia-bid-toolkit">Bid Toolkit</span>
+              <span class="clean-region-link" data-target="asia-templates">Templates</span>
+              <span class="clean-region-link" data-target="asia-win-loss">Win / Loss</span>
+              <span class="clean-region-link" data-target="asia-training">Training</span>
             </div>
-            <div class="simple-region-arrow">›</div>
+            <div class="clean-region-more">Additional tabs remain available inside the Asia hub.</div>
           </div>
-          <div class="simple-region-links">
-            <span class="simple-region-pill">Contacts</span>
-            <span class="simple-region-pill">CRM Guidance</span>
-            <span class="simple-region-pill">Training</span>
-          </div>
-        </a>
 
-        <a class="simple-region-card" data-target="emea">
-          <div class="simple-region-top">
-            <div>
-              <h3>EMEA</h3>
-              <p>EMEA sales enablement resources, bid support, contacts, proof points, and regional templates.</p>
+          <div class="clean-region-card">
+            <h3>EMEA</h3>
+            <p>Sales enablement resources, bid support, contacts, proof points, and templates.</p>
+            <span class="clean-region-primary" data-target="emea">Open EMEA Hub</span>
+            <div class="clean-region-links">
+              <span class="clean-region-link" data-target="emea-overview">Overview</span>
+              <span class="clean-region-link" data-target="emea-contacts">Contacts</span>
+              <span class="clean-region-link" data-target="emea-bid-toolkit">Bid Toolkit</span>
+              <span class="clean-region-link" data-target="emea-templates">Templates</span>
+              <span class="clean-region-link" data-target="emea-win-loss">Win / Loss</span>
+              <span class="clean-region-link" data-target="emea-training">Training</span>
             </div>
-            <div class="simple-region-arrow">›</div>
+            <div class="clean-region-more">Additional tabs remain available inside the EMEA hub.</div>
           </div>
-          <div class="simple-region-links">
-            <span class="simple-region-pill">Templates</span>
-            <span class="simple-region-pill">Win / Loss</span>
-            <span class="simple-region-pill">Partner Agency</span>
-          </div>
-        </a>
+        </div>
       </section>
 
       <section class="content-card" style="margin-top:20px">
