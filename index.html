@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CTM Global Sales Toolkit - User Friendly Bid Toolkit</title>
+<title>CTM Global Sales Toolkit - Simplified Regions Section</title>
 <style>
   :root{
     --ctm-navy:#003b49;
@@ -325,6 +325,54 @@
     .bid-phase-badge{white-space:normal}
   }
 
+
+  .regions-modern-intro{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 2px 8px rgba(15,23,42,.06);margin-bottom:22px}
+  .regions-modern-intro h2{margin:0 0 10px;color:#0b1f35;font-size:25px}
+  .regions-modern-intro p{margin:0;color:#475467;line-height:1.65;max-width:980px}
+  .regions-overview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+  .region-stat{background:#f8fafc;border:1px solid var(--line);border-radius:16px;padding:18px}
+  .region-stat-label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900}
+  .region-stat-value{font-size:28px;font-weight:900;color:#0b1f35;margin:8px 0 3px}
+  .region-stat-note{font-size:13px;color:var(--muted);line-height:1.4}
+  .modern-region-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .modern-region-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:0;overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:0 2px 8px rgba(15,23,42,.06);cursor:pointer;transition:.16s ease;display:block}
+  .modern-region-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(15,23,42,.14)}
+  .region-card-top{padding:24px;background:linear-gradient(115deg,#003b49 0%,#006e84 100%);color:#fff;position:relative;overflow:hidden}
+  .modern-region-card:nth-child(2) .region-card-top{background:linear-gradient(115deg,#006e84 0%,#76bc43 100%)}
+  .modern-region-card:nth-child(3) .region-card-top{background:linear-gradient(115deg,#0b1f35 0%,#007c94 100%)}
+  .modern-region-card:nth-child(4) .region-card-top{background:linear-gradient(115deg,#003b49 0%,#4f8f2f 100%)}
+  .region-card-top:after{content:"";position:absolute;right:-55px;top:-80px;width:230px;height:230px;border-radius:50%;border:1px solid rgba(255,255,255,.28);box-shadow:0 0 0 28px rgba(255,255,255,.04),0 0 0 58px rgba(255,255,255,.025)}
+  .region-card-top h3{margin:0 0 8px;font-size:26px;color:#fff;position:relative;z-index:1}
+  .region-card-top p{margin:0;color:rgba(255,255,255,.9);line-height:1.5;position:relative;z-index:1;font-size:14px;max-width:520px}
+  .region-card-body{padding:22px}
+  .region-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+  .region-tag{background:#eef8fb;border:1px solid #d7edf2;color:var(--ctm-navy);border-radius:999px;padding:7px 10px;font-size:12px;font-weight:900}
+  .region-card-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .region-action{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:12px;color:#344054;font-size:13px;line-height:1.35}
+  .region-action b{display:block;color:#0b1f35;margin-bottom:4px}
+  .region-open{margin-top:18px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:16px;color:var(--ctm-teal);font-weight:900}
+  .region-open span:last-child{font-size:22px}
+  @media(max-width:1050px){.regions-overview-grid,.modern-region-grid{grid-template-columns:1fr 1fr}.region-card-actions{grid-template-columns:1fr}}
+  @media(max-width:700px){.regions-overview-grid,.modern-region-grid{grid-template-columns:1fr}}
+
+
+  .simple-region-intro{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 2px 8px rgba(15,23,42,.06);margin-bottom:22px}
+  .simple-region-intro h2{margin:0 0 10px;color:#0b1f35;font-size:25px}
+  .simple-region-intro p{margin:0;color:#475467;line-height:1.65;max-width:950px}
+  .simple-region-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .simple-region-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;text-decoration:none;color:var(--ink);box-shadow:0 2px 8px rgba(15,23,42,.06);cursor:pointer;transition:.16s ease;border-left:8px solid var(--ctm-teal);display:block}
+  .simple-region-card:nth-child(2){border-left-color:var(--ctm-green)}
+  .simple-region-card:nth-child(3){border-left-color:#f0b429}
+  .simple-region-card:nth-child(4){border-left-color:#667085}
+  .simple-region-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(15,23,42,.12)}
+  .simple-region-top{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}
+  .simple-region-card h3{margin:0 0 10px;color:#0b1f35;font-size:26px}
+  .simple-region-card p{margin:0;color:#667085;line-height:1.55;max-width:680px}
+  .simple-region-arrow{width:42px;height:42px;min-width:42px;border-radius:50%;background:#eef8fb;color:var(--ctm-navy);display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:900}
+  .simple-region-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+  .simple-region-pill{background:#f8fafc;border:1px solid var(--line);border-radius:999px;padding:7px 10px;color:#475467;font-size:12px;font-weight:800}
+  @media(max-width:800px){.simple-region-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -474,21 +522,88 @@
     <section id="view-partner-agency-contacts" class="view"><section class="content-card"><h2>Partner Contacts</h2><p>Use this area for regional partner agency owners, contacts, escalation points, and internal support contacts.</p><a class="backtop" data-target="partner-agency">Back to Partner Agency ↑</a></section></section>
     <section id="view-partner-agency-referrals" class="view"><section class="content-card"><h2>Referral Guidance</h2><p>Use this area for referral intake, lead source documentation, CRM expectations, follow-up timing, and ownership guidance.</p><a class="backtop" data-target="partner-agency">Back to Partner Agency ↑</a></section></section>
     <section id="view-partner-agency-materials" class="view"><section class="content-card"><h2>Partner Materials</h2><p>Use this area for approved partner agency collateral, templates, decks, talking points, and shared pursuit materials.</p><a class="backtop" data-target="partner-agency">Back to Partner Agency ↑</a></section></section>
-
-<section id="view-regions" class="view">
-      <section class="content-card"><h2>Regional Hubs</h2><p>Open a region below to view only that regional section.</p></section>
-      <section class="three-grid">
-        <a class="region-tile" data-target="north-america"><h3>North America</h3><p>Territories, quotas, regional contacts, pursuit guidance, and toolkit resources.</p></a>
-        <a class="region-tile" data-target="anz"><h3>ANZ</h3><p>ANZ sales resources, market insights, regional contacts, and pursuit materials.</p></a>
-        <a class="region-tile" data-target="asia"><h3>Asia</h3><p>Asia sales resources, market insights, regional contacts, pursuit guidance, and localized materials.</p></a>
-        <a class="region-tile" data-target="emea"><h3>EMEA</h3><p>Regional resources, market updates, localized templates, and stakeholder guidance.</p></a>
+    <section id="view-regions" class="view">
+      <section class="hero">
+        <div class="eyebrow">Regional Sales Hubs</div>
+        <h1>Regions</h1>
+        <p>Choose a region to open its focused sales hub with contacts, templates, bid support, training, partner agency resources, and win/loss insights.</p>
+        <span class="owner">Page owner: Global Sales / Regional Sales Leadership</span>
       </section>
-      <section class="content-card" style="margin-top:18px"><a class="backtop" data-target="home">Back to Home ↑</a></section>
+
+      <section class="simple-region-intro">
+        <h2>Select a Region</h2>
+        <p>This view is simplified so users can quickly pick the correct regional hub without extra dashboard content or crowded preview cards.</p>
+      </section>
+
+      <section class="simple-region-grid">
+        <a class="simple-region-card" data-target="north-america">
+          <div class="simple-region-top">
+            <div>
+              <h3>North America</h3>
+              <p>Regional sales resources, contacts, templates, bid guidance, CRM support, and training.</p>
+            </div>
+            <div class="simple-region-arrow">›</div>
+          </div>
+          <div class="simple-region-links">
+            <span class="simple-region-pill">Contacts</span>
+            <span class="simple-region-pill">Bid Toolkit</span>
+            <span class="simple-region-pill">Sales Stages</span>
+          </div>
+        </a>
+
+        <a class="simple-region-card" data-target="anz">
+          <div class="simple-region-top">
+            <div>
+              <h3>ANZ</h3>
+              <p>ANZ-specific owners, resources, templates, partner agency guidance, and customer proof.</p>
+            </div>
+            <div class="simple-region-arrow">›</div>
+          </div>
+          <div class="simple-region-links">
+            <span class="simple-region-pill">Overview</span>
+            <span class="simple-region-pill">Contacts</span>
+            <span class="simple-region-pill">Templates</span>
+          </div>
+        </a>
+
+        <a class="simple-region-card" data-target="asia">
+          <div class="simple-region-top">
+            <div>
+              <h3>Asia</h3>
+              <p>Asia regional sales guidance, pursuit support, contacts, templates, and training resources.</p>
+            </div>
+            <div class="simple-region-arrow">›</div>
+          </div>
+          <div class="simple-region-links">
+            <span class="simple-region-pill">Contacts</span>
+            <span class="simple-region-pill">CRM Guidance</span>
+            <span class="simple-region-pill">Training</span>
+          </div>
+        </a>
+
+        <a class="simple-region-card" data-target="emea">
+          <div class="simple-region-top">
+            <div>
+              <h3>EMEA</h3>
+              <p>EMEA sales enablement resources, bid support, contacts, proof points, and regional templates.</p>
+            </div>
+            <div class="simple-region-arrow">›</div>
+          </div>
+          <div class="simple-region-links">
+            <span class="simple-region-pill">Templates</span>
+            <span class="simple-region-pill">Win / Loss</span>
+            <span class="simple-region-pill">Partner Agency</span>
+          </div>
+        </a>
+      </section>
+
+      <section class="content-card" style="margin-top:20px">
+        <h2>Recommended SharePoint Setup</h2>
+        <p>Use Quick Links for region hubs and metadata filters for Region, Owner, Topic, Status, Review Date, and Audience.</p>
+        <a class="backtop" data-target="home">Back to Home ↑</a>
+      </section>
     </section>
-
-
-    
-    <section id="view-north-america" class="view">
+<section id="view-north-america" class="view">
       <section class="hero">
         <div class="eyebrow">Regional Hub</div>
         <h1>North America</h1>
