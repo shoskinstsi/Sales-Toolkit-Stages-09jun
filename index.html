@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CTM Global Sales Toolkit - Search Beside Hub Title</title>
+<title>CTM Global Sales Toolkit - Home and Start Here Updated</title>
 <style>
   :root{
     --ctm-navy:#003b49;
@@ -549,6 +549,36 @@
   .hub-search-panel .search-result-item:hover{background:#eef8fb;color:var(--ctm-navy);border-color:#d7edf2}
   @media(max-width:950px){.hub-hero-with-search{grid-template-columns:1fr}.hub-search-panel{margin-top:10px}}
 
+
+  .home-exec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+  .home-exec-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;text-decoration:none;color:var(--ink);box-shadow:0 2px 8px rgba(15,23,42,.06);cursor:pointer;transition:.15s ease;border-top:7px solid var(--ctm-teal);display:block}
+  .home-exec-card:nth-child(2n){border-top-color:var(--ctm-green)}
+  .home-exec-card:nth-child(3n){border-top-color:#f0b429}
+  .home-exec-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(15,23,42,.12)}
+  .home-exec-card h3{margin:0 0 8px;color:#0b1f35;font-size:21px}
+  .home-exec-card p{margin:0;color:#667085;line-height:1.45;font-size:14px}
+  .home-card-action{display:inline-block;margin-top:14px;background:#eef8fb;border:1px solid #d7edf2;border-radius:999px;padding:8px 12px;color:var(--ctm-navy);font-size:12px;font-weight:900}
+  .home-summary-panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 2px 8px rgba(15,23,42,.06);margin-top:22px}
+  .home-summary-panel h2{margin:0 0 10px;color:#0b1f35;font-size:25px}
+  .home-summary-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+  .home-summary-item{background:#f8fafc;border:1px solid var(--line);border-radius:14px;padding:14px;color:#344054;line-height:1.45}
+  .home-summary-item b{color:#0b1f35}
+  .start-path-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}
+  .start-path-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;text-decoration:none;color:var(--ink);box-shadow:0 2px 8px rgba(15,23,42,.06);cursor:pointer;transition:.15s ease;border-left:8px solid var(--ctm-teal);display:block}
+  .start-path-card:nth-child(2n){border-left-color:var(--ctm-green)}
+  .start-path-card:nth-child(3n){border-left-color:#f0b429}
+  .start-path-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(15,23,42,.12)}
+  .start-path-card h3{margin:0 0 8px;color:#0b1f35;font-size:22px}
+  .start-path-card p{margin:0;color:#667085;line-height:1.5;font-size:14px}
+  .start-step-list{display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px}
+  .start-step{display:flex;gap:14px;align-items:flex-start;background:#f8fafc;border:1px solid var(--line);border-radius:16px;padding:16px;color:#344054;line-height:1.45}
+  .start-step-number{width:34px;height:34px;min-width:34px;border-radius:50%;background:var(--ctm-navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900}
+  .start-step b{display:block;color:#0b1f35;margin-bottom:4px}
+  .start-detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+  .start-detail-box{background:#f8fafc;border:1px solid var(--line);border-radius:14px;padding:16px;color:#344054;line-height:1.5}
+  .start-detail-box b{display:block;color:#0b1f35;margin-bottom:8px}
+  @media(max-width:950px){.home-exec-grid,.home-summary-list,.start-path-grid,.start-detail-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -588,10 +618,10 @@
       <section class="hero">
         <div class="hub-hero-with-search">
           <div class="hub-hero-copy">
-            <div class="eyebrow">Onboarding</div>
-        <h1>Global Sales Toolkit Hub</h1>
-        <p>A guided SharePoint-style hub for new hires and current team members. Use the clickable links below to open only the section you select.</p>
-        <span class="owner">Page owner: Sales Enablement</span>
+            <div class="eyebrow">Global Sales Toolkit</div>
+            <h1>Global Sales Toolkit Hub</h1>
+            <p>A central hub for global sales resources, regional guidance, templates, tools, training, and support contacts.</p>
+            <span class="owner">Page owner: Global Sales / Sales Enablement</span>
           </div>
           <div class="hub-search-panel">
           <h2>Search the Toolkit</h2>
@@ -606,59 +636,121 @@
         </div>
         </div>
       </section>
-<section class="step-grid">
-        <a class="step-card" data-target="templates"><div class="num">01</div><h3>Review Sales Toolkit Deck</h3></a>
-        <a class="step-card" data-target="help-contacts"><div class="num">02</div><h3>Complete System Access Checklist</h3></a>
-        <a class="step-card" data-target="global-sales"><div class="num">03</div><h3>Review Sales Team Structure</h3></a>
-        <a class="step-card" data-target="customer-proof-hub"><div class="num">04</div><h3>Review CRM Expectations</h3></a>
-        <a class="step-card" data-target="training"><div class="num">05</div><h3>Complete 30/60/90 Plan</h3></a>
+
+      <section class="home-summary-panel">
+        <h2>What’s Inside</h2>
+        <p>Use the hub to quickly reach the most important sales content without searching through long folders or duplicated pages.</p>
+        <div class="home-summary-list">
+          <div class="home-summary-item"><b>Find regional content:</b> Open ANZ, Asia, EMEA, or North America guidance.</div>
+          <div class="home-summary-item"><b>Access sales tools:</b> Open CRM, reporting, proposal, and enablement resources.</div>
+          <div class="home-summary-item"><b>Use approved templates:</b> Open sales plans, bid checklists, briefings, and guides.</div>
+          <div class="home-summary-item"><b>Get help fast:</b> Find Sales Support, Pricing, Legal, Security, and regional leadership contacts.</div>
+        </div>
       </section>
 
-      <section class="content-card">
-        <h2>Suggested Web Parts</h2>
-        <p>Checklist, Document Library, People, File Viewer, Stream video, News, Events, Highlighted Content, and Quick Links.</p>
+      <section class="home-exec-grid">
+        <a class="home-exec-card" data-target="regions">
+          <h3>Regions</h3>
+          <p>Open regional hubs for North America, ANZ, Asia, and EMEA.</p>
+          <span class="home-card-action">Open section</span>
+        </a>
+        <a class="home-exec-card" data-target="global-sales">
+          <h3>Global Sales</h3>
+          <p>Company positioning, sales team references, territories, strategy, and sales cycles.</p>
+          <span class="home-card-action">Open section</span>
+        </a>
+        <a class="home-exec-card" data-target="global-tools">
+          <h3>Global Tools</h3>
+          <p>Shared tools, reporting, CRM guidance, proposal resources, and enablement support.</p>
+          <span class="home-card-action">Open section</span>
+        </a>
+        <a class="home-exec-card" data-target="templates">
+          <h3>Templates</h3>
+          <p>Approved decks, plans, briefings, checklists, customer proof, and CRM guides.</p>
+          <span class="home-card-action">Open section</span>
+        </a>
+        <a class="home-exec-card" data-target="training">
+          <h3>Training</h3>
+          <p>New hire onboarding, 30/60/90 plans, job aids, recorded training, and refreshers.</p>
+          <span class="home-card-action">Open section</span>
+        </a>
+        <a class="home-exec-card" data-target="help-contacts">
+          <h3>Help & Contacts</h3>
+          <p>Find the correct support area, owner, resource, or escalation path.</p>
+          <span class="home-card-action">Open section</span>
+        </a>
       </section>
 
-      <section class="tile-section">
-        <div class="section-head"><div><h2>Quick Links</h2><p>Each link opens that section only.</p></div></div>
-        <div class="quick-row">
-          <a class="quick-link" data-target="templates">Sales Toolkit Deck →</a>
-          <a class="quick-link" data-target="templates">Sales Plan Template →</a>
-          <a class="quick-link" data-target="executive-briefing">Executive Briefing →</a>
-          <a class="quick-link" data-target="bid-writing-checklist">Bid-Writing Checklist →</a>
-          <a class="quick-link" data-target="regions">Territory Maps →</a>
-          <a class="quick-link" data-target="global-tools">Global Tools →</a>
-          <a class="quick-link" data-target="partner-agency">Partner Agency →</a>
-          <a class="quick-link" data-target="win-loss">Win / Loss →</a>
-          <a class="quick-link" data-target="customer-proof-hub">Customer Proof Hub →</a>
-          <a class="quick-link" data-target="sales-agent-dashboard">Sales Agent Dashboard →</a>
-          <a class="quick-link" data-target="sales-stages">Sales Stages →</a>
-          <a class="quick-link" data-target="help-contacts">Contact Sales Support →</a>
+      <section class="home-summary-panel">
+        <h2>Most Used Tools</h2>
+        <div class="home-summary-list">
+          <div class="home-summary-item"><b>Bid Toolkit:</b> Start bid/no-bid, kickoff, pricing, proposal, risk, and submission steps.</div>
+          <div class="home-summary-item"><b>Sales Stage Workflow:</b> Review CRM stages and stage expectations.</div>
+          <div class="home-summary-item"><b>Customer Proof Hub:</b> Track client proof, Retain & Grow actions, and outcomes.</div>
+          <div class="home-summary-item"><b>Win / Loss:</b> Capture debriefs, competitor insights, battlecards, and market updates.</div>
         </div>
       </section>
     </section>
-
     <section id="view-start-here" class="view">
       <section class="hero">
-        <div class="eyebrow">Onboarding</div>
-        <h1>Start Here</h1>
-        <p>A guided path for new hires and team members who need a refresher on the sales toolkit, access needs, expectations, CRM requirements, key resources, and first milestones.</p>
-        <span class="owner">Page owner: Sales Enablement</span>
+        <div class="eyebrow">Start Here</div>
+        <h1>Start Here: How to Use the Toolkit</h1>
+        <p>A guided path for new users to understand where to begin, what to review first, and how to find the right resources.</p>
+        <span class="owner">Page owner: Global Sales / Sales Enablement</span>
       </section>
-      <section class="step-grid">
-        <a class="step-card" data-target="templates"><div class="num">01</div><h3>Review Sales Toolkit Deck</h3></a>
-        <a class="step-card" data-target="help-contacts"><div class="num">02</div><h3>Complete System Access Checklist</h3></a>
-        <a class="step-card" data-target="global-sales"><div class="num">03</div><h3>Review Sales Team Structure</h3></a>
-        <a class="step-card" data-target="customer-proof-hub"><div class="num">04</div><h3>Review CRM Expectations</h3></a>
-        <a class="step-card" data-target="training"><div class="num">05</div><h3>Complete 30/60/90 Plan</h3></a>
-      </section>
+
       <section class="content-card">
-        <h2>Start Here Content</h2>
-        <p>Use this section to guide new team members through onboarding, required systems, basic process review, team structure, and first 30/60/90 day expectations.</p>
+        <h2>Choose Your Path</h2>
+        <p>Select the path that best matches your role or need. Each path opens a focused page with the recommended starting points.</p>
+        <div class="start-path-grid">
+        <a class="start-path-card" data-target="start-new-sales">
+          <h3>New Sales Team Member</h3>
+          <p>Start with onboarding, CTM positioning, sales stages, templates, and help contacts.</p>
+          <span class="home-card-action">Open path</span>
+        </a>
+        <a class="start-path-card" data-target="start-regional-leader">
+          <h3>Regional Sales Leader</h3>
+          <p>Use regional hubs, territory guidance, customer proof, reporting, and escalation resources.</p>
+          <span class="home-card-action">Open path</span>
+        </a>
+        <a class="start-path-card" data-target="start-sales-support">
+          <h3>Sales Support / Bid Team</h3>
+          <p>Jump to bid toolkit, proposal tools, executive briefing, pricing, legal, and submission support.</p>
+          <span class="home-card-action">Open path</span>
+        </a>
+        <a class="start-path-card" data-target="start-existing-user">
+          <h3>Existing User Looking for a Resource</h3>
+          <p>Use search, templates, global tools, training, and help contacts to quickly locate resources.</p>
+          <span class="home-card-action">Open path</span>
+        </a>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>Recommended First 5 Actions</h2>
+        <div class="start-step-list">
+          <div class="start-step"><div class="start-step-number">1</div><div><b>Review About CTM</b>Start with the company background, purpose, global presence, and differentiators.</div></div>
+          <div class="start-step"><div class="start-step-number">2</div><div><b>Review Sales Team and Territories</b>Understand owners, regional coverage, sales support, and leadership references.</div></div>
+          <div class="start-step"><div class="start-step-number">3</div><div><b>Review Sales Stages</b>Understand the CRM sales cycle from active opportunity through closed won or loss.</div></div>
+          <div class="start-step"><div class="start-step-number">4</div><div><b>Open Templates</b>Use the approved sales plan, executive briefing, bid checklist, and CRM update guide.</div></div>
+          <div class="start-step"><div class="start-step-number">5</div><div><b>Find Help & Contacts</b>Go to the right support area for pricing, legal, security, implementation, marketing, or regional leadership.</div></div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>Helpful Quick Links</h2>
+        <div class="home-exec-grid">
+          <a class="home-exec-card" data-target="new-hire-onboarding"><h3>New Hire Onboarding</h3><p>First-week checklist and onboarding setup.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="about-ctm"><h3>About CTM</h3><p>Company background, purpose, values, and differentiators.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="sales-stages"><h3>Sales Stages</h3><p>CRM stages, pipeline expectations, and opportunity workflow.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="templates"><h3>Templates</h3><p>Approved planning, briefing, bid, proof, and CRM templates.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="training"><h3>Training</h3><p>Training paths, job aids, recordings, and refresher content.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="help-contacts"><h3>Help & Contacts</h3><p>Support areas, owners, resources, and escalation paths.</p><span class="home-card-action">Open</span></a>
+        </div>
         <a class="backtop" data-target="home">Back to Home ↑</a>
       </section>
     </section>
-    <section id="view-global-sales" class="view">
+<section id="view-global-sales" class="view">
       <section class="hero">
         <div class="eyebrow">Global Sales</div>
         <h1>Global Sales</h1>
@@ -4360,6 +4452,126 @@
         <p>Recommended web parts: Quick Links, Document Library, Highlighted Content, List, File Viewer, Power BI, and People.</p>
         <p>Recommended metadata: Tool Type, Owner, Audience, Status, Region, Review Date, and Resource Type.</p>
         <a class="backtop" data-target="global-tools">Back to Global Tools ↑</a>
+      </section>
+    </section>
+
+    <section id="view-start-new-sales" class="view">
+      <section class="hero">
+        <div class="eyebrow">Start Here</div>
+        <h1>New Sales Team Member Path</h1>
+        <p>Use this path to get started with CTM positioning, onboarding, sales stages, templates, training, and support contacts.</p>
+        <span class="owner">Page owner: Global Sales / Sales Enablement</span>
+      </section>
+
+      <section class="content-card">
+        <h2>Recommended Path</h2>
+        <div class="start-detail-grid">
+          <div class="start-detail-box"><b>Start with onboarding</b>Open New Hire Onboarding and complete the first-week checklist.</div>
+          <div class="start-detail-box"><b>Learn the sales process</b>Review About CTM, Value Proposition, Sales Team, Territories, and Sales Cycles.</div>
+          <div class="start-detail-box"><b>Use approved resources</b>Open Templates, Sales Stage Workflow, Training, and Help & Contacts.</div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>Recommended Links</h2>
+        <div class="home-exec-grid">
+          <a class="home-exec-card" data-target="new-hire-onboarding"><h3>New Hire Onboarding</h3><p>Open this recommended resource.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="about-ctm"><h3>About CTM</h3><p>Open this recommended resource.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="sales-stages"><h3>Sales Stages</h3><p>Open this recommended resource.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="templates"><h3>Templates</h3><p>Open this recommended resource.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="help-contacts"><h3>Help & Contacts</h3><p>Open this recommended resource.</p><span class="home-card-action">Open</span></a>
+        </div>
+        <a class="backtop" data-target="start-here">Back to Start Here ↑</a>
+      </section>
+    </section>
+
+    <section id="view-start-regional-leader" class="view">
+      <section class="hero">
+        <div class="eyebrow">Start Here</div>
+        <h1>Regional Sales Leader Path</h1>
+        <p>Use this path to review regional resources, ownership, strategy, customer proof, reporting, and escalation support.</p>
+        <span class="owner">Page owner: Global Sales / Sales Enablement</span>
+      </section>
+
+      <section class="content-card">
+        <h2>Recommended Path</h2>
+        <div class="start-detail-grid">
+          <div class="start-detail-box"><b>Regional guidance</b>Open the region hub and review contacts, templates, win/loss, partner agency, and training.</div>
+          <div class="start-detail-box"><b>Leadership support</b>Review territories, goals, expectations, and regional leadership contact areas.</div>
+          <div class="start-detail-box"><b>Performance visibility</b>Use dashboards, reporting, customer proof, and CRM guidance.</div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>Recommended Links</h2>
+        <div class="home-exec-grid">
+          <a class="home-exec-card" data-target="regions"><h3>Regions</h3><p>Open this recommended resource.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="territories"><h3>Territories</h3><p>Open this recommended resource.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="goals-expectations"><h3>Goals & Expectations</h3><p>Open this recommended resource.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="reporting-insights"><h3>Reporting & Insights</h3><p>Open this recommended resource.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="regional-leadership-contact"><h3>Regional Leadership</h3><p>Open this recommended resource.</p><span class="home-card-action">Open</span></a>
+        </div>
+        <a class="backtop" data-target="start-here">Back to Start Here ↑</a>
+      </section>
+    </section>
+
+    <section id="view-start-sales-support" class="view">
+      <section class="hero">
+        <div class="eyebrow">Start Here</div>
+        <h1>Sales Support / Bid Team Path</h1>
+        <p>Use this path for bid support, proposal tools, executive briefings, pricing, legal, and final submission readiness.</p>
+        <span class="owner">Page owner: Global Sales / Sales Enablement</span>
+      </section>
+
+      <section class="content-card">
+        <h2>Recommended Path</h2>
+        <div class="start-detail-grid">
+          <div class="start-detail-box"><b>Plan the bid</b>Start with Bid Toolkit, bid/no-bid, kickoff, and executive briefing.</div>
+          <div class="start-detail-box"><b>Build the response</b>Use bid-writing checklist, proposal tools, pricing, marketing, and technology sales support.</div>
+          <div class="start-detail-box"><b>Finalize and submit</b>Review legal, security, risk, final review, and submission requirements.</div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>Recommended Links</h2>
+        <div class="home-exec-grid">
+          <a class="home-exec-card" data-target="bid-toolkit"><h3>Bid Toolkit</h3><p>Open this recommended resource.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="executive-briefing-template"><h3>Executive Briefing</h3><p>Open this recommended resource.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="bid-writing-checklist-template"><h3>Bid-Writing Checklist</h3><p>Open this recommended resource.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="pricing-contact"><h3>Pricing</h3><p>Open this recommended resource.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="legal-contact"><h3>Legal</h3><p>Open this recommended resource.</p><span class="home-card-action">Open</span></a>
+        </div>
+        <a class="backtop" data-target="start-here">Back to Start Here ↑</a>
+      </section>
+    </section>
+
+    <section id="view-start-existing-user" class="view">
+      <section class="hero">
+        <div class="eyebrow">Start Here</div>
+        <h1>Existing User Resource Path</h1>
+        <p>Use this path when you know what you need and want to find it quickly.</p>
+        <span class="owner">Page owner: Global Sales / Sales Enablement</span>
+      </section>
+
+      <section class="content-card">
+        <h2>Recommended Path</h2>
+        <div class="start-detail-grid">
+          <div class="start-detail-box"><b>Use search</b>Search by topic such as bid, CRM, ANZ, templates, legal, security, or training.</div>
+          <div class="start-detail-box"><b>Open resource libraries</b>Use Global Tools, Templates, Training, and Help & Contacts.</div>
+          <div class="start-detail-box"><b>Confirm ownership</b>Check owners, status, review date, and escalation details before using resources.</div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>Recommended Links</h2>
+        <div class="home-exec-grid">
+          <a class="home-exec-card" data-target="home"><h3>Home Search</h3><p>Open this recommended resource.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="global-tools"><h3>Global Tools</h3><p>Open this recommended resource.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="templates"><h3>Templates</h3><p>Open this recommended resource.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="training"><h3>Training</h3><p>Open this recommended resource.</p><span class="home-card-action">Open</span></a>
+          <a class="home-exec-card" data-target="help-contacts"><h3>Help & Contacts</h3><p>Open this recommended resource.</p><span class="home-card-action">Open</span></a>
+        </div>
+        <a class="backtop" data-target="start-here">Back to Start Here ↑</a>
       </section>
     </section>
 </main>
