@@ -1,0 +1,1233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CTM Global Sales Toolkit - Partner Agency Added</title>
+<style>
+  :root{
+    --ctm-navy:#003b49;
+    --ctm-teal:#007c94;
+    --ctm-green:#76bc43;
+    --ink:#172033;
+    --muted:#667085;
+    --bg:#f5f7fa;
+    --card:#ffffff;
+    --line:#e5e9ef;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg)}
+  .shared-banner{background:#000;color:#fff;padding:8px 18px 14px;position:relative;font-size:15px}
+  .shared-banner strong{display:block;font-size:17px;margin-bottom:2px}
+  .shared-banner a{color:#fff;text-decoration:underline}
+  .edit-pill{position:absolute;right:18px;top:8px;background:#fff;color:#111!important;border-radius:22px;padding:10px 18px;font-weight:700;text-decoration:none!important}
+
+  .site-header{
+    background:#fff;border-bottom:1px solid var(--line);padding:20px 7vw;
+    display:grid;grid-template-columns:300px 1fr;gap:24px;align-items:start;
+    position:sticky;top:0;z-index:5
+  }
+  .brand{display:flex;gap:16px;align-items:center}
+  .ctm-box{width:52px;height:52px;border-radius:14px;background:var(--ctm-navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;letter-spacing:-1px}
+  .site-name{font-size:21px;font-weight:700;margin-bottom:4px}
+  .site-sub{color:var(--muted);line-height:1.35}
+  .pills{display:flex;gap:10px;flex-wrap:wrap}
+  .pill{
+    display:inline-flex;align-items:center;gap:9px;background:#f1f4f7;color:#29364a;
+    padding:12px 18px;border-radius:999px;text-decoration:none;font-size:17px;
+    border:1px solid transparent;cursor:pointer
+  }
+  .pill:hover{border-color:#cdd5df;background:#e9eef3}
+  .pill.active{background:var(--ctm-teal);color:#fff}
+
+  main{max-width:1600px;margin:0 auto;padding:36px 7vw 70px}
+  .hero{
+    background:linear-gradient(115deg,#003b49 0%,#004b5b 55%,#007c94 100%);
+    color:#fff;border-radius:24px;padding:44px 42px;margin-bottom:30px;min-height:300px;
+    box-shadow:0 8px 24px rgba(15,23,42,.12);position:relative;overflow:hidden
+  }
+  .hero:after{
+    content:"";position:absolute;right:-100px;top:-120px;width:540px;height:540px;border-radius:50%;
+    border:1px solid rgba(255,255,255,.25);
+    box-shadow:0 0 0 42px rgba(255,255,255,.02),0 0 0 84px rgba(255,255,255,.018),0 0 0 126px rgba(255,255,255,.012)
+  }
+  .eyebrow{letter-spacing:.55em;font-size:13px;opacity:.9;text-transform:uppercase;margin-bottom:22px}
+  h1{font-size:38px;margin:0 0 20px}
+  .hero p{max-width:980px;font-size:18px;line-height:1.65;margin:0 0 28px}
+  .owner{display:inline-block;background:rgba(255,255,255,.13);color:#fff;border-radius:999px;padding:12px 18px;font-size:14px}
+
+  .step-grid,.tile-grid,.quick-row,.three-grid,.bid-section-grid{display:grid;gap:18px}
+  .step-grid{grid-template-columns:repeat(5,1fr);margin:0 0 30px}
+  .tile-grid{grid-template-columns:repeat(4,1fr)}
+  .quick-row{grid-template-columns:repeat(4,1fr)}
+  .three-grid{grid-template-columns:repeat(3,1fr)}
+  .bid-section-grid{grid-template-columns:repeat(5,1fr)}
+
+  .step-card,.tile,.quick-link,.region-tile,.content-card,.bid-card{
+    background:#fff;border:1px solid var(--line);border-radius:16px;
+    box-shadow:0 2px 8px rgba(15,23,42,.06)
+  }
+
+  .step-card,.tile,.quick-link,.region-tile,.bid-card{
+    text-decoration:none;color:var(--ink);display:block;cursor:pointer
+  }
+  .step-card{min-height:124px;padding:28px 26px}
+  .step-card:hover,.tile:hover,.region-tile:hover,.quick-link:hover,.bid-card:hover{
+    transform:translateY(-2px);transition:.15s ease;box-shadow:0 8px 20px rgba(15,23,42,.12)
+  }
+  .step-card .num{color:var(--ctm-green);font-size:27px;font-weight:600;letter-spacing:.08em;margin-bottom:18px}
+  .step-card h3{margin:0;font-size:18px;line-height:1.35}
+
+  .content-card{padding:26px 30px;margin-bottom:28px}
+  .content-card h2{margin:0 0 14px;color:#0b1f35;font-size:22px}
+  .content-card p,.content-card li{color:#344054;line-height:1.65}
+  .content-card ul{margin:0;padding-left:20px}
+
+  .tile-section{margin-top:34px}
+  .section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:16px}
+  .section-head h2{margin:0;font-size:27px;color:#0b1f35}
+  .section-head p{margin:0;color:var(--muted)}
+
+  .tile{padding:22px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
+  .tile-top{display:flex;gap:14px;align-items:flex-start}
+  .circle{width:42px;height:42px;border-radius:50%;background:#eef8e9;color:#2d7d1f;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+  .tile h3{margin:0 0 8px;font-size:18px}
+  .tile p{margin:0;color:var(--muted);line-height:1.45;font-size:14px}
+  .arrow{align-self:flex-end;color:var(--ctm-teal);font-weight:900;font-size:20px;margin-top:14px}
+
+  .region-tile{padding:28px;min-height:170px;position:relative;overflow:hidden}
+  .region-tile:before{content:"";position:absolute;right:-48px;bottom:-48px;width:150px;height:150px;border-radius:50%;background:rgba(118,188,67,.12)}
+  .region-tile h3{margin:0 0 10px;font-size:24px;color:#0b1f35}
+  .region-tile p{margin:0;color:var(--muted);line-height:1.5}
+
+  .bid-card{padding:24px;min-height:190px;border-top:7px solid var(--ctm-teal)}
+  .bid-card:nth-child(2){border-top-color:var(--ctm-green)}
+  .bid-card h3{margin:12px 0 10px;font-size:20px;color:#0b1f35}
+  .bid-card p{margin:0;color:#344054;line-height:1.55;font-size:15px}
+  .bid-num{color:var(--ctm-green);font-size:28px;font-weight:700;letter-spacing:.08em}
+
+  .quick-link{padding:16px 18px;font-weight:700}
+  .quick-link:hover{background:#eef8e9;border-color:#a9d66d}
+
+  .backtop{display:inline-block;margin-top:16px;color:var(--ctm-teal);font-weight:700;text-decoration:none;cursor:pointer}
+  .view{display:none}
+  .view.active{display:block}
+  footer{color:var(--muted);padding:24px 7vw 40px;text-align:center}
+
+
+
+  .dashboard-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:22px}
+  .metric-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 2px 8px rgba(15,23,42,.06)}
+  .metric-label{color:var(--muted);font-size:14px;margin-bottom:8px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+  .metric-value{font-size:34px;font-weight:800;color:#0b1f35;margin-bottom:6px}
+  .metric-note{color:#344054;line-height:1.45;font-size:14px}
+  .pipeline-board{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}
+  .stage-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(15,23,42,.05);border-top:6px solid var(--ctm-teal)}
+  .stage-card:nth-child(2){border-top-color:#4aa7b6}.stage-card:nth-child(3){border-top-color:var(--ctm-green)}.stage-card:nth-child(4){border-top-color:#f0b429}.stage-card:nth-child(5){border-top-color:#ec7a32}.stage-card:nth-child(6){border-top-color:#667085}
+  .stage-card h3{margin:0 0 8px;font-size:16px;color:#0b1f35}.stage-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}
+  .dashboard-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 2px 8px rgba(15,23,42,.06)}
+  .dashboard-table th,.dashboard-table td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
+  .dashboard-table th{background:#f1f4f7;color:#29364a;font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+  .dashboard-table tr:last-child td{border-bottom:none}
+  .stage-pill{display:inline-block;border-radius:999px;padding:6px 10px;font-weight:700;font-size:12px;background:#eef8e9;color:#2d7d1f;white-space:nowrap}
+  .risk-pill{display:inline-block;border-radius:999px;padding:6px 10px;font-weight:700;font-size:12px;background:#fff4e5;color:#a15c00;white-space:nowrap}
+  .owner-tag{font-weight:700;color:#0b1f35}
+  .questionnaire{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+  .question-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 2px 8px rgba(15,23,42,.06);border-left:7px solid var(--ctm-teal)}
+  .question-card:nth-child(2){border-left-color:var(--ctm-green)}
+  .question-card:nth-child(3){border-left-color:#f0b429}
+  .question-label{color:var(--ctm-green);font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+  .question-card h3{margin:0 0 10px;font-size:19px;color:#0b1f35}
+  .question-card p{margin:0;color:#344054;line-height:1.55;font-size:14px}
+  .debrief-field-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+  .debrief-field{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:#344054}
+  .debrief-field b{color:#0b1f35}
+
+  @media(max-width:1300px){.bid-section-grid,.pipeline-board{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:1200px){.step-grid,.tile-grid,.quick-row,.dashboard-summary{grid-template-columns:repeat(2,1fr)}.site-header{grid-template-columns:1fr}}
+  @media(max-width:720px){main{padding:24px 18px}.site-header{padding:20px 18px}.step-grid,.tile-grid,.three-grid,.quick-row,.bid-section-grid,.dashboard-summary,.pipeline-board,.questionnaire,.debrief-field-list{grid-template-columns:1fr}.hero{padding:34px 26px}h1{font-size:31px}.edit-pill{position:static;display:inline-block;margin-top:8px}.dashboard-table{display:block;overflow-x:auto;white-space:nowrap}}
+
+  .rating-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}
+  .rating{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center;font-weight:800;color:#344054}
+  .checklist{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+  .check{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:#344054}
+  .check:before{content:"☐ ";font-weight:900;color:var(--ctm-teal)}
+  .field-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+  .template-field{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:#344054;min-height:72px}
+  .template-field b{display:block;color:#0b1f35;margin-bottom:8px}
+  .blank-line{display:block;border-bottom:1px solid #cfd8e3;min-height:24px;margin-top:6px}
+  @media(max-width:720px){.rating-row,.checklist,.field-grid{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+  <div class="shared-banner">
+    <strong>CTM Global Sales Toolkit Mockup</strong>
+    You’re viewing user-generated content that may be unverified or unsafe. <a href="#">Report</a>
+    <a class="edit-pill" href="#">Edit with ChatGPT</a>
+  </div>
+
+  <header class="site-header">
+    <div class="brand">
+      <div class="ctm-box">ctm</div>
+      <div>
+        <div class="site-name">Global Sales Toolkit Hub</div>
+        <div class="site-sub">SharePoint Communication Site<br>Clickable Mockup</div>
+      </div>
+    </div>
+    <nav class="pills" aria-label="Main navigation">
+      <a class="pill active" data-target="home">▦ Home</a>
+      <a class="pill" data-target="start-here">☑ Start Here</a>
+      <a class="pill" data-target="global-sales">🌐 Global Sales</a>
+      <a class="pill" data-target="global-tools">🧰 Global Tools</a>
+      <a class="pill" data-target="regions">🗺 Regions</a>
+      <a class="pill" data-target="bid-toolkit">▣ Bid Toolkit</a>
+      <a class="pill" data-target="templates">▥ Templates</a>
+      <a class="pill" data-target="win-loss">♕ Win / Loss</a>
+      <a class="pill" data-target="training">▱ Training</a>
+      <a class="pill" data-target="customer-proof-hub">↗ Customer Proof Hub</a>
+      <a class="pill" data-target="sales-agent-dashboard">▤ Sales Agent Dashboard</a>
+      <a class="pill" data-target="sales-stages">▥ Sales Stages</a>
+      <a class="pill" data-target="contacts">ⓘ Help & Contacts</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="view-home" class="view active">
+      <section class="hero">
+        <div class="eyebrow">Onboarding</div>
+        <h1>Global Sales Toolkit Hub</h1>
+        <p>A guided SharePoint-style hub for new hires and current team members. Use the clickable links below to open only the section you select.</p>
+        <span class="owner">Page owner: Sales Enablement</span>
+      </section>
+
+      <section class="step-grid">
+        <a class="step-card" data-target="templates"><div class="num">01</div><h3>Review Sales Toolkit Deck</h3></a>
+        <a class="step-card" data-target="contacts"><div class="num">02</div><h3>Complete System Access Checklist</h3></a>
+        <a class="step-card" data-target="global-sales"><div class="num">03</div><h3>Review Sales Team Structure</h3></a>
+        <a class="step-card" data-target="customer-proof-hub"><div class="num">04</div><h3>Review CRM Expectations</h3></a>
+        <a class="step-card" data-target="training"><div class="num">05</div><h3>Complete 30/60/90 Plan</h3></a>
+      </section>
+
+      <section class="content-card">
+        <h2>Suggested Web Parts</h2>
+        <p>Checklist, Document Library, People, File Viewer, Stream video, News, Events, Highlighted Content, and Quick Links.</p>
+      </section>
+
+      <section class="tile-section">
+        <div class="section-head"><div><h2>Quick Links</h2><p>Each link opens that section only.</p></div></div>
+        <div class="quick-row">
+          <a class="quick-link" data-target="templates">Sales Toolkit Deck →</a>
+          <a class="quick-link" data-target="templates">Sales Plan Template →</a>
+          <a class="quick-link" data-target="executive-briefing">Executive Briefing →</a>
+          <a class="quick-link" data-target="bid-writing-checklist">Bid-Writing Checklist →</a>
+          <a class="quick-link" data-target="regions">Territory Maps →</a>
+          <a class="quick-link" data-target="global-tools">Global Tools →</a>
+          <a class="quick-link" data-target="partner-agency">Partner Agency →</a>
+          <a class="quick-link" data-target="win-loss">Win / Loss →</a>
+          <a class="quick-link" data-target="customer-proof-hub">Customer Proof Hub →</a>
+          <a class="quick-link" data-target="sales-agent-dashboard">Sales Agent Dashboard →</a>
+          <a class="quick-link" data-target="sales-stages">Sales Stages →</a>
+          <a class="quick-link" data-target="contacts">Contact Sales Support →</a>
+        </div>
+      </section>
+    </section>
+
+    <section id="view-start-here" class="view">
+      <section class="hero">
+        <div class="eyebrow">Onboarding</div>
+        <h1>Start Here</h1>
+        <p>A guided path for new hires and team members who need a refresher on the sales toolkit, access needs, expectations, CRM requirements, key resources, and first milestones.</p>
+        <span class="owner">Page owner: Sales Enablement</span>
+      </section>
+      <section class="step-grid">
+        <a class="step-card" data-target="templates"><div class="num">01</div><h3>Review Sales Toolkit Deck</h3></a>
+        <a class="step-card" data-target="contacts"><div class="num">02</div><h3>Complete System Access Checklist</h3></a>
+        <a class="step-card" data-target="global-sales"><div class="num">03</div><h3>Review Sales Team Structure</h3></a>
+        <a class="step-card" data-target="customer-proof-hub"><div class="num">04</div><h3>Review CRM Expectations</h3></a>
+        <a class="step-card" data-target="training"><div class="num">05</div><h3>Complete 30/60/90 Plan</h3></a>
+      </section>
+      <section class="content-card">
+        <h2>Start Here Content</h2>
+        <p>Use this section to guide new team members through onboarding, required systems, basic process review, team structure, and first 30/60/90 day expectations.</p>
+        <a class="backtop" data-target="home">Back to Home ↑</a>
+      </section>
+    </section>
+
+    <section id="view-global-sales" class="view">
+      <section class="content-card">
+        <h2>Global Sales Toolkit Sections</h2>
+        <p>Click a tile below to open only that topic area.</p>
+      </section>
+      <section class="tile-grid">
+        <a class="tile" data-target="about"><div class="tile-top"><div class="circle">01</div><div><h3>About CTM</h3><p>Company background, purpose, values, and differentiators.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="value"><div class="tile-top"><div class="circle">02</div><div><h3>CTM Value Proposition</h3><p>Service, innovation, return, and customer-centric messaging.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="team"><div class="tile-top"><div class="circle">03</div><div><h3>Sales Team</h3><p>Leadership, Sales Support, Technology Sales, and segment owners.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="goals"><div class="tile-top"><div class="circle">04</div><div><h3>Goals & Expectations</h3><p>Quotas, activity metrics, pipeline goals, and CRM expectations.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="territories"><div class="tile-top"><div class="circle">05</div><div><h3>Territories</h3><p>SME, Enterprise, Strategic, CTP, M&E, and specialized verticals.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="strategy"><div class="tile-top"><div class="circle">06</div><div><h3>Sales Strategy</h3><p>Deal captain guidance, account planning, and win strategy.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="cycles"><div class="tile-top"><div class="circle">07</div><div><h3>Sales Cycles</h3><p>Opportunity stages from qualified through closed won.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="global-tools"><div class="tile-top"><div class="circle">08</div><div><h3>Global Tools</h3><p>Shared sales tools, CRM resources, reporting, technology, and approved global resources.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="sales-agent-dashboard"><div class="tile-top"><div class="circle">09</div><div><h3>Sales Agent Dashboard</h3><p>Account pipeline view showing each account owner, sales stage, next step, and risk.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="win-loss"><div class="tile-top"><div class="circle">10</div><div><h3>Win / Loss</h3><p>Win/loss analysis, competitor profiles, battlecards, and market updates.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="partner-agency"><div class="tile-top"><div class="circle">11</div><div><h3>Partner Agency</h3><p>Partner agency guidance, collaboration expectations, referral process, and shared pursuit support.</p></div></div><div class="arrow">›</div></a>
+      </section>
+      <section class="content-card" style="margin-top:18px"><a class="backtop" data-target="home">Back to Home ↑</a></section>
+    </section>
+
+    
+    <section id="view-partner-agency" class="view">
+      <section class="hero">
+        <div class="eyebrow">Global Sales</div>
+        <h1>Partner Agency</h1>
+        <p>Use this section to support collaboration with partner agencies, referral opportunities, shared pursuits, regional handoffs, and partner relationship management.</p>
+        <span class="owner">Page owner: Global Sales / Sales Enablement</span>
+      </section>
+
+      <section class="content-card">
+        <h2>Partner Agency Overview</h2>
+        <p>This section provides a dedicated place for partner agency guidance, approved messaging, handoff expectations, owner contacts, and collaboration resources.</p>
+      </section>
+
+      <section class="tile-grid">
+        <a class="tile" data-target="partner-agency-process"><div class="tile-top"><div class="circle">01</div><div><h3>Partner Agency Process</h3><p>Steps for identifying, qualifying, routing, and documenting partner agency opportunities.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="partner-agency-contacts"><div class="tile-top"><div class="circle">02</div><div><h3>Partner Contacts</h3><p>Regional partner agency owners, sales contacts, and escalation points.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="partner-agency-referrals"><div class="tile-top"><div class="circle">03</div><div><h3>Referral Guidance</h3><p>Guidance for referral intake, lead ownership, CRM notes, and follow-up expectations.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="partner-agency-materials"><div class="tile-top"><div class="circle">04</div><div><h3>Partner Materials</h3><p>Approved collateral, templates, talking points, partner decks, and shared pursuit content.</p></div></div><div class="arrow">›</div></a>
+      </section>
+
+      <section class="content-card" style="margin-top:18px">
+        <h2>Suggested SharePoint Setup</h2>
+        <p>Recommended web parts: Quick Links, People, Document Library, Highlighted Content, List, and metadata filters for Region, Partner Agency, Owner, Status, and Review Date.</p>
+        <a class="backtop" data-target="global-sales">Back to Global Sales ↑</a>
+      </section>
+    </section>
+
+    <section id="view-partner-agency-process" class="view"><section class="content-card"><h2>Partner Agency Process</h2><p>Use this area to document the steps for partner agency intake, qualification, ownership, CRM tracking, and handoff expectations.</p><a class="backtop" data-target="partner-agency">Back to Partner Agency ↑</a></section></section>
+    <section id="view-partner-agency-contacts" class="view"><section class="content-card"><h2>Partner Contacts</h2><p>Use this area for regional partner agency owners, contacts, escalation points, and internal support contacts.</p><a class="backtop" data-target="partner-agency">Back to Partner Agency ↑</a></section></section>
+    <section id="view-partner-agency-referrals" class="view"><section class="content-card"><h2>Referral Guidance</h2><p>Use this area for referral intake, lead source documentation, CRM expectations, follow-up timing, and ownership guidance.</p><a class="backtop" data-target="partner-agency">Back to Partner Agency ↑</a></section></section>
+    <section id="view-partner-agency-materials" class="view"><section class="content-card"><h2>Partner Materials</h2><p>Use this area for approved partner agency collateral, templates, decks, talking points, and shared pursuit materials.</p><a class="backtop" data-target="partner-agency">Back to Partner Agency ↑</a></section></section>
+
+<section id="view-regions" class="view">
+      <section class="content-card"><h2>Regional Hubs</h2><p>Open a region below to view only that regional section.</p></section>
+      <section class="three-grid">
+        <a class="region-tile" data-target="north-america"><h3>North America</h3><p>Territories, quotas, regional contacts, pursuit guidance, and toolkit resources.</p></a>
+        <a class="region-tile" data-target="anz"><h3>ANZ</h3><p>ANZ sales resources, market insights, regional contacts, and pursuit materials.</p></a>
+        <a class="region-tile" data-target="asia"><h3>Asia</h3><p>Asia sales resources, market insights, regional contacts, pursuit guidance, and localized materials.</p></a>
+        <a class="region-tile" data-target="emea"><h3>EMEA</h3><p>Regional resources, market updates, localized templates, and stakeholder guidance.</p></a>
+      </section>
+      <section class="content-card" style="margin-top:18px"><a class="backtop" data-target="home">Back to Home ↑</a></section>
+    </section>
+
+
+    <section id="view-global-tools" class="view">
+      <section class="hero">
+        <div class="eyebrow">Global Resources</div>
+        <h1>Global Tools</h1>
+        <p>Use this section to access shared sales systems, CRM guidance, reporting tools, approved resources, and support links used across regions.</p>
+        <span class="owner">Page owner: Sales Enablement / Sales Operations</span>
+      </section>
+
+      <section class="tile-grid">
+        <a class="tile" data-target="crm-tools"><div class="tile-top"><div class="circle">01</div><div><h3>CRM Tools</h3><p>CRM access, opportunity updates, account notes, next steps, and pipeline hygiene guidance.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="reporting-dashboards"><div class="tile-top"><div class="circle">02</div><div><h3>Reporting Dashboards</h3><p>Pipeline, account activity, sales stage, forecast, and leadership reporting resources.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="sales-enablement-tools"><div class="tile-top"><div class="circle">03</div><div><h3>Sales Enablement Tools</h3><p>Approved decks, playbooks, talk tracks, sales process guidance, and enablement resources.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="proposal-tools"><div class="tile-top"><div class="circle">04</div><div><h3>Proposal Tools</h3><p>Bid templates, proposal trackers, pricing intake resources, and submission support links.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="technology-sales-tools"><div class="tile-top"><div class="circle">05</div><div><h3>Technology Sales Tools</h3><p>Demo resources, product positioning, sales technology guides, and client-facing technology support.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="global-resource-library"><div class="tile-top"><div class="circle">06</div><div><h3>Global Resource Library</h3><p>Shared global documents, regional materials, approved collateral, and evergreen reference content.</p></div></div><div class="arrow">›</div></a>
+      </section>
+
+      <section class="content-card" style="margin-top:18px">
+        <h2>Suggested Web Parts</h2>
+        <p>Quick Links, Document Library, Highlighted Content, List, Power BI, File Viewer, People, and metadata filters for Region, Owner, Tool Type, Status, and Review Date.</p>
+        <a class="backtop" data-target="home">Back to Home ↑</a>
+      </section>
+    </section>
+
+    <section id="view-bid-toolkit" class="view">
+      <section class="hero">
+        <div class="eyebrow">Bid Toolkit</div>
+        <h1>Bid Toolkit</h1>
+        <p>Use this section to evaluate opportunities, align stakeholders, prepare pursuit strategy, collect pricing details, and manage the bid-writing process.</p>
+        <span class="owner">Page owner: Sales Support</span>
+      </section>
+
+      <section class="bid-section-grid">
+        <a class="bid-card" data-target="bid-no-bid">
+          <div class="bid-num">01</div>
+          <h3>Bid / No-Bid</h3>
+          <p>Review fit, viability, profitability, and resource needs.</p>
+        </a>
+        <a class="bid-card" data-target="executive-briefing">
+          <div class="bid-num">02</div>
+          <h3>Executive Briefing</h3>
+          <p>Prepare pursuit strategy and internal alignment.</p>
+        </a>
+        <a class="bid-card" data-target="kickoff">
+          <div class="bid-num">03</div>
+          <h3>Kickoff</h3>
+          <p>Align GM, regional leads, Pricing, Sales Support, and SMEs.</p>
+        </a>
+        <a class="bid-card" data-target="pricing-intake">
+          <div class="bid-num">04</div>
+          <h3>Pricing Intake</h3>
+          <p>Gather assumptions, volumes, service model, and client inputs.</p>
+        </a>
+        <a class="bid-card" data-target="bid-writing-checklist">
+          <div class="bid-num">05</div>
+          <h3>Bid-Writing Checklist</h3>
+          <p>Track questions, drafts, pricing, references, review, and final submission.</p>
+        </a>
+      </section>
+
+      <section class="content-card" style="margin-top:18px">
+        <h2>Suggested Web Parts</h2>
+        <p>Process graphic, Document Library, Checklist/List, File Viewer, People, and Quick Links.</p>
+        <a class="backtop" data-target="home">Back to Home ↑</a>
+      </section>
+    </section>
+
+    <section id="view-templates" class="view">
+      <section class="hero">
+        <div class="eyebrow">Templates</div>
+        <h1>Templates</h1>
+        <p>Use this section to access approved sales toolkit templates, planning tools, bid resources, customer proof hub forms, and CRM guidance.</p>
+        <span class="owner">Page owner: Sales Support / Sales Enablement</span>
+      </section>
+
+      <section class="tile-grid">
+        <a class="tile" data-target="sales-toolkit-deck"><div class="tile-top"><div class="circle">01</div><div><h3>Sales Toolkit Deck</h3><p>Main onboarding and enablement deck for sales process, team structure, territories, and expectations.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="sales-plan-template"><div class="tile-top"><div class="circle">02</div><div><h3>Sales Plan Template</h3><p>Annual sales planning template for target accounts, campaigns, pipeline strategy, and milestones.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="executive-briefing-template"><div class="tile-top"><div class="circle">03</div><div><h3>Executive Briefing Template</h3><p>Template used to prepare pursuit strategy, bid/no-bid review, kickoff details, and internal alignment.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="bid-writing-checklist-template"><div class="tile-top"><div class="circle">04</div><div><h3>Bid-Writing Checklist</h3><p>Checklist to track proposal steps, drafts, pricing, references, reviews, and final submission.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="customer-proof-hub-template"><div class="tile-top"><div class="circle">05</div><div><h3>Customer Proof Hub Template</h3><p>Template for Retain & Grow, CRM updates, action items, risks, and growth opportunities.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="crm-update-guide"><div class="tile-top"><div class="circle">06</div><div><h3>CRM Update Guide</h3><p>Guide for documenting opportunities, client feedback, status notes, follow-up owners, and next steps.</p></div></div><div class="arrow">›</div></a>
+      </section>
+
+      <section class="content-card" style="margin-top:18px">
+        <h2>Suggested Web Parts</h2>
+        <p>Document Library, Highlighted Content, Quick Links, File Viewer, and metadata filters for Document Type, Audience, Process Area, Region, Owner, Review Date, and Status.</p>
+        <a class="backtop" data-target="home">Back to Home ↑</a>
+      </section>
+    </section>
+
+    <section id="view-win-loss" class="view">
+      <section class="hero">
+        <div class="eyebrow">Sales Insights</div>
+        <h1>Win / Loss</h1>
+        <p>Use this section to review sales performance, understand why CTM wins or loses opportunities, monitor competitors, and keep market intelligence current.</p>
+        <span class="owner">Page owner: Sales Enablement / Marketing</span>
+      </section>
+
+      <section class="bid-section-grid">
+        <a class="bid-card" data-target="win-loss-debrief">
+          <div class="bid-num">01</div>
+          <h3>Win/Loss Debrief</h3>
+          <p>Capture closing feedback, supplier selection, proposal quality, decision drivers, and lessons learned.</p>
+        </a>
+        <a class="bid-card" data-target="win-loss-analysis">
+          <div class="bid-num">02</div>
+          <h3>Win/Loss Analysis</h3>
+          <p>Review win ratio, loss trends, reasons won or lost, and key drivers by segment, region, and opportunity type.</p>
+        </a>
+        <a class="bid-card" data-target="competitor-profiles">
+          <div class="bid-num">03</div>
+          <h3>Competitor Profiles</h3>
+          <p>Reference competitor summaries, strengths, weaknesses, positioning, and common client objections.</p>
+        </a>
+        <a class="bid-card" data-target="battlecards">
+          <div class="bid-num">04</div>
+          <h3>Battlecards</h3>
+          <p>Use approved talk tracks, differentiators, proof points, and objection-handling guidance during pursuits.</p>
+        </a>
+        <a class="bid-card" data-target="market-updates">
+          <div class="bid-num">05</div>
+          <h3>Market Updates</h3>
+          <p>Track industry trends, competitor changes, product updates, and market intelligence that may impact sales strategy.</p>
+        </a>
+      </section>
+
+      <section class="content-card" style="margin-top:18px">
+        <h2>Suggested Web Parts</h2>
+        <p>Document Library, Highlighted Content, News, Quick Links, File Viewer, Microsoft Forms/List for closing questionnaires, and owner/contact People web part.</p>
+        <a class="backtop" data-target="home">Back to Home ↑</a>
+      </section>
+    </section>
+
+    <section id="view-training" class="view">
+      <section class="hero">
+        <div class="eyebrow">Training</div>
+        <h1>Training</h1>
+        <p>Use this section for onboarding, milestone planning, recorded training, job aids, and refresher content.</p>
+        <span class="owner">Page owner: Sales Enablement</span>
+      </section>
+
+      <section class="bid-section-grid">
+        <a class="bid-card" data-target="new-hire-onboarding">
+          <div class="bid-num">01</div>
+          <h3>New Hire Onboarding</h3>
+          <p>Guided onboarding path for new sales team members, including first steps, access needs, and required toolkit review.</p>
+        </a>
+        <a class="bid-card" data-target="thirty-sixty-ninety">
+          <div class="bid-num">02</div>
+          <h3>30/60/90 Plans</h3>
+          <p>Milestone planning for ramp-up, skill development, pipeline building, and role expectations.</p>
+        </a>
+        <a class="bid-card" data-target="recorded-training">
+          <div class="bid-num">03</div>
+          <h3>Recorded Training</h3>
+          <p>Training recordings, enablement sessions, process refreshers, and tool walkthroughs.</p>
+        </a>
+        <a class="bid-card" data-target="job-aids">
+          <div class="bid-num">04</div>
+          <h3>Job Aids</h3>
+          <p>Quick-reference guides, process steps, checklists, and how-to resources for daily sales activity.</p>
+        </a>
+        <a class="bid-card" data-target="refresher-content">
+          <div class="bid-num">05</div>
+          <h3>Refresher Content</h3>
+          <p>Ongoing refreshers for CRM, bid process, sales strategy, templates, and regional updates.</p>
+        </a>
+      </section>
+
+      <section class="content-card" style="margin-top:18px">
+        <h2>Suggested Web Parts</h2>
+        <p>Stream video, Document Library, Checklist/List, Events, Quick Links, and Highlighted Content.</p>
+        <a class="backtop" data-target="home">Back to Home ↑</a>
+      </section>
+    </section>
+
+    <section id="view-customer-proof-hub" class="view">
+      <section class="content-card">
+        <h2>Customer Proof Hub</h2>
+        <p>Open one of the customer proof hub areas below to show only that section.</p>
+      </section>
+      <section class="three-grid">
+        <a class="region-tile" data-target="retain-grow"><h3>Retain & Grow</h3><p>Review satisfaction, service performance, adoption, support trends, and risks to strengthen the partnership.</p></a>
+        <a class="region-tile" data-target="crm"><h3>CRM</h3><p>Document outcomes, client feedback, risks, action items, owners, and due dates.</p></a>
+        <a class="region-tile" data-target="growth"><h3>Growth Opportunities</h3><p>Identify expanded services, additional products, traveler adoption, and regional/global needs.</p></a>
+      </section>
+      <section class="content-card" style="margin-top:18px"><a class="backtop" data-target="home">Back to Home ↑</a></section>
+    </section>
+
+
+
+    <section id="view-sales-agent-dashboard" class="view">
+      <section class="hero">
+        <div class="eyebrow">Pipeline Visibility</div>
+        <h1>Sales Agent Dashboard</h1>
+        <p>A SharePoint-style account dashboard for sales agents and leaders to quickly see where each account sits in the sales cycle, who owns the next step, and which opportunities need attention.</p>
+        <span class="owner">Page owner: Sales Leadership / Sales Enablement</span>
+      </section>
+
+      <section class="dashboard-summary">
+        <div class="metric-card">
+          <div class="metric-label">Active Accounts</div>
+          <div class="metric-value">42</div>
+          <div class="metric-note">Open account opportunities currently being worked by the sales team.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Proposal Stage</div>
+          <div class="metric-value">11</div>
+          <div class="metric-note">Accounts with proposal, pricing, or bid-writing activity in progress.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Negotiation</div>
+          <div class="metric-value">7</div>
+          <div class="metric-note">Accounts in final review, contract, commercial, or decision discussions.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Needs Action</div>
+          <div class="metric-value">5</div>
+          <div class="metric-note">Accounts flagged for stalled activity, missing next step, or leadership support.</div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>Sales Stage Overview</h2>
+        <p>Use the stage cards below to show the pipeline status by account. These can be connected to a SharePoint List, CRM export, or embedded Power BI report in the live site.</p>
+        <div class="pipeline-board">
+          <div class="stage-card"><h3>Prospecting</h3><p>Target account identified, initial research underway, outreach pending or started.</p></div>
+          <div class="stage-card"><h3>Qualified</h3><p>Account fit confirmed, needs identified, sales owner assigned, next meeting scheduled.</p></div>
+          <div class="stage-card"><h3>Discovery</h3><p>Client goals, decision process, pain points, current supplier, and success measures captured.</p></div>
+          <div class="stage-card"><h3>Proposal / Bid</h3><p>Proposal, RFP/RFI/RFQ, pricing intake, executive briefing, and bid-writing activity underway.</p></div>
+          <div class="stage-card"><h3>Negotiation</h3><p>Commercial review, legal review, final presentation, or decision-maker alignment in progress.</p></div>
+          <div class="stage-card"><h3>Closed / Nurture</h3><p>Closed won, closed lost, or moved to nurture with follow-up timing documented.</p></div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>Account Stage Tracker</h2>
+        <table class="dashboard-table" aria-label="Sales account stage tracker">
+          <thead>
+            <tr>
+              <th>Account</th>
+              <th>Sales Agent</th>
+              <th>Region</th>
+              <th>Sales Stage</th>
+              <th>Next Step</th>
+              <th>Target Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Northwind Global</td>
+              <td><span class="owner-tag">Agent Name</span></td>
+              <td>North America</td>
+              <td><span class="stage-pill">Discovery</span></td>
+              <td>Confirm service model and stakeholder requirements.</td>
+              <td>June 12</td>
+              <td><span class="stage-pill">On Track</span></td>
+            </tr>
+            <tr>
+              <td>Atlas Manufacturing</td>
+              <td><span class="owner-tag">Agent Name</span></td>
+              <td>EMEA</td>
+              <td><span class="stage-pill">Proposal / Bid</span></td>
+              <td>Complete pricing intake and draft executive briefing.</td>
+              <td>June 18</td>
+              <td><span class="risk-pill">Needs Pricing</span></td>
+            </tr>
+            <tr>
+              <td>Summit Health Group</td>
+              <td><span class="owner-tag">Agent Name</span></td>
+              <td>ANZ</td>
+              <td><span class="stage-pill">Negotiation</span></td>
+              <td>Finalize commercial review and legal alignment.</td>
+              <td>June 21</td>
+              <td><span class="stage-pill">Leadership Review</span></td>
+            </tr>
+            <tr>
+              <td>Vertex Energy</td>
+              <td><span class="owner-tag">Agent Name</span></td>
+              <td>North America</td>
+              <td><span class="stage-pill">Qualified</span></td>
+              <td>Schedule discovery call and identify decision makers.</td>
+              <td>June 24</td>
+              <td><span class="stage-pill">On Track</span></td>
+            </tr>
+            <tr>
+              <td>Blue Harbor Logistics</td>
+              <td><span class="owner-tag">Agent Name</span></td>
+              <td>Asia</td>
+              <td><span class="stage-pill">Prospecting</span></td>
+              <td>Complete account research and outreach plan.</td>
+              <td>June 28</td>
+              <td><span class="risk-pill">Needs Next Step</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="content-card">
+        <h2>Suggested Web Parts</h2>
+        <p>SharePoint List, Power BI, Quick Links, People, Filtered Document Library, CRM Export, and Highlighted Content. Recommended list fields: Account, Sales Agent, Region, Sales Stage, Opportunity Value, Probability, Last Activity, Next Step, Target Date, Risk, and Leadership Support Needed.</p>
+        <a class="backtop" data-target="home">Back to Home ↑</a>
+      </section>
+    </section>
+
+    <section id="view-contacts" class="view">
+      <section class="hero">
+        <div class="eyebrow">Contacts</div>
+        <h1>Help & Contacts</h1>
+        <p>Use this section to quickly locate the right support team, owner, or regional contact for sales process, bids, pricing, technology, and implementation questions.</p>
+        <span class="owner">Page owner: Sales Enablement / Sales Support</span>
+      </section>
+
+      <section class="tile-grid">
+        <a class="tile" data-target="sales-enablement"><div class="tile-top"><div class="circle">01</div><div><h3>Sales Enablement</h3><p>Toolkit ownership, training, adoption, process guidance, and sales resources.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="sales-support"><div class="tile-top"><div class="circle">02</div><div><h3>Sales Support</h3><p>RFP/RFI/RFQ support, executive summaries, presentations, and bid coordination.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="pricing-contact"><div class="tile-top"><div class="circle">03</div><div><h3>Pricing</h3><p>Cost models, pricing intake, profitability, ROI, savings estimates, and pricing grids.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="marketing-contact"><div class="tile-top"><div class="circle">04</div><div><h3>Marketing</h3><p>Branding, messaging, collateral, market updates, competitor content, and client-facing assets.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="technology-sales-contact"><div class="tile-top"><div class="circle">05</div><div><h3>Technology Sales</h3><p>Technology demos, product positioning, sales tools, and client technology questions.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="operations-contact"><div class="tile-top"><div class="circle">06</div><div><h3>Operations</h3><p>Service models, operational feasibility, support structure, and delivery considerations.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="implementation-contact"><div class="tile-top"><div class="circle">07</div><div><h3>Implementation</h3><p>Implementation timelines, onboarding requirements, configuration, and transition planning.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="legal-contact"><div class="tile-top"><div class="circle">08</div><div><h3>Legal</h3><p>Contract review, terms, legal approvals, and escalated legal questions.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="security-contact"><div class="tile-top"><div class="circle">09</div><div><h3>Security</h3><p>Security questionnaires, compliance, data protection, and client security requests.</p></div></div><div class="arrow">›</div></a>
+        <a class="tile" data-target="regional-leadership-contact"><div class="tile-top"><div class="circle">10</div><div><h3>Regional Leadership</h3><p>Regional approvals, escalations, local market guidance, and leadership alignment.</p></div></div><div class="arrow">›</div></a>
+      </section>
+
+      <section class="content-card" style="margin-top:18px">
+        <h2>Suggested Web Parts</h2>
+        <p>People, Quick Links, Document Library, Org Chart/Image, and Contact List.</p>
+        <a class="backtop" data-target="home">Back to Home ↑</a>
+      </section>
+    </section>
+
+
+    <section id="view-crm-tools" class="view"><section class="content-card"><h2>CRM Tools</h2><p>Use this area for CRM access guidance, account records, opportunity updates, activity notes, close dates, owners, and next steps.</p><a class="backtop" data-target="global-tools">Back to Global Tools ↑</a></section></section>
+    <section id="view-reporting-dashboards" class="view"><section class="content-card"><h2>Reporting Dashboards</h2><p>Use this area for pipeline dashboards, account stage reporting, forecast views, activity reporting, and leadership summary views.</p><a class="backtop" data-target="global-tools">Back to Global Tools ↑</a></section></section>
+    <section id="view-sales-enablement-tools" class="view"><section class="content-card"><h2>Sales Enablement Tools</h2><p>Use this area for approved sales decks, playbooks, talk tracks, onboarding content, templates, and enablement guidance.</p><a class="backtop" data-target="global-tools">Back to Global Tools ↑</a></section></section>
+    <section id="view-proposal-tools" class="view"><section class="content-card"><h2>Proposal Tools</h2><p>Use this area for bid templates, RFP/RFI/RFQ resources, executive briefings, pricing intake links, and submission checklists.</p><a class="backtop" data-target="global-tools">Back to Global Tools ↑</a></section></section>
+    <section id="view-technology-sales-tools" class="view"><section class="content-card"><h2>Technology Sales Tools</h2><p>Use this area for demo support, technology positioning, product guidance, client-facing technology assets, and solution resources.</p><a class="backtop" data-target="global-tools">Back to Global Tools ↑</a></section></section>
+    <section id="view-global-resource-library" class="view"><section class="content-card"><h2>Global Resource Library</h2><p>Use this area for approved global collateral, regional resources, shared documents, owner guidance, and reviewed evergreen content.</p><a class="backtop" data-target="global-tools">Back to Global Tools ↑</a></section></section>
+
+    <section id="view-about" class="view"><section class="content-card"><h2>About CTM</h2><p>Company background, global presence, purpose, values, and differentiators.</p><a class="backtop" data-target="global-sales">Back to Global Sales ↑</a></section></section>
+    <section id="view-value" class="view"><section class="content-card"><h2>CTM Value Proposition</h2><p>Service, innovation, return, and customer-centric messaging used across sales content.</p><a class="backtop" data-target="global-sales">Back to Global Sales ↑</a></section></section>
+    <section id="view-team" class="view"><section class="content-card"><h2>Sales Team</h2><p>Leadership, Sales Support, Technology Sales, segment owners, and support crew references.</p><a class="backtop" data-target="global-sales">Back to Global Sales ↑</a></section></section>
+    <section id="view-goals" class="view"><section class="content-card"><h2>Goals & Expectations</h2><p>Annual goals, pipeline targets, activity expectations, and CRM requirements.</p><a class="backtop" data-target="global-sales">Back to Global Sales ↑</a></section></section>
+    <section id="view-territories" class="view"><section class="content-card"><h2>Territories</h2><p>Territory ownership, account responsibility, verticals, and regional coverage details.</p><a class="backtop" data-target="global-sales">Back to Global Sales ↑</a></section></section>
+    <section id="view-strategy" class="view"><section class="content-card"><h2>Sales Strategy</h2><p>Deal captain expectations, annual planning, win strategy, and account planning guidance.</p><a class="backtop" data-target="global-sales">Back to Global Sales ↑</a></section></section>
+    <section id="view-cycles" class="view"><section class="content-card"><h2>Sales Cycles</h2><p>Opportunity stages from qualified through closed won, including proposal and negotiation.</p><a class="backtop" data-target="global-sales">Back to Global Sales ↑</a></section></section>
+    <section id="view-north-america" class="view"><section class="content-card"><h2>North America</h2><p>North America territories, quotas, regional contacts, and local sales toolkit resources.</p><a class="backtop" data-target="regions">Back to Regions ↑</a></section></section>
+    <section id="view-emea" class="view"><section class="content-card"><h2>EMEA</h2><p>EMEA resources, market updates, localized templates, and stakeholder guidance.</p><a class="backtop" data-target="regions">Back to Regions ↑</a></section></section>
+    <section id="view-anz" class="view"><section class="content-card"><h2>ANZ</h2><p>ANZ sales resources, market insights, regional contacts, and pursuit materials.</p><a class="backtop" data-target="regions">Back to Regions ↑</a></section></section>
+    <section id="view-asia" class="view"><section class="content-card"><h2>Asia</h2><p>Asia sales resources, market insights, regional contacts, pursuit guidance, localized templates, and stakeholder support materials.</p><a class="backtop" data-target="regions">Back to Regions ↑</a></section></section>
+    <section id="view-retain-grow" class="view"><section class="content-card"><h2>Retain & Grow</h2><p>Review client satisfaction, service performance, adoption, support trends, risks, and relationship health.</p><a class="backtop" data-target="customer-proof-hub">Back to Customer Proof Hub ↑</a></section></section>
+    <section id="view-crm" class="view"><section class="content-card"><h2>CRM</h2><p>Document review outcomes, client feedback, action items, owners, risks, opportunities, and due dates in CRM.</p><a class="backtop" data-target="customer-proof-hub">Back to Customer Proof Hub ↑</a></section></section>
+    <section id="view-growth" class="view"><section class="content-card"><h2>Growth Opportunities</h2><p>Identify expanded services, additional products, traveler adoption, regional/global needs, and process improvements.</p><a class="backtop" data-target="customer-proof-hub">Back to Customer Proof Hub ↑</a></section></section>
+
+    <section id="view-bid-no-bid" class="view">
+      <section class="content-card">
+        <h2>Bid / No-Bid</h2>
+        <p><b>Purpose:</b> Review fit, viability, profitability, and resource needs before committing to a proposal response.</p>
+        <ul>
+          <li>Confirm CTM can provide a solution that meets the client’s goals.</li>
+          <li>Review basic requirements, profitability, existing relationships, and customer viability.</li>
+          <li>Use the Executive Briefing and Go/No-Go tab to support the decision.</li>
+        </ul>
+        <a class="backtop" data-target="bid-toolkit">Back to Bid Toolkit ↑</a>
+      </section>
+    </section>
+
+    <section id="view-executive-briefing" class="view">
+      <section class="content-card">
+        <h2>Executive Briefing</h2>
+        <p><b>Purpose:</b> Prepare pursuit strategy and internal alignment before kickoff, pricing review, or submission planning.</p>
+        <ul>
+          <li>Capture customer overview, relationship status, goals, requirements, risks, and win strategy.</li>
+          <li>Use the briefing to align Sales, Sales Support, Pricing, regional leads, and leadership.</li>
+          <li>Complete as much detail as possible before the bid/no-bid call.</li>
+        </ul>
+        <a class="backtop" data-target="bid-toolkit">Back to Bid Toolkit ↑</a>
+      </section>
+    </section>
+
+    <section id="view-kickoff" class="view">
+      <section class="content-card">
+        <h2>Kickoff</h2>
+        <p><b>Purpose:</b> Align GM, regional leads, Pricing, Sales Support, and SMEs at the start of the pursuit.</p>
+        <ul>
+          <li>Review high-level points from the Executive Briefing.</li>
+          <li>Discuss customer overview, solution needs, risks, pricing strategy, and deadlines.</li>
+          <li>Confirm roles, owners, next steps, and key target dates.</li>
+        </ul>
+        <a class="backtop" data-target="bid-toolkit">Back to Bid Toolkit ↑</a>
+      </section>
+    </section>
+
+    <section id="view-pricing-intake" class="view">
+      <section class="content-card">
+        <h2>Pricing Intake</h2>
+        <p><b>Purpose:</b> Gather assumptions, volumes, service model, and client inputs needed to support pricing.</p>
+        <ul>
+          <li>Collect transaction volumes, spend detail, adoption rates, service requirements, and client pricing documents.</li>
+          <li>Share assumptions and timelines with Pricing as early as possible.</li>
+          <li>Confirm profitability, ROI, savings estimates, and approval needs.</li>
+        </ul>
+        <a class="backtop" data-target="bid-toolkit">Back to Bid Toolkit ↑</a>
+      </section>
+    </section>
+
+    <section id="view-bid-writing-checklist" class="view">
+      <section class="content-card">
+        <h2>Bid-Writing Checklist</h2>
+        <p><b>Purpose:</b> Track the proposal response from document review through final submission.</p>
+        <ul>
+          <li>Confirm bid/no-bid call and kickoff call are complete.</li>
+          <li>Track questions, initial draft, pricing, references, SLAs, edits, review, and final response.</li>
+          <li>Confirm final files are reviewed by the sales lead before upload or submission.</li>
+        </ul>
+        <a class="backtop" data-target="bid-toolkit">Back to Bid Toolkit ↑</a>
+      </section>
+    </section>
+    <section id="view-win-loss-analysis" class="view">
+      <section class="content-card">
+        <h2>Win/Loss Analysis</h2>
+        <p><b>Purpose:</b> Review win ratio, reasons won, reasons lost, trends, and key takeaways to improve future pursuit strategy.</p>
+        <ul>
+          <li>Track wins and losses by region, segment, vertical, and deal size.</li>
+          <li>Capture why CTM won or lost, including service, technology, pricing, relationship, global alignment, or incumbent factors.</li>
+          <li>Use debrief notes to improve pursuit planning, positioning, and proposal strategy.</li>
+        </ul>
+        <a class="backtop" data-target="win-loss">Back to Win / Loss ↑</a>
+      </section>
+    </section>
+
+    <section id="view-win-loss-debrief" class="view">
+      <section class="hero">
+        <div class="eyebrow">Closing Feedback</div>
+        <h1>Win/Loss Debrief</h1>
+        <p>Use this template after each pursuit to capture client decision drivers, competitor/supplier selection, proposal feedback, lessons learned, and follow-up actions for future opportunities.</p>
+        <span class="owner">Page owner: Sales Enablement / Sales Support</span>
+      </section>
+
+      <section class="content-card">
+        <h2>1. Opportunity Details</h2>
+        <p>Capture the core opportunity information so debriefs can be filtered by account, region, owner, stage, and outcome.</p>
+        <div class="field-grid">
+          <div class="template-field"><b>Account / Prospect Name</b><span class="blank-line"></span></div>
+          <div class="template-field"><b>Region</b>North America / ANZ / Asia / EMEA</div>
+          <div class="template-field"><b>Sales Agent / Opportunity Owner</b><span class="blank-line"></span></div>
+          <div class="template-field"><b>Opportunity Stage</b><span class="blank-line"></span></div>
+          <div class="template-field"><b>Opportunity Value</b><span class="blank-line"></span></div>
+          <div class="template-field"><b>Decision Date</b><span class="blank-line"></span></div>
+          <div class="template-field"><b>Outcome</b>Won / Lost / No Decision / Delayed</div>
+          <div class="template-field"><b>Client Segment / Vertical</b><span class="blank-line"></span></div>
+          <div class="template-field"><b>Current Supplier / Incumbent</b><span class="blank-line"></span></div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>2. Closing Questionnaire</h2>
+        <p>Recommended as a SharePoint List or Microsoft Form so responses can be filtered by account, region, sales agent, supplier, outcome, and sales stage.</p>
+        <div class="questionnaire">
+          <div class="question-card">
+            <div class="question-label">Question 01</div>
+            <h3>Why did you choose CTM?</h3>
+            <p>Capture the client’s primary decision drivers, including service model, technology, relationship, pricing, global fit, implementation confidence, or overall value.</p>
+          </div>
+          <div class="question-card">
+            <div class="question-label">Question 02</div>
+            <h3>Which supplier did you choose?</h3>
+            <p>Document whether CTM was selected or which competitor/supplier was chosen so the team can compare positioning, pricing, service, and differentiators.</p>
+          </div>
+          <div class="question-card">
+            <div class="question-label">Question 03</div>
+            <h3>How well was the proposal prepared?</h3>
+            <p>Rate proposal quality, clarity, responsiveness, accuracy, presentation, pricing support, and whether the submission addressed the client’s stated needs.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>3. Proposal Quality Rating</h2>
+        <p>Use the scale below to rate the overall proposal experience.</p>
+        <div class="rating-row">
+          <div class="rating">1<br>Needs Improvement</div>
+          <div class="rating">2<br>Fair</div>
+          <div class="rating">3<br>Good</div>
+          <div class="rating">4<br>Very Good</div>
+          <div class="rating">5<br>Excellent</div>
+        </div>
+        <div class="debrief-field-list">
+          <div class="debrief-field"><b>Proposal Strengths:</b> What worked well?</div>
+          <div class="debrief-field"><b>Improvement Opportunities:</b> What should change next time?</div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>4. Decision Drivers</h2>
+        <p>Select all that apply and add notes for context.</p>
+        <div class="checklist">
+          <div class="check">Service model / support structure</div>
+          <div class="check">Technology platform / innovation</div>
+          <div class="check">Pricing / commercial value</div>
+          <div class="check">Global alignment / regional coverage</div>
+          <div class="check">Relationship / executive sponsorship</div>
+          <div class="check">Implementation confidence</div>
+          <div class="check">Incumbent advantage</div>
+          <div class="check">Client timing / budget / no decision</div>
+          <div class="check">Proposal quality / response alignment</div>
+          <div class="check">Other</div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>5. Competitor / Supplier Feedback</h2>
+        <table class="dashboard-table" aria-label="Competitor and supplier feedback">
+          <thead>
+            <tr>
+              <th>Supplier / Competitor</th>
+              <th>Known Strengths</th>
+              <th>Known Weaknesses</th>
+              <th>Client Feedback / Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+            <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+            <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="content-card">
+        <h2>6. Lessons Learned</h2>
+        <div class="debrief-field-list">
+          <div class="debrief-field"><b>What worked well?</b> Capture pursuit strengths, differentiators, and successful positioning.</div>
+          <div class="debrief-field"><b>What should change next time?</b> Capture process, proposal, pricing, or messaging improvements.</div>
+          <div class="debrief-field"><b>What proof points or battlecards are needed?</b> Identify missing references, metrics, examples, or competitive guidance.</div>
+          <div class="debrief-field"><b>What should be updated in CRM?</b> Document outcome, next step, reason won/lost, and follow-up ownership.</div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>7. Follow-Up Actions</h2>
+        <table class="dashboard-table" aria-label="Win loss follow-up actions">
+          <thead>
+            <tr>
+              <th>Action Item</th>
+              <th>Owner</th>
+              <th>Due Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Update CRM notes and opportunity outcome.</td><td></td><td></td><td>Not Started</td></tr>
+            <tr><td>Update competitor profile or battlecard if needed.</td><td></td><td></td><td>Not Started</td></tr>
+            <tr><td>Share lessons learned with Sales Enablement / Sales Support.</td><td></td><td></td><td>Not Started</td></tr>
+            <tr><td>Identify nurture or retain-and-grow follow-up plan.</td><td></td><td></td><td>Not Started</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="content-card">
+        <h2>8. Suggested SharePoint Metadata</h2>
+        <div class="debrief-field-list">
+          <div class="debrief-field"><b>Account:</b> Client or prospect name</div>
+          <div class="debrief-field"><b>Outcome:</b> Won, Lost, No Decision, Delayed</div>
+          <div class="debrief-field"><b>Sales Agent:</b> Opportunity owner</div>
+          <div class="debrief-field"><b>Region:</b> North America, EMEA, ANZ, Asia</div>
+          <div class="debrief-field"><b>Supplier Chosen:</b> CTM or competitor selected</div>
+          <div class="debrief-field"><b>Proposal Rating:</b> Excellent, Good, Needs Improvement</div>
+          <div class="debrief-field"><b>Reason Won/Lost:</b> Service, technology, price, relationship, global fit, timing, incumbent, or other</div>
+          <div class="debrief-field"><b>Follow-Up Action:</b> Owner, due date, and next improvement step</div>
+        </div>
+        <p>Recommended SharePoint setup: Build this as a Microsoft Form or SharePoint List with required fields for Account, Region, Outcome, Supplier Chosen, Proposal Rating, Reason Won/Lost, Sales Agent, Follow-Up Owner, and Due Date.</p>
+        <a class="backtop" data-target="win-loss">Back to Win / Loss ↑</a>
+      </section>
+    </section>
+
+    <section id="view-competitor-profiles" class="view">
+      <section class="content-card">
+        <h2>Competitor Profiles</h2>
+        <p><b>Purpose:</b> Provide quick reference information on key competitors and how CTM should position against them.</p>
+        <ul>
+          <li>Include competitor overview, known strengths, weaknesses, common pricing or service positioning, and differentiators.</li>
+          <li>Document competitor presence by region, vertical, or client segment where applicable.</li>
+          <li>Keep profiles reviewed and updated on a regular cadence.</li>
+        </ul>
+        <a class="backtop" data-target="win-loss">Back to Win / Loss ↑</a>
+      </section>
+    </section>
+
+    <section id="view-battlecards" class="view">
+      <section class="content-card">
+        <h2>Battlecards</h2>
+        <p><b>Purpose:</b> Give sales teams concise, approved guidance for competitive pursuits.</p>
+        <ul>
+          <li>Include CTM differentiators, client pain points, recommended talk tracks, proof points, and objection handling.</li>
+          <li>Use battlecards during sales planning, bid/no-bid review, presentations, and final negotiations.</li>
+          <li>Store only approved battlecards in the published template library.</li>
+        </ul>
+        <a class="backtop" data-target="win-loss">Back to Win / Loss ↑</a>
+      </section>
+    </section>
+
+    <section id="view-market-updates" class="view">
+      <section class="content-card">
+        <h2>Market Updates</h2>
+        <p><b>Purpose:</b> Keep the sales team informed on industry, competitor, technology, and market changes that may impact pursuit strategy.</p>
+        <ul>
+          <li>Share new competitor announcements, product updates, client trends, travel market changes, and relevant industry news.</li>
+          <li>Use updates to refresh battlecards, proposal language, sales messaging, and executive briefings.</li>
+          <li>Highlight updates that require action by Sales, Marketing, Pricing, or Technology Sales.</li>
+        </ul>
+        <a class="backtop" data-target="win-loss">Back to Win / Loss ↑</a>
+      </section>
+    </section>
+
+    <section id="view-new-hire-onboarding" class="view">
+      <section class="content-card">
+        <h2>New Hire Onboarding</h2>
+        <p>Use this section for the new hire path, first-week checklist, required access, toolkit review, team contacts, and onboarding milestones.</p>
+        <a class="backtop" data-target="training">Back to Training ↑</a>
+      </section>
+    </section>
+
+    <section id="view-thirty-sixty-ninety" class="view">
+      <section class="content-card">
+        <h2>30/60/90 Plans</h2>
+        <p>Use this section to outline ramp-up expectations, learning goals, pipeline activity, client engagement, CRM habits, and development milestones.</p>
+        <a class="backtop" data-target="training">Back to Training ↑</a>
+      </section>
+    </section>
+
+    <section id="view-recorded-training" class="view">
+      <section class="content-card">
+        <h2>Recorded Training</h2>
+        <p>Use this section to house training recordings, sales enablement sessions, tool walkthroughs, process refreshers, and regional training content.</p>
+        <a class="backtop" data-target="training">Back to Training ↑</a>
+      </section>
+    </section>
+
+    <section id="view-job-aids" class="view">
+      <section class="content-card">
+        <h2>Job Aids</h2>
+        <p>Use this section for quick-reference guides, checklists, process steps, template instructions, and day-to-day support materials.</p>
+        <a class="backtop" data-target="training">Back to Training ↑</a>
+      </section>
+    </section>
+
+    <section id="view-refresher-content" class="view">
+      <section class="content-card">
+        <h2>Refresher Content</h2>
+        <p>Use this section for ongoing refreshers on CRM, bid process, sales strategy, templates, regional updates, and key process changes.</p>
+        <a class="backtop" data-target="training">Back to Training ↑</a>
+      </section>
+    </section>
+
+    <section id="view-sales-enablement" class="view">
+      <section class="content-card">
+        <h2>Sales Enablement</h2>
+        <p>Support area for toolkit ownership, training, adoption, enablement resources, process guidance, and sales readiness.</p>
+        <a class="backtop" data-target="contacts">Back to Help & Contacts ↑</a>
+      </section>
+    </section>
+
+    <section id="view-sales-support" class="view">
+      <section class="content-card">
+        <h2>Sales Support</h2>
+        <p>Support area for bid writing, RFP/RFI/RFQ support, executive summaries, presentation design, sales reporting, and enablement tools.</p>
+        <a class="backtop" data-target="contacts">Back to Help & Contacts ↑</a>
+      </section>
+    </section>
+
+    <section id="view-pricing-contact" class="view">
+      <section class="content-card">
+        <h2>Pricing</h2>
+        <p>Support area for pricing intake, cost models, profitability review, ROI, savings estimates, assumptions, and client pricing grids.</p>
+        <a class="backtop" data-target="contacts">Back to Help & Contacts ↑</a>
+      </section>
+    </section>
+
+    <section id="view-marketing-contact" class="view">
+      <section class="content-card">
+        <h2>Marketing</h2>
+        <p>Support area for brand guidance, messaging, collateral, market updates, competitor content, client-facing assets, and campaign support.</p>
+        <a class="backtop" data-target="contacts">Back to Help & Contacts ↑</a>
+      </section>
+    </section>
+
+    <section id="view-technology-sales-contact" class="view">
+      <section class="content-card">
+        <h2>Technology Sales</h2>
+        <p>Support area for technology demos, product positioning, solution questions, client technology requirements, and sales tools.</p>
+        <a class="backtop" data-target="contacts">Back to Help & Contacts ↑</a>
+      </section>
+    </section>
+
+    <section id="view-operations-contact" class="view">
+      <section class="content-card">
+        <h2>Operations</h2>
+        <p>Support area for operational feasibility, service delivery, support models, staffing considerations, and process alignment.</p>
+        <a class="backtop" data-target="contacts">Back to Help & Contacts ↑</a>
+      </section>
+    </section>
+
+    <section id="view-implementation-contact" class="view">
+      <section class="content-card">
+        <h2>Implementation</h2>
+        <p>Support area for client onboarding, implementation timelines, configuration, transition planning, and launch readiness.</p>
+        <a class="backtop" data-target="contacts">Back to Help & Contacts ↑</a>
+      </section>
+    </section>
+
+    <section id="view-legal-contact" class="view">
+      <section class="content-card">
+        <h2>Legal</h2>
+        <p>Support area for contract review, terms and conditions, approvals, escalations, and legal guidance during pursuits.</p>
+        <a class="backtop" data-target="contacts">Back to Help & Contacts ↑</a>
+      </section>
+    </section>
+
+    <section id="view-security-contact" class="view">
+      <section class="content-card">
+        <h2>Security</h2>
+        <p>Support area for security questionnaires, compliance, data protection, security reviews, and client security requirements.</p>
+        <a class="backtop" data-target="contacts">Back to Help & Contacts ↑</a>
+      </section>
+    </section>
+
+    <section id="view-regional-leadership-contact" class="view">
+      <section class="content-card">
+        <h2>Regional Leadership</h2>
+        <p>Support area for regional approvals, escalations, market guidance, leadership alignment, and local pursuit support.</p>
+        <a class="backtop" data-target="contacts">Back to Help & Contacts ↑</a>
+      </section>
+    </section>
+
+    <section id="view-sales-toolkit-deck" class="view">
+      <section class="content-card">
+        <h2>Sales Toolkit Deck</h2>
+        <p>Main onboarding and enablement deck for sales team members. This should include sales process guidance, team structure, territories, quotas, expectations, bid process, and key resources.</p>
+        <a class="backtop" data-target="templates">Back to Templates ↑</a>
+      </section>
+    </section>
+
+    <section id="view-sales-plan-template" class="view">
+      <section class="content-card">
+        <h2>Sales Plan Template</h2>
+        <p>Annual planning template used to document target accounts, pipeline-building strategy, nurture campaigns, competition planning, networking, milestones, and mitigation strategies.</p>
+        <a class="backtop" data-target="templates">Back to Templates ↑</a>
+      </section>
+    </section>
+
+    <section id="view-executive-briefing-template" class="view">
+      <section class="content-card">
+        <h2>Executive Briefing Template</h2>
+        <p>Template used to prepare the pursuit strategy, bid/no-bid decision, kickoff call, pricing discussion, customer overview, requirements, risks, win strategy, and internal alignment.</p>
+        <a class="backtop" data-target="templates">Back to Templates ↑</a>
+      </section>
+    </section>
+
+    <section id="view-bid-writing-checklist-template" class="view">
+      <section class="content-card">
+        <h2>Bid-Writing Checklist</h2>
+        <p>Checklist used to manage bid progress from document review through final submission, including kickoff, questions, pricing, references, drafts, edits, final review, and upload or client submission.</p>
+        <a class="backtop" data-target="templates">Back to Templates ↑</a>
+      </section>
+    </section>
+
+    <section id="view-customer-proof-hub-template" class="view">
+      <section class="content-card">
+        <h2>Customer Proof Hub Template</h2>
+        <p>Template used to document client health, Retain & Grow opportunities, CRM notes, action items, risks, owners, due dates, and growth opportunities.</p>
+        <a class="backtop" data-target="templates">Back to Templates ↑</a>
+      </section>
+    </section>
+
+    <section id="view-crm-update-guide" class="view">
+      <section class="content-card">
+        <h2>CRM Update Guide</h2>
+        <p>Guide for keeping CRM current with opportunity details, status notes, client feedback, next steps, risks, follow-up ownership, and customer proof hub outcomes.</p>
+        <a class="backtop" data-target="templates">Back to Templates ↑</a>
+      </section>
+    </section>
+
+  
+    <section id="view-sales-stages" class="view">
+      <section class="hero">
+        <div class="eyebrow">CRM Opportunity Flow</div>
+        <h1>Sales Stages</h1>
+        <p>Use this dashboard-style section to align the 8 CRM sales stages, probability, required criteria, and deliverables. Stage 0 is included as Lead Generation / Prospecting.</p>
+        <span class="owner">Page owner: Sales Leadership / Sales Enablement</span>
+      </section>
+
+      <section class="dashboard-summary">
+        <div class="metric-card">
+          <div class="metric-label">CRM Sales Stages</div>
+          <div class="metric-value">8</div>
+          <div class="metric-note">Active through Closed Won/Loss, with Stage 0 used for Lead Generation / Prospecting.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Probability Range</div>
+          <div class="metric-value">0–100%</div>
+          <div class="metric-note">Probability changes by stage and engagement level.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Silent Checkpoint</div>
+          <div class="metric-value">10</div>
+          <div class="metric-note">Business days without response during later stages.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Close Review</div>
+          <div class="metric-value">6+ mo.</div>
+          <div class="metric-note">No activity after last prospect meeting.</div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>CRM Stage Flow</h2>
+        <p>Use the cards below as a visual guide for moving opportunities through the sales cycle.</p>
+        <div class="pipeline-board">
+          <div class="stage-card"><h3>1 Active</h3><p>Need and interest established, prospect contact made, and initial intro call scheduled.</p></div>
+          <div class="stage-card"><h3>2 Discovery / Qualification</h3><p>Goals shared, pain points identified, next meeting scheduled, and recap confirmed.</p></div>
+          <div class="stage-card"><h3>3 Solution Development Engagement</h3><p>Key player access, consultant-led engagement, aligned solution, and buying process understood.</p></div>
+          <div class="stage-card"><h3>4 Proposal Submitted</h3><p>RFP/RFI received, go/no-go completed, requirements captured, and proposal submitted.</p></div>
+          <div class="stage-card"><h3>5 Presentation Stage</h3><p>Presentation completed with stakeholders or sent, with solutions aligned and follow-up tracked.</p></div>
+          <div class="stage-card"><h3>6 Short Listed / Negotiations</h3><p>Shortlisted, clarification questions active, B&amp;F pricing reviewed, OTL or contract draft in progress.</p></div>
+          <div class="stage-card"><h3>7 Verbal Award</h3><p>Business requested, verbal approval granted, written intent to award received, and redlining active.</p></div>
+          <div class="stage-card"><h3>8 Closed - Won / Loss</h3><p>Formal contract signed, confirmed loss received, no decision, or no activity closure documented.</p></div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>Stage Detail Tracker</h2>
+        <table class="dashboard-table" aria-label="Sales stages detail tracker">
+          <thead>
+            <tr>
+              <th>Stage</th>
+              <th>Criteria</th>
+              <th>Probability</th>
+              <th>Deliverable Required</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="stage-pill">0 - Lead Generation / Prospecting</span></td><td>Assigned territory or currently dormant.</td><td>0%</td><td>Contacts identified; actively on nurture or marketing campaign list.</td></tr>
+            <tr><td><span class="stage-pill">1 - Active</span></td><td>Need and interest established; prospect contact made.</td><td>0%</td><td>Initial intro call scheduled.</td></tr>
+            <tr><td><span class="stage-pill">2 - Discovery / Qualification</span></td><td>Goals shared, pain points identified, next meeting scheduled.</td><td>10%</td><td>Next steps identified; meeting recap sent and confirmed by prospect.</td></tr>
+            <tr><td><span class="stage-pill">3 - Solution Development Engagement</span></td><td>Key player access, consultant-led, aligned solutions, buying process understood.</td><td>20%</td><td>Relationship map, TTV data, sequence of events, internal champion, stakeholder access.</td></tr>
+            <tr><td><span class="stage-pill">4 - Proposal Submitted</span></td><td>RFP/RFI received, go/no-go/withdrawn, response or proactive proposal submitted.</td><td>0–30%</td><td>Bid requirements captured, decision timeline confirmed, proposal submitted.</td></tr>
+            <tr><td><span class="stage-pill">5 - Presentation Stage</span></td><td>Presentation with stakeholders or presentation sent.</td><td>40%</td><td>Engaging presentation/discussion with solutions aligned.</td></tr>
+            <tr><td><span class="stage-pill">6 - Short Listed / Negotiations</span></td><td>Shortlisted, clarification questions, B&amp;F pricing, OTL, contract draft.</td><td>50–85%</td><td>Next-process email, pricing gaps addressed, Scotwork steps, executive sponsor engagement, contract draft.</td></tr>
+            <tr><td><span class="stage-pill">7 - Verbal Award</span></td><td>Asked for business; verbal approval granted.</td><td>95%</td><td>Written intent to award received; active redlining to agreed terms.</td></tr>
+            <tr><td><span class="stage-pill">8 - Closed - Won / Loss</span></td><td>Formal contract signed, confirmed loss, no decision, or no activity.</td><td>0–100%</td><td>Executed agreement, formal loss notification, or closed after 6+ months with no engagement.</td></tr>
+</tbody>
+        </table>
+        <a class="backtop" data-target="home">Back to Home ↑</a>
+      </section>
+    </section>
+
+  </main>
+
+  <footer>CTM Global Sales Toolkit Hub — section-only clickable SharePoint mockup with Win / Loss, Debrief, Global Tools, Asia, and Sales Agent Dashboard</footer>
+
+<script>
+(function(){
+  const views = document.querySelectorAll('.view');
+  const navPills = document.querySelectorAll('.pill[data-target]');
+  const allTargets = document.querySelectorAll('[data-target]');
+
+  function activateNav(target){
+    navPills.forEach(pill => {
+      pill.classList.toggle('active', pill.getAttribute('data-target') === target);
+    });
+  }
+
+  function showView(target){
+    views.forEach(view => view.classList.remove('active'));
+    const selected = document.getElementById('view-' + target);
+    if(selected){
+      selected.classList.add('active');
+      const navTargets = ['home','start-here','global-sales','global-tools','regions','bid-toolkit','templates','win-loss','win-loss-debrief','training','customer-proof-hub','sales-agent-dashboard','contacts'];
+      if(navTargets.includes(target)){
+        activateNav(target);
+      } else {
+        navPills.forEach(pill => pill.classList.remove('active'));
+        if(['bid-no-bid','executive-briefing','kickoff','pricing-intake','bid-writing-checklist'].includes(target)){
+          activateNav('bid-toolkit');
+        }
+        if(['win-loss-analysis','competitor-profiles','battlecards','market-updates','win-loss-debrief'].includes(target)){
+          activateNav('win-loss');
+        }
+        if(['crm-tools','reporting-dashboards','sales-enablement-tools','proposal-tools','technology-sales-tools','global-resource-library'].includes(target)){
+          activateNav('global-tools');
+        }
+      }
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+  }
+
+  allTargets.forEach(link => {
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      showView(this.getAttribute('data-target'));
+    });
+  });
+})();
+</script>
+</body>
+</html>
