@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CTM Global Sales Toolkit - Clickable Templates</title>
+<title>CTM Global Sales Toolkit - Search Beside Hub Title</title>
 <style>
   :root{
     --ctm-navy:#003b49;
@@ -499,6 +499,56 @@
   .template-check:before{content:"☐ ";font-weight:900;color:var(--ctm-teal)}
   @media(max-width:900px){.template-link-grid,.template-detail-grid,.template-checklist{grid-template-columns:1fr}}
 
+
+  .global-tools-intro{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 2px 8px rgba(15,23,42,.06);margin-bottom:20px}
+  .global-tools-intro h2{margin:0 0 10px;color:#0b1f35;font-size:25px}
+  .global-tools-intro p{margin:0;color:#475467;line-height:1.6;max-width:980px}
+  .global-tools-clean-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .global-tools-clean-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;text-decoration:none;color:var(--ink);box-shadow:0 2px 8px rgba(15,23,42,.06);cursor:pointer;transition:.15s ease;border-left:8px solid var(--ctm-teal);display:block}
+  .global-tools-clean-card:nth-child(2n){border-left-color:var(--ctm-green)}
+  .global-tools-clean-card:nth-child(3n){border-left-color:#f0b429}
+  .global-tools-clean-card:nth-child(4n){border-left-color:#667085}
+  .global-tools-clean-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(15,23,42,.12)}
+  .global-tools-top{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}
+  .global-tools-clean-card h3{margin:0 0 8px;color:#0b1f35;font-size:23px}
+  .global-tools-clean-card p{margin:0;color:#667085;line-height:1.5;font-size:14px}
+  .global-tools-arrow{width:42px;height:42px;min-width:42px;border-radius:50%;background:#eef8fb;color:var(--ctm-navy);display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:900}
+  .global-tools-pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+  .global-tools-pill{background:#f8fafc;border:1px solid var(--line);border-radius:999px;padding:7px 10px;color:#475467;font-size:12px;font-weight:800}
+  .tools-detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+  .tools-detail-box{background:#f8fafc;border:1px solid var(--line);border-radius:14px;padding:16px;color:#344054;line-height:1.5}
+  .tools-detail-box b{display:block;color:#0b1f35;margin-bottom:8px}
+  @media(max-width:900px){.global-tools-clean-grid,.tools-detail-grid{grid-template-columns:1fr}}
+
+
+  .toolkit-search-wrap{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 2px 8px rgba(15,23,42,.06);margin:0 0 24px}
+  .toolkit-search-row{display:flex;gap:12px;align-items:center}
+  .toolkit-search-input{width:100%;border:1px solid #cfd8e3;border-radius:999px;padding:15px 18px;font-size:16px;outline:none;background:#f8fafc;color:#172033}
+  .toolkit-search-input:focus{border-color:var(--ctm-teal);box-shadow:0 0 0 4px rgba(0,124,148,.12);background:#fff}
+  .toolkit-search-button{border:0;border-radius:999px;background:var(--ctm-navy);color:#fff;padding:15px 20px;font-weight:900;cursor:pointer;white-space:nowrap}
+  .toolkit-search-results{display:none;margin-top:14px;border-top:1px solid var(--line);padding-top:14px}
+  .toolkit-search-results.active{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .search-result-item{background:#f8fafc;border:1px solid var(--line);border-radius:14px;padding:12px 14px;color:#344054;cursor:pointer;text-decoration:none;font-weight:800;font-size:13px}
+  .search-result-item:hover{background:#eef8fb;color:var(--ctm-navy);border-color:#d7edf2}
+  .search-helper{font-size:13px;color:#667085;margin-top:10px;line-height:1.45}
+  @media(max-width:900px){.toolkit-search-row{flex-direction:column}.toolkit-search-button{width:100%}.toolkit-search-results.active{grid-template-columns:1fr}}
+
+
+  .hub-hero-with-search{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(360px,.8fr);gap:22px;align-items:center}
+  .hub-search-panel{background:rgba(255,255,255,.96);border:1px solid rgba(255,255,255,.5);border-radius:22px;padding:20px;box-shadow:0 10px 28px rgba(15,23,42,.18)}
+  .hub-search-panel h2{margin:0 0 12px;color:#0b1f35;font-size:20px}
+  .hub-search-panel .toolkit-search-wrap{background:transparent;border:0;border-radius:0;padding:0;box-shadow:none;margin:0}
+  .hub-search-panel .toolkit-search-row{display:flex;gap:10px;align-items:center}
+  .hub-search-panel .toolkit-search-input{width:100%;border:1px solid #cfd8e3;border-radius:999px;padding:13px 15px;font-size:14px;outline:none;background:#f8fafc;color:#172033}
+  .hub-search-panel .toolkit-search-input:focus{border-color:var(--ctm-teal);box-shadow:0 0 0 4px rgba(0,124,148,.12);background:#fff}
+  .hub-search-panel .toolkit-search-button{border:0;border-radius:999px;background:var(--ctm-navy);color:#fff;padding:13px 16px;font-weight:900;cursor:pointer;white-space:nowrap}
+  .hub-search-panel .search-helper{font-size:12px;color:#667085;margin-top:10px;line-height:1.45}
+  .hub-search-panel .toolkit-search-results{display:none;margin-top:12px;border-top:1px solid var(--line);padding-top:12px;max-height:210px;overflow:auto}
+  .hub-search-panel .toolkit-search-results.active{display:grid;grid-template-columns:1fr;gap:8px}
+  .hub-search-panel .search-result-item{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:10px 12px;color:#344054;cursor:pointer;text-decoration:none;font-weight:800;font-size:13px}
+  .hub-search-panel .search-result-item:hover{background:#eef8fb;color:var(--ctm-navy);border-color:#d7edf2}
+  @media(max-width:950px){.hub-hero-with-search{grid-template-columns:1fr}.hub-search-panel{margin-top:10px}}
+
 </style>
 </head>
 <body>
@@ -536,13 +586,27 @@
   <main>
     <section id="view-home" class="view active">
       <section class="hero">
-        <div class="eyebrow">Onboarding</div>
+        <div class="hub-hero-with-search">
+          <div class="hub-hero-copy">
+            <div class="eyebrow">Onboarding</div>
         <h1>Global Sales Toolkit Hub</h1>
         <p>A guided SharePoint-style hub for new hires and current team members. Use the clickable links below to open only the section you select.</p>
         <span class="owner">Page owner: Sales Enablement</span>
+          </div>
+          <div class="hub-search-panel">
+          <h2>Search the Toolkit</h2>
+          <section class="toolkit-search-wrap">
+            <div class="toolkit-search-row">
+              <input id="toolkitSearchInput" class="toolkit-search-input" type="search" placeholder="Search: bid, training, CRM, ANZ, templates, legal" />
+              <button id="toolkitSearchButton" class="toolkit-search-button" type="button">Search</button>
+            </div>
+            <div class="search-helper">Search by section name or topic. Select a result to open that section.</div>
+            <div id="toolkitSearchResults" class="toolkit-search-results"></div>
+          </section>
+        </div>
+        </div>
       </section>
-
-      <section class="step-grid">
+<section class="step-grid">
         <a class="step-card" data-target="templates"><div class="num">01</div><h3>Review Sales Toolkit Deck</h3></a>
         <a class="step-card" data-target="help-contacts"><div class="num">02</div><h3>Complete System Access Checklist</h3></a>
         <a class="step-card" data-target="global-sales"><div class="num">03</div><h3>Review Sales Team Structure</h3></a>
@@ -1526,30 +1590,101 @@
         <a class="backtop" data-target="global-sales">Back to Global Sales ↑</a>
       </section>
     </section>
-<section id="view-global-tools" class="view">
+    <section id="view-global-tools" class="view">
       <section class="hero">
-        <div class="eyebrow">Global Resources</div>
+        <div class="eyebrow">Global Tools</div>
         <h1>Global Tools</h1>
-        <p>Use this section to access shared sales systems, CRM guidance, reporting tools, approved resources, and support links used across regions.</p>
-        <span class="owner">Page owner: Sales Enablement / Sales Operations</span>
+        <p>Use this section to quickly access shared tools, resources, reporting, proposal support, partner resources, and enablement materials.</p>
+        <span class="owner">Page owner: Global Sales / Sales Enablement</span>
       </section>
 
-      <section class="tile-grid">
-        <a class="tile" data-target="crm-tools"><div class="tile-top"><div class="circle">01</div><div><h3>CRM Tools</h3><p>CRM access, opportunity updates, account notes, next steps, and pipeline hygiene guidance.</p></div></div><div class="arrow">›</div></a>
-        <a class="tile" data-target="reporting-dashboards"><div class="tile-top"><div class="circle">02</div><div><h3>Reporting Dashboards</h3><p>Pipeline, account activity, sales stage, forecast, and leadership reporting resources.</p></div></div><div class="arrow">›</div></a>
-        <a class="tile" data-target="sales-enablement-tools"><div class="tile-top"><div class="circle">03</div><div><h3>Sales Enablement Tools</h3><p>Approved decks, playbooks, talk tracks, sales process guidance, and enablement resources.</p></div></div><div class="arrow">›</div></a>
-        <a class="tile" data-target="proposal-tools"><div class="tile-top"><div class="circle">04</div><div><h3>Proposal Tools</h3><p>Bid templates, proposal trackers, pricing intake resources, and submission support links.</p></div></div><div class="arrow">›</div></a>
-        <a class="tile" data-target="technology-sales-tools"><div class="tile-top"><div class="circle">05</div><div><h3>Technology Sales Tools</h3><p>Demo resources, product positioning, sales technology guides, and client-facing technology support.</p></div></div><div class="arrow">›</div></a>
-        <a class="tile" data-target="global-resource-library"><div class="tile-top"><div class="circle">06</div><div><h3>Global Resource Library</h3><p>Shared global documents, regional materials, approved collateral, and evergreen reference content.</p></div></div><div class="arrow">›</div></a>
+      <section class="global-tools-intro">
+        <h2>Tool Categories</h2>
+        <p>This section is simplified into clear categories so users can find the right tool area without scanning a crowded list of links.</p>
       </section>
 
-      <section class="content-card" style="margin-top:18px">
-        <h2>Suggested Web Parts</h2>
-        <p>Quick Links, Document Library, Highlighted Content, List, Power BI, File Viewer, People, and metadata filters for Region, Owner, Tool Type, Status, and Review Date.</p>
+      <section class="global-tools-clean-grid">
+        <a class="global-tools-clean-card" data-target="crm-tools">
+          <div class="global-tools-top">
+            <div>
+              <h3>CRM Tools</h3>
+              <p>CRM links, update guidance, opportunity tracking, dashboard access, and pipeline visibility.</p>
+            </div>
+            <div class="global-tools-arrow">›</div>
+          </div>
+          <div class="global-tools-pill-row">
+            <span class="global-tools-pill">CRM</span><span class="global-tools-pill">Pipeline</span><span class="global-tools-pill">Dashboards</span>
+          </div>
+        </a>
+        <a class="global-tools-clean-card" data-target="sales-enablement-tools">
+          <div class="global-tools-top">
+            <div>
+              <h3>Sales Enablement</h3>
+              <p>Enablement resources, sales process guidance, onboarding support, and readiness materials.</p>
+            </div>
+            <div class="global-tools-arrow">›</div>
+          </div>
+          <div class="global-tools-pill-row">
+            <span class="global-tools-pill">Training</span><span class="global-tools-pill">Guidance</span><span class="global-tools-pill">Readiness</span>
+          </div>
+        </a>
+        <a class="global-tools-clean-card" data-target="proposal-tools">
+          <div class="global-tools-top">
+            <div>
+              <h3>Proposal Tools</h3>
+              <p>Proposal templates, bid-writing resources, executive briefing tools, and response support.</p>
+            </div>
+            <div class="global-tools-arrow">›</div>
+          </div>
+          <div class="global-tools-pill-row">
+            <span class="global-tools-pill">RFP</span><span class="global-tools-pill">Templates</span><span class="global-tools-pill">Briefings</span>
+          </div>
+        </a>
+        <a class="global-tools-clean-card" data-target="reporting-insights">
+          <div class="global-tools-top">
+            <div>
+              <h3>Reporting & Insights</h3>
+              <p>Sales reporting, pipeline metrics, customer proof outcomes, win/loss insights, and leadership views.</p>
+            </div>
+            <div class="global-tools-arrow">›</div>
+          </div>
+          <div class="global-tools-pill-row">
+            <span class="global-tools-pill">Reports</span><span class="global-tools-pill">Metrics</span><span class="global-tools-pill">Insights</span>
+          </div>
+        </a>
+        <a class="global-tools-clean-card" data-target="resource-library">
+          <div class="global-tools-top">
+            <div>
+              <h3>Resource Library</h3>
+              <p>Approved documents, playbooks, job aids, templates, decks, and supporting sales materials.</p>
+            </div>
+            <div class="global-tools-arrow">›</div>
+          </div>
+          <div class="global-tools-pill-row">
+            <span class="global-tools-pill">Library</span><span class="global-tools-pill">Playbooks</span><span class="global-tools-pill">Job Aids</span>
+          </div>
+        </a>
+        <a class="global-tools-clean-card" data-target="partner-tools">
+          <div class="global-tools-top">
+            <div>
+              <h3>Partner Tools</h3>
+              <p>Partner agency guidance, referral resources, shared pursuit materials, and collaboration support.</p>
+            </div>
+            <div class="global-tools-arrow">›</div>
+          </div>
+          <div class="global-tools-pill-row">
+            <span class="global-tools-pill">Partners</span><span class="global-tools-pill">Referrals</span><span class="global-tools-pill">Pursuits</span>
+          </div>
+        </a>
+      </section>
+
+      <section class="content-card" style="margin-top:20px">
+        <h2>Suggested SharePoint Setup</h2>
+        <p>Recommended web parts: Quick Links, Document Library, Highlighted Content, List, Power BI, File Viewer, and People. Recommended metadata: Tool Type, Owner, Audience, Status, Region, Review Date, and Resource Type.</p>
         <a class="backtop" data-target="home">Back to Home ↑</a>
       </section>
     </section>
-    <section id="view-bid-toolkit" class="view">
+<section id="view-bid-toolkit" class="view">
       <section class="hero">
         <div class="eyebrow">Bid Toolkit</div>
         <h1>Bid Toolkit</h1>
@@ -2313,18 +2448,86 @@
           </div>
         </a>
       </section>
-
-      <section class="content-card" style="margin-top:20px">
+<section class="content-card" style="margin-top:20px">
         <h2>Suggested SharePoint Setup</h2>
         <p>Recommended web parts: People, Quick Links, Document Library, Highlighted Content, List, and File Viewer. Recommended metadata: Support Area, Owner, Region, Audience, Status, Review Date, and Escalation Type.</p>
         <a class="backtop" data-target="home">Back to Home ↑</a>
       </section>
     </section>
-<section id="view-crm-tools" class="view"><section class="content-card"><h2>CRM Tools</h2><p>Use this area for CRM access guidance, account records, opportunity updates, activity notes, close dates, owners, and next steps.</p><a class="backtop" data-target="global-tools">Back to Global Tools ↑</a></section></section>
-    <section id="view-reporting-dashboards" class="view"><section class="content-card"><h2>Reporting Dashboards</h2><p>Use this area for pipeline dashboards, account stage reporting, forecast views, activity reporting, and leadership summary views.</p><a class="backtop" data-target="global-tools">Back to Global Tools ↑</a></section></section>
-    <section id="view-sales-enablement-tools" class="view"><section class="content-card"><h2>Sales Enablement Tools</h2><p>Use this area for approved sales decks, playbooks, talk tracks, onboarding content, templates, and enablement guidance.</p><a class="backtop" data-target="global-tools">Back to Global Tools ↑</a></section></section>
-    <section id="view-proposal-tools" class="view"><section class="content-card"><h2>Proposal Tools</h2><p>Use this area for bid templates, RFP/RFI/RFQ resources, executive briefings, pricing intake links, and submission checklists.</p><a class="backtop" data-target="global-tools">Back to Global Tools ↑</a></section></section>
-    <section id="view-technology-sales-tools" class="view"><section class="content-card"><h2>Technology Sales Tools</h2><p>Use this area for demo support, technology positioning, product guidance, client-facing technology assets, and solution resources.</p><a class="backtop" data-target="global-tools">Back to Global Tools ↑</a></section></section>
+    <section id="view-crm-tools" class="view">
+      <section class="hero">
+        <div class="eyebrow">Global Tools</div>
+        <h1>CRM Tools</h1>
+        <p>CRM links, update guidance, opportunity tracking, dashboard access, and pipeline visibility.</p>
+        <span class="owner">Page owner: Global Sales / Sales Enablement</span>
+      </section>
+
+      <section class="content-card">
+        <h2>CRM Tools Setup</h2>
+        <div class="tools-detail-grid">
+          <div class="tools-detail-box"><b>CRM Links</b>Replace this placeholder with approved crm links links, owners, and resources.</div>
+          <div class="tools-detail-box"><b>Opportunity Tracking</b>Replace this placeholder with approved opportunity tracking links, owners, and resources.</div>
+          <div class="tools-detail-box"><b>Pipeline Dashboards</b>Replace this placeholder with approved pipeline dashboards links, owners, and resources.</div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>Recommended SharePoint Setup</h2>
+        <p>Recommended web parts: Quick Links, Document Library, Highlighted Content, List, File Viewer, Power BI, and People.</p>
+        <p>Recommended metadata: Tool Type, Owner, Audience, Status, Region, Review Date, and Resource Type.</p>
+        <a class="backtop" data-target="global-tools">Back to Global Tools ↑</a>
+      </section>
+    </section>
+<section id="view-reporting-dashboards" class="view"><section class="content-card"><h2>Reporting Dashboards</h2><p>Use this area for pipeline dashboards, account stage reporting, forecast views, activity reporting, and leadership summary views.</p><a class="backtop" data-target="global-tools">Back to Global Tools ↑</a></section></section>
+    <section id="view-sales-enablement-tools" class="view">
+      <section class="hero">
+        <div class="eyebrow">Global Tools</div>
+        <h1>Sales Enablement</h1>
+        <p>Enablement resources, sales process guidance, onboarding support, and readiness materials.</p>
+        <span class="owner">Page owner: Global Sales / Sales Enablement</span>
+      </section>
+
+      <section class="content-card">
+        <h2>Sales Enablement Setup</h2>
+        <div class="tools-detail-grid">
+          <div class="tools-detail-box"><b>Enablement Resources</b>Replace this placeholder with approved enablement resources links, owners, and resources.</div>
+          <div class="tools-detail-box"><b>Training Links</b>Replace this placeholder with approved training links links, owners, and resources.</div>
+          <div class="tools-detail-box"><b>Process Guidance</b>Replace this placeholder with approved process guidance links, owners, and resources.</div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>Recommended SharePoint Setup</h2>
+        <p>Recommended web parts: Quick Links, Document Library, Highlighted Content, List, File Viewer, Power BI, and People.</p>
+        <p>Recommended metadata: Tool Type, Owner, Audience, Status, Region, Review Date, and Resource Type.</p>
+        <a class="backtop" data-target="global-tools">Back to Global Tools ↑</a>
+      </section>
+    </section>
+    <section id="view-proposal-tools" class="view">
+      <section class="hero">
+        <div class="eyebrow">Global Tools</div>
+        <h1>Proposal Tools</h1>
+        <p>Proposal templates, bid-writing resources, executive briefing tools, and response support.</p>
+        <span class="owner">Page owner: Global Sales / Sales Enablement</span>
+      </section>
+
+      <section class="content-card">
+        <h2>Proposal Tools Setup</h2>
+        <div class="tools-detail-grid">
+          <div class="tools-detail-box"><b>Proposal Templates</b>Replace this placeholder with approved proposal templates links, owners, and resources.</div>
+          <div class="tools-detail-box"><b>Bid Writing Resources</b>Replace this placeholder with approved bid writing resources links, owners, and resources.</div>
+          <div class="tools-detail-box"><b>Executive Briefing Tools</b>Replace this placeholder with approved executive briefing tools links, owners, and resources.</div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>Recommended SharePoint Setup</h2>
+        <p>Recommended web parts: Quick Links, Document Library, Highlighted Content, List, File Viewer, Power BI, and People.</p>
+        <p>Recommended metadata: Tool Type, Owner, Audience, Status, Region, Review Date, and Resource Type.</p>
+        <a class="backtop" data-target="global-tools">Back to Global Tools ↑</a>
+      </section>
+    </section>
+<section id="view-technology-sales-tools" class="view"><section class="content-card"><h2>Technology Sales Tools</h2><p>Use this area for demo support, technology positioning, product guidance, client-facing technology assets, and solution resources.</p><a class="backtop" data-target="global-tools">Back to Global Tools ↑</a></section></section>
     <section id="view-global-resource-library" class="view"><section class="content-card"><h2>Global Resource Library</h2><p>Use this area for approved global collateral, regional resources, shared documents, owner guidance, and reviewed evergreen content.</p><a class="backtop" data-target="global-tools">Back to Global Tools ↑</a></section></section>
 
     <section id="view-about" class="view"><section class="content-card"><h2>About CTM</h2><p>Company background, global presence, purpose, values, and differentiators.</p><a class="backtop" data-target="global-sales">Back to Global Sales ↑</a></section></section>
@@ -4084,6 +4287,81 @@
         <a class="backtop" data-target="templates">Back to Templates ↑</a>
       </section>
     </section>
+
+    <section id="view-reporting-insights" class="view">
+      <section class="hero">
+        <div class="eyebrow">Global Tools</div>
+        <h1>Reporting & Insights</h1>
+        <p>Sales reporting, pipeline metrics, customer proof outcomes, win/loss insights, and leadership views.</p>
+        <span class="owner">Page owner: Global Sales / Sales Enablement</span>
+      </section>
+
+      <section class="content-card">
+        <h2>Reporting & Insights Setup</h2>
+        <div class="tools-detail-grid">
+          <div class="tools-detail-box"><b>Sales Reporting</b>Replace this placeholder with approved sales reporting links, owners, and resources.</div>
+          <div class="tools-detail-box"><b>Pipeline Metrics</b>Replace this placeholder with approved pipeline metrics links, owners, and resources.</div>
+          <div class="tools-detail-box"><b>Leadership Views</b>Replace this placeholder with approved leadership views links, owners, and resources.</div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>Recommended SharePoint Setup</h2>
+        <p>Recommended web parts: Quick Links, Document Library, Highlighted Content, List, File Viewer, Power BI, and People.</p>
+        <p>Recommended metadata: Tool Type, Owner, Audience, Status, Region, Review Date, and Resource Type.</p>
+        <a class="backtop" data-target="global-tools">Back to Global Tools ↑</a>
+      </section>
+    </section>
+
+    <section id="view-resource-library" class="view">
+      <section class="hero">
+        <div class="eyebrow">Global Tools</div>
+        <h1>Resource Library</h1>
+        <p>Approved documents, playbooks, job aids, templates, decks, and supporting sales materials.</p>
+        <span class="owner">Page owner: Global Sales / Sales Enablement</span>
+      </section>
+
+      <section class="content-card">
+        <h2>Resource Library Setup</h2>
+        <div class="tools-detail-grid">
+          <div class="tools-detail-box"><b>Approved Documents</b>Replace this placeholder with approved approved documents links, owners, and resources.</div>
+          <div class="tools-detail-box"><b>Playbooks</b>Replace this placeholder with approved playbooks links, owners, and resources.</div>
+          <div class="tools-detail-box"><b>Job Aids</b>Replace this placeholder with approved job aids links, owners, and resources.</div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>Recommended SharePoint Setup</h2>
+        <p>Recommended web parts: Quick Links, Document Library, Highlighted Content, List, File Viewer, Power BI, and People.</p>
+        <p>Recommended metadata: Tool Type, Owner, Audience, Status, Region, Review Date, and Resource Type.</p>
+        <a class="backtop" data-target="global-tools">Back to Global Tools ↑</a>
+      </section>
+    </section>
+
+    <section id="view-partner-tools" class="view">
+      <section class="hero">
+        <div class="eyebrow">Global Tools</div>
+        <h1>Partner Tools</h1>
+        <p>Partner agency guidance, referral resources, shared pursuit materials, and collaboration support.</p>
+        <span class="owner">Page owner: Global Sales / Sales Enablement</span>
+      </section>
+
+      <section class="content-card">
+        <h2>Partner Tools Setup</h2>
+        <div class="tools-detail-grid">
+          <div class="tools-detail-box"><b>Partner Agency Guidance</b>Replace this placeholder with approved partner agency guidance links, owners, and resources.</div>
+          <div class="tools-detail-box"><b>Referral Resources</b>Replace this placeholder with approved referral resources links, owners, and resources.</div>
+          <div class="tools-detail-box"><b>Shared Pursuit Materials</b>Replace this placeholder with approved shared pursuit materials links, owners, and resources.</div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>Recommended SharePoint Setup</h2>
+        <p>Recommended web parts: Quick Links, Document Library, Highlighted Content, List, File Viewer, Power BI, and People.</p>
+        <p>Recommended metadata: Tool Type, Owner, Audience, Status, Region, Review Date, and Resource Type.</p>
+        <a class="backtop" data-target="global-tools">Back to Global Tools ↑</a>
+      </section>
+    </section>
 </main>
 
   <footer>CTM Global Sales Toolkit Hub — section-only clickable SharePoint mockup with Win / Loss, Debrief, Global Tools, Asia, and Sales Agent Dashboard</footer>
@@ -4132,5 +4410,104 @@
   });
 })();
 </script>
+
+<script>
+(function(){
+  const searchItems = [
+    {label:"Home - Global Sales Toolkit Hub", target:"home", keywords:"home hub global sales toolkit"},
+    {label:"Regions", target:"regions", keywords:"regions north america anz asia emea regional"},
+    {label:"Global Sales", target:"global-sales", keywords:"global sales about ctm value proposition team goals territories strategy cycles"},
+    {label:"About CTM", target:"about-ctm", keywords:"company background global presence purpose values differentiators"},
+    {label:"CTM Value Proposition", target:"ctm-value-proposition", keywords:"value proposition service innovation return customer messaging"},
+    {label:"Sales Team", target:"sales-team", keywords:"leadership sales support technology sales segment owners crew"},
+    {label:"Goals & Expectations", target:"goals-expectations", keywords:"annual goals pipeline targets activity expectations crm requirements"},
+    {label:"Territories", target:"territories", keywords:"territory ownership account responsibility vertical regional coverage"},
+    {label:"Sales Strategy", target:"sales-strategy", keywords:"deal captain annual planning win strategy account planning"},
+    {label:"Sales Cycles", target:"sales-cycles", keywords:"opportunity stages proposal negotiation closed won"},
+    {label:"Global Tools", target:"global-tools", keywords:"tools crm proposal reporting insights resource library partner"},
+    {label:"Templates", target:"templates", keywords:"templates sales plan deck executive briefing checklist crm guide customer proof"},
+    {label:"Bid Toolkit", target:"bid-toolkit", keywords:"bid no bid rfp tender pricing proposal risk legal submission kickoff"},
+    {label:"Sales Stage Workflow", target:"sales-stages", keywords:"sales stages crm workflow active discovery proposal presentation negotiations closed"},
+    {label:"Sales Agent Dashboard", target:"sales-agent-dashboard", keywords:"dashboard chart pipeline agent account stage tracker"},
+    {label:"Training", target:"training", keywords:"training onboarding 30 60 90 recorded job aids refresher"},
+    {label:"New Hire Onboarding", target:"new-hire-onboarding", keywords:"new hire onboarding audience web parts metadata core content"},
+    {label:"Win / Loss", target:"win-loss", keywords:"win loss analysis competitor profiles battlecards market updates debrief"},
+    {label:"Competitor Profiles", target:"competitor-profiles", keywords:"competitor profile strengths weaknesses pricing service positioning differentiators"},
+    {label:"Help & Contacts", target:"help-contacts", keywords:"help contacts sales enablement support pricing marketing legal security operations implementation regional leadership"},
+    {label:"ANZ", target:"anz", keywords:"anz region overview contacts templates training bid partner"},
+    {label:"Asia", target:"asia", keywords:"asia region overview contacts templates training bid partner"},
+    {label:"EMEA", target:"emea", keywords:"emea region overview contacts templates training bid partner"}
+  ];
+
+  function openTarget(target){
+    const clickable = document.querySelector('[data-target="' + target + '"]');
+    if (clickable) {
+      clickable.click();
+      window.scrollTo({top:0, behavior:"smooth"});
+      return;
+    }
+    const view = document.getElementById('view-' + target);
+    if (view) {
+      document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+      view.classList.add('active');
+      window.scrollTo({top:0, behavior:"smooth"});
+    }
+  }
+
+  function runSearch(){
+    const input = document.getElementById('toolkitSearchInput');
+    const results = document.getElementById('toolkitSearchResults');
+    if (!input || !results) return;
+    const q = input.value.trim().toLowerCase();
+    results.innerHTML = "";
+    if (!q) {
+      results.classList.remove("active");
+      return;
+    }
+    const matches = searchItems.filter(item =>
+      item.label.toLowerCase().includes(q) || item.keywords.toLowerCase().includes(q)
+    ).slice(0, 12);
+
+    if (!matches.length) {
+      results.innerHTML = '<div class="search-result-item">No results found. Try bid, CRM, training, ANZ, templates, legal, or win loss.</div>';
+      results.classList.add("active");
+      return;
+    }
+
+    matches.forEach(item => {
+      const result = document.createElement("div");
+      result.className = "search-result-item";
+      result.textContent = item.label;
+      result.setAttribute("data-target", item.target);
+      result.addEventListener("click", function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        openTarget(item.target);
+        results.classList.remove("active");
+      });
+      results.appendChild(result);
+    });
+    results.classList.add("active");
+  }
+
+  document.addEventListener("DOMContentLoaded", function(){
+    const input = document.getElementById('toolkitSearchInput');
+    const button = document.getElementById('toolkitSearchButton');
+    if (input) {
+      input.addEventListener("input", runSearch);
+      input.addEventListener("keydown", function(e){
+        if (e.key === "Enter") {
+          e.preventDefault();
+          runSearch();
+          const first = document.querySelector("#toolkitSearchResults .search-result-item[data-target]");
+          if (first) first.click();
+        }
+      });
+    }
+    if (button) button.addEventListener("click", runSearch);
+  });
+})();
+</script>
+
 </body>
 </html>
