@@ -748,6 +748,40 @@
     font-weight:400 !important;
   }
 
+
+
+  /* Active Search Box Fix - keeps decorative hero layers from blocking the input */
+  .hero::before,
+  .hero::after{
+    pointer-events:none !important;
+    z-index:0;
+  }
+  .hero > *{
+    position:relative;
+    z-index:1;
+  }
+  .hub-hero-with-search,
+  .hub-search-panel,
+  .toolkit-search-wrap,
+  .toolkit-search-row{
+    position:relative;
+    z-index:50;
+    pointer-events:auto;
+  }
+  #toolkitSearchInput,
+  .toolkit-search-input{
+    position:relative;
+    z-index:100;
+    pointer-events:auto !important;
+    cursor:text !important;
+    user-select:text;
+    -webkit-user-select:text;
+  }
+  #toolkitSearchInput:disabled,
+  .toolkit-search-input:disabled{
+    opacity:1;
+  }
+
 </style>
 </head>
 <body>
@@ -796,7 +830,7 @@
           <h2>Search the Toolkit</h2>
           <section class="toolkit-search-wrap">
             <div class="toolkit-search-row">
-              <input id="toolkitSearchInput" class="toolkit-search-input" type="search" placeholder="Search: bid, training, CRM, ANZ, templates, legal" />
+              <input id="toolkitSearchInput" class="toolkit-search-input" type="search" name="toolkitSearch" aria-label="Search the Toolkit" placeholder="Search: bid, training, CRM, ANZ, templates, legal" autocomplete="off" />
               <button id="toolkitSearchButton" class="toolkit-search-button" type="button">Search</button>
             </div>
             <div class="search-helper">Search by section name or topic. Select a result to open that section.</div>
@@ -5032,6 +5066,33 @@
     document.addEventListener('DOMContentLoaded', initToolkitSearch);
   } else {
     initToolkitSearch();
+  }
+})();
+</script>
+
+
+<script>
+(function(){
+  function activateToolkitSearchBox(){
+    const input = document.getElementById('toolkitSearchInput');
+    if (!input) return;
+    input.removeAttribute('disabled');
+    input.removeAttribute('readonly');
+    input.setAttribute('tabindex', '0');
+    input.style.pointerEvents = 'auto';
+    input.style.cursor = 'text';
+    input.addEventListener('pointerdown', function(event){
+      event.stopPropagation();
+    });
+    input.addEventListener('click', function(event){
+      event.stopPropagation();
+      input.focus();
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', activateToolkitSearchBox);
+  } else {
+    activateToolkitSearchBox();
   }
 })();
 </script>
