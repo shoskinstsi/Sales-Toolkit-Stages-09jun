@@ -389,7 +389,7 @@
   .na-hub-card h2{margin:0 0 8px;color:#fff;font-size:28px}
   .na-hub-card p{margin:0;color:rgba(255,255,255,.9);line-height:1.55;max-width:850px}
   .na-hub-arrow{width:48px;height:48px;min-width:48px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900}
-  .clean-region-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .clean-region-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   .clean-region-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 2px 8px rgba(15,23,42,.06)}
   .clean-region-card h3{margin:0 0 8px;color:#0b1f35;font-size:25px}
   .clean-region-card p{margin:0;color:#667085;line-height:1.5;font-size:14px}
@@ -398,7 +398,8 @@
   .clean-region-link{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:10px;color:#344054;font-size:12px;font-weight:800;text-align:center;cursor:pointer}
   .clean-region-link:hover,.clean-region-primary:hover{background:#fff;box-shadow:0 4px 12px rgba(15,23,42,.08)}
   .clean-region-more{margin-top:12px;color:#667085;font-size:12px;line-height:1.4;text-align:center}
-  @media(max-width:1000px){.clean-region-grid{grid-template-columns:1fr}.na-hub-card{align-items:flex-start}}
+  @media(max-width:1200px){.clean-region-grid{grid-template-columns:repeat(2,1fr)}.na-hub-card{align-items:flex-start}}
+  @media(max-width:700px){.clean-region-grid{grid-template-columns:1fr}}
   @media(max-width:650px){.clean-region-links{grid-template-columns:1fr}.na-hub-card{flex-direction:column}}
 
 
@@ -1006,19 +1007,26 @@
 
       <section class="clean-region-intro">
         <h2>Select a Region</h2>
-        <p>North America routes to the main Global Sales Toolkit hub. ANZ, Asia, and EMEA provide simple quick links to the most-used regional sections, with the full regional hub still available.</p>
+        <p>Each region now uses the same card format with a primary hub link and quick links to the most-used regional sections.</p>
       </section>
 
       <section class="clean-region-layout">
-        <a class="na-hub-card" data-target="home">
-          <div>
-            <h2>North America</h2>
-            <p>Open the main Global Sales Toolkit Hub for shared global content, sales tools, dashboards, templates, and enablement resources.</p>
-          </div>
-          <div class="na-hub-arrow">›</div>
-        </a>
-
         <div class="clean-region-grid">
+          <div class="clean-region-card">
+            <h3>North America</h3>
+            <p>Regional resources, owners, templates, partner guidance, and customer proof.</p>
+            <span class="clean-region-primary" data-target="north-america">Open North America Hub</span>
+            <div class="clean-region-links">
+              <span class="clean-region-link" data-target="north-america-overview">Overview</span>
+              <span class="clean-region-link" data-target="north-america-contacts">Contacts</span>
+              <span class="clean-region-link" data-target="north-america-bid-toolkit">Bid Toolkit</span>
+              <span class="clean-region-link" data-target="north-america-templates">Templates</span>
+              <span class="clean-region-link" data-target="north-america-win-loss">Win / Loss</span>
+              <span class="clean-region-link" data-target="north-america-training">Training</span>
+            </div>
+            <div class="clean-region-more">Additional tabs remain available inside the North America hub.</div>
+          </div>
+
           <div class="clean-region-card">
             <h3>ANZ</h3>
             <p>Regional resources, owners, templates, partner guidance, and customer proof.</p>
@@ -4751,6 +4759,8 @@
   const views = document.querySelectorAll('.view');
   const navPills = document.querySelectorAll('.pill[data-target]');
   const allTargets = document.querySelectorAll('[data-target]');
+  const viewHistory = [];
+  let currentTarget = (document.querySelector('.view.active')?.id || 'view-home').replace(/^view-/, '');
 
   function activateNav(target){
     navPills.forEach(pill => {
@@ -4758,34 +4768,69 @@
     });
   }
 
-  function showView(target){
-    views.forEach(view => view.classList.remove('active'));
-    const selected = document.getElementById('view-' + target);
-    if(selected){
-      selected.classList.add('active');
-      const navTargets = ['home','start-here','global-sales','global-tools','regions','bid-toolkit','templates','win-loss','win-loss-debrief','training','customer-proof-hub','sales-agent-dashboard','contacts'];
-      if(navTargets.includes(target)){
-        activateNav(target);
-      } else {
-        navPills.forEach(pill => pill.classList.remove('active'));
-        if(['bid-no-bid','executive-briefing','kickoff','pricing-intake','bid-writing-checklist'].includes(target)){
-          activateNav('bid-toolkit');
-        }
-        if(['win-loss-analysis','competitor-profiles','battlecards','market-updates','win-loss-debrief'].includes(target)){
-          activateNav('win-loss');
-        }
-        if(['crm-tools','reporting-dashboards','sales-enablement-tools','proposal-tools','technology-sales-tools','global-resource-library'].includes(target)){
-          activateNav('global-tools');
-        }
-      }
-      window.scrollTo({top:0, behavior:'smooth'});
-    }
+  function inferNavTarget(target){
+    const directPill = document.querySelector('.pill[data-target="' + CSS.escape(target) + '"]');
+    if (directPill) return target;
+    if (/^(north-america|anz|asia|emea)(-|$)/.test(target)) return 'regions';
+    if (/^(about-ctm|ctm-value-proposition|sales-team|goals-expectations|territories|sales-strategy|sales-cycles|partner-agency)(-|$)?/.test(target)) return 'global-sales';
+    if (/^(crm-tools|reporting-dashboards|sales-enablement-tools|proposal-tools|technology-sales-tools|global-resource-library|partner-tools|reporting-insights|resource-library)$/.test(target)) return 'global-tools';
+    if (/^(bid-no-bid|executive-briefing|kickoff|pricing-intake|bid-writing-checklist|rfp-intake|risk-review|finance-pricing|proposal-development|final-submission)$/.test(target)) return 'bid-toolkit';
+    if (/^(sales-plan-template|sales-toolkit-deck|executive-briefing-template|bid-writing-checklist-template|crm-update-guide-template|customer-proof-hub-template|crm-update-guide)$/.test(target)) return 'templates';
+    if (/^(new-hire-onboarding|thirty-sixty-ninety|recorded-training|job-aids|refresher-content|onboarding-)/.test(target)) return 'training';
+    if (/^(win-loss-analysis|competitor-profiles|battlecards|market-updates|win-loss-debrief)$/.test(target)) return 'win-loss';
+    if (/^(retain-grow|crm|growth)$/.test(target)) return 'customer-proof-hub';
+    if (/contact$/.test(target) || target === 'help-contacts') return 'help-contacts';
+    return '';
   }
+
+  function updateBackButtons(){
+    document.querySelectorAll('.backtop').forEach(button => {
+      button.textContent = viewHistory.length ? '← Back to Previous Page' : '← Back';
+      button.setAttribute('title', 'Return to the page or section you came from');
+    });
+  }
+
+  function showView(target, options){
+    const selected = document.getElementById('view-' + target);
+    if(!selected) return;
+
+    const shouldRecord = !(options && options.record === false);
+    if(shouldRecord && target !== currentTarget){
+      viewHistory.push(currentTarget);
+    }
+
+    views.forEach(view => view.classList.remove('active'));
+    selected.classList.add('active');
+
+    const navTarget = inferNavTarget(target);
+    navPills.forEach(pill => {
+      pill.classList.toggle('active', pill.getAttribute('data-target') === navTarget);
+    });
+
+    currentTarget = target;
+    updateBackButtons();
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  function goBack(fallbackTarget){
+    const previousTarget = viewHistory.pop() || fallbackTarget || 'home';
+    showView(previousTarget, {record:false});
+  }
+
+  window.CTMToolkitNavigate = showView;
+  window.CTMToolkitBack = goBack;
+
+  updateBackButtons();
 
   allTargets.forEach(link => {
     link.addEventListener('click', function(e){
       e.preventDefault();
-      showView(this.getAttribute('data-target'));
+      const fallbackTarget = this.getAttribute('data-target') || 'home';
+      if(this.classList.contains('backtop')){
+        goBack(fallbackTarget);
+      } else {
+        showView(fallbackTarget);
+      }
     });
   });
 })();
@@ -4793,99 +4838,201 @@
 
 <script>
 (function(){
-  const searchItems = [
+  const curatedSearchItems = [
     {label:"Home - Global Sales Toolkit Hub", target:"home", keywords:"home hub global sales toolkit"},
+    {label:"Start Here", target:"start-here", keywords:"start here new user existing user regional leader sales support"},
     {label:"Regions", target:"regions", keywords:"regions north america anz asia emea regional"},
+    {label:"North America", target:"north-america", keywords:"north america region overview contacts templates training bid toolkit customer proof partner agency sales stages win loss"},
+    {label:"ANZ", target:"anz", keywords:"anz region overview contacts templates training bid toolkit customer proof partner agency sales stages win loss"},
+    {label:"Asia", target:"asia", keywords:"asia region overview contacts templates training bid toolkit customer proof partner agency sales stages win loss"},
+    {label:"EMEA", target:"emea", keywords:"emea region overview contacts templates training bid toolkit customer proof partner agency sales stages win loss"},
     {label:"Global Sales", target:"global-sales", keywords:"global sales about ctm value proposition team goals territories strategy cycles"},
-    {label:"About CTM", target:"about-ctm", keywords:"company background global presence purpose values differentiators"},
-    {label:"CTM Value Proposition", target:"ctm-value-proposition", keywords:"value proposition service innovation return customer messaging"},
-    {label:"Sales Team", target:"sales-team", keywords:"leadership sales support technology sales segment owners crew"},
-    {label:"Goals & Expectations", target:"goals-expectations", keywords:"annual goals pipeline targets activity expectations crm requirements"},
-    {label:"Territories", target:"territories", keywords:"territory ownership account responsibility vertical regional coverage"},
-    {label:"Sales Strategy", target:"sales-strategy", keywords:"deal captain annual planning win strategy account planning"},
-    {label:"Sales Cycles", target:"sales-cycles", keywords:"opportunity stages proposal negotiation closed won"},
-    {label:"Global Tools", target:"global-tools", keywords:"tools crm proposal reporting insights resource library partner"},
+    {label:"Global Tools", target:"global-tools", keywords:"tools crm proposal reporting dashboards sales enablement technology resource library partner"},
     {label:"Templates", target:"templates", keywords:"templates sales plan deck executive briefing checklist crm guide customer proof"},
     {label:"Bid Toolkit", target:"bid-toolkit", keywords:"bid no bid rfp tender pricing proposal risk legal submission kickoff"},
-    {label:"Sales Stage Workflow", target:"sales-stages", keywords:"sales stages crm workflow active discovery proposal presentation negotiations closed"},
+    {label:"Sales Stage Workflow", target:"sales-stages", keywords:"sales stages crm workflow active discovery solution proposal presentation negotiations verbal award closed"},
     {label:"Sales Agent Dashboard", target:"sales-agent-dashboard", keywords:"dashboard chart pipeline agent account stage tracker"},
     {label:"Training", target:"training", keywords:"training onboarding 30 60 90 recorded job aids refresher"},
-    {label:"New Hire Onboarding", target:"new-hire-onboarding", keywords:"new hire onboarding audience web parts metadata core content"},
     {label:"Win / Loss", target:"win-loss", keywords:"win loss analysis competitor profiles battlecards market updates debrief"},
-    {label:"Competitor Profiles", target:"competitor-profiles", keywords:"competitor profile strengths weaknesses pricing service positioning differentiators"},
-    {label:"Help & Contacts", target:"help-contacts", keywords:"help contacts sales enablement support pricing marketing legal security operations implementation regional leadership"},
-    {label:"ANZ", target:"anz", keywords:"anz region overview contacts templates training bid partner"},
-    {label:"Asia", target:"asia", keywords:"asia region overview contacts templates training bid partner"},
-    {label:"EMEA", target:"emea", keywords:"emea region overview contacts templates training bid partner"}
+    {label:"Win / Loss Debrief", target:"win-loss-debrief", keywords:"win loss debrief questionnaire supplier proposal preparation closing questions"},
+    {label:"Customer Proof Hub", target:"customer-proof-hub", keywords:"customer proof case studies retain grow crm growth opportunities reviews"},
+    {label:"Help & Contacts", target:"help-contacts", keywords:"help contacts sales enablement support pricing marketing legal security operations implementation regional leadership"}
   ];
 
-  function openTarget(target){
-    const clickable = document.querySelector('[data-target="' + target + '"]');
-    if (clickable) {
-      clickable.click();
-      window.scrollTo({top:0, behavior:"smooth"});
+  function normalize(value){
+    return (value || "").toLowerCase().replace(/\s+/g, " ").trim();
+  }
+
+  function makeLabelFromTarget(target){
+    return target
+      .split('-')
+      .map(word => word ? word.charAt(0).toUpperCase() + word.slice(1) : word)
+      .join(' ')
+      .replace(/Ctm/g, 'CTM')
+      .replace(/Crm/g, 'CRM')
+      .replace(/Anz/g, 'ANZ')
+      .replace(/Emea/g, 'EMEA');
+  }
+
+  function getSectionLabel(view, target){
+    const heading = view.querySelector('h1, h2, h3');
+    return heading ? heading.textContent.trim() : makeLabelFromTarget(target);
+  }
+
+  function buildSearchIndex(){
+    const dynamicItems = Array.from(document.querySelectorAll('.view[id^="view-"]')).map(view => {
+      const target = view.id.replace(/^view-/, '');
+      const label = getSectionLabel(view, target);
+      const sectionText = normalize(view.textContent);
+      return { label, target, keywords: sectionText };
+    });
+
+    const byTarget = new Map();
+    dynamicItems.forEach(item => byTarget.set(item.target, item));
+    curatedSearchItems.forEach(item => {
+      const existing = byTarget.get(item.target);
+      byTarget.set(item.target, existing ? {
+        label: item.label || existing.label,
+        target: item.target,
+        keywords: normalize(existing.keywords + ' ' + item.keywords)
+      } : item);
+    });
+    return Array.from(byTarget.values());
+  }
+
+  function inferNavTarget(target){
+    const directPill = document.querySelector('.pill[data-target="' + CSS.escape(target) + '"]');
+    if (directPill) return target;
+    if (/^(north-america|anz|asia|emea)(-|$)/.test(target)) return 'regions';
+    if (/^(about-ctm|ctm-value-proposition|sales-team|goals-expectations|territories|sales-strategy|sales-cycles)$/.test(target)) return 'global-sales';
+    if (/^(crm-tools|reporting-dashboards|sales-enablement-tools|proposal-tools|technology-sales-tools|global-resource-library|partner-tools|reporting-insights|resource-library|crm|partner-agency)$/.test(target)) return 'global-tools';
+    if (/^(bid-no-bid|executive-briefing|kickoff|pricing-intake|bid-writing-checklist|rfp-intake|risk-review|finance-pricing|proposal-development|final-submission)$/.test(target)) return 'bid-toolkit';
+    if (/^(sales-plan-template|sales-toolkit-deck|executive-briefing-template|bid-writing-checklist-template|crm-update-guide-template|customer-proof-hub-template|crm-update-guide)$/.test(target)) return 'templates';
+    if (/^(new-hire-onboarding|thirty-sixty-ninety|recorded-training|job-aids|refresher-content|onboarding-)/.test(target)) return 'training';
+    if (/^(win-loss-analysis|competitor-profiles|battlecards|market-updates|win-loss-debrief)$/.test(target)) return 'win-loss';
+    if (/^(retain-grow|crm|growth)$/.test(target)) return 'customer-proof-hub';
+    if (/contact$/.test(target) || target === 'help-contacts') return 'help-contacts';
+    return '';
+  }
+
+  function openSearchTarget(target){
+    if (window.CTMToolkitNavigate) {
+      window.CTMToolkitNavigate(target);
       return;
     }
-    const view = document.getElementById('view-' + target);
-    if (view) {
-      document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-      view.classList.add('active');
-      window.scrollTo({top:0, behavior:"smooth"});
-    }
+
+    const selected = document.getElementById('view-' + target);
+    if (!selected) return;
+
+    document.querySelectorAll('.view').forEach(view => view.classList.remove('active'));
+    selected.classList.add('active');
+
+    const navTarget = inferNavTarget(target);
+    document.querySelectorAll('.pill[data-target]').forEach(pill => {
+      pill.classList.toggle('active', pill.getAttribute('data-target') === navTarget);
+    });
+
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  function createResult(item, query){
+    const result = document.createElement('button');
+    result.type = 'button';
+    result.className = 'search-result-item';
+    result.setAttribute('data-target', item.target);
+    result.setAttribute('aria-label', 'Open ' + item.label);
+
+    const title = document.createElement('div');
+    title.style.fontWeight = '900';
+    title.textContent = item.label;
+
+    const detail = document.createElement('div');
+    detail.style.fontWeight = '600';
+    detail.style.fontSize = '12px';
+    detail.style.color = '#667085';
+    detail.style.marginTop = '4px';
+    detail.textContent = makeLabelFromTarget(item.target);
+
+    result.appendChild(title);
+    result.appendChild(detail);
+    result.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      openSearchTarget(item.target);
+      const results = document.getElementById('toolkitSearchResults');
+      if (results) results.classList.remove('active');
+    });
+    return result;
   }
 
   function runSearch(){
     const input = document.getElementById('toolkitSearchInput');
     const results = document.getElementById('toolkitSearchResults');
     if (!input || !results) return;
-    const q = input.value.trim().toLowerCase();
-    results.innerHTML = "";
-    if (!q) {
-      results.classList.remove("active");
+
+    const query = normalize(input.value);
+    results.innerHTML = '';
+    if (!query) {
+      results.classList.remove('active');
       return;
     }
-    const matches = searchItems.filter(item =>
-      item.label.toLowerCase().includes(q) || item.keywords.toLowerCase().includes(q)
-    ).slice(0, 12);
+
+    const words = query.split(' ').filter(Boolean);
+    const matches = buildSearchIndex()
+      .map(item => {
+        const label = normalize(item.label);
+        const target = normalize(makeLabelFromTarget(item.target));
+        const keywords = normalize(item.keywords);
+        const haystack = label + ' ' + target + ' ' + keywords;
+        const score = words.reduce((total, word) => total + (haystack.includes(word) ? 1 : 0), 0)
+          + (label.includes(query) ? 4 : 0)
+          + (target.includes(query) ? 3 : 0)
+          + (keywords.includes(query) ? 2 : 0);
+        return {...item, score};
+      })
+      .filter(item => item.score > 0)
+      .sort((a, b) => b.score - a.score || a.label.localeCompare(b.label))
+      .slice(0, 15);
 
     if (!matches.length) {
-      results.innerHTML = '<div class="search-result-item">No results found. Try bid, CRM, training, ANZ, templates, legal, or win loss.</div>';
-      results.classList.add("active");
+      const noResult = document.createElement('div');
+      noResult.className = 'search-result-item';
+      noResult.textContent = 'No results found. Try bid, CRM, training, North America, ANZ, templates, legal, or win loss.';
+      results.appendChild(noResult);
+      results.classList.add('active');
       return;
     }
 
-    matches.forEach(item => {
-      const result = document.createElement("div");
-      result.className = "search-result-item";
-      result.textContent = item.label;
-      result.setAttribute("data-target", item.target);
-      result.addEventListener("click", function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        openTarget(item.target);
-        results.classList.remove("active");
-      });
-      results.appendChild(result);
-    });
-    results.classList.add("active");
+    matches.forEach(item => results.appendChild(createResult(item, query)));
+    results.classList.add('active');
   }
 
-  document.addEventListener("DOMContentLoaded", function(){
+  function initToolkitSearch(){
     const input = document.getElementById('toolkitSearchInput');
     const button = document.getElementById('toolkitSearchButton');
-    if (input) {
-      input.addEventListener("input", runSearch);
-      input.addEventListener("keydown", function(e){
-        if (e.key === "Enter") {
-          e.preventDefault();
-          runSearch();
-          const first = document.querySelector("#toolkitSearchResults .search-result-item[data-target]");
-          if (first) first.click();
-        }
-      });
-    }
-    if (button) button.addEventListener("click", runSearch);
-  });
+    if (!input || !button) return;
+
+    input.addEventListener('input', runSearch);
+    input.addEventListener('focus', runSearch);
+    input.addEventListener('keydown', function(e){
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        runSearch();
+        const first = document.querySelector('#toolkitSearchResults .search-result-item[data-target]');
+        if (first) first.click();
+      }
+    });
+    button.addEventListener('click', function(e){
+      e.preventDefault();
+      runSearch();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initToolkitSearch);
+  } else {
+    initToolkitSearch();
+  }
 })();
 </script>
 
