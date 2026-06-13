@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CTM Global Sales Toolkit - Home and Start Here Updated</title>
+<title>CTM Global Sales Toolkit</title>
 <style>
   :root{
     --ctm-navy:#003b49;
@@ -142,6 +142,17 @@
   .debrief-field-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
   .debrief-field{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:#344054}
   .debrief-field b{color:#0b1f35}
+
+  .debrief-question-section{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px}
+  .debrief-question-panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 2px 8px rgba(15,23,42,.06);border-top:7px solid var(--ctm-teal)}
+  .debrief-question-panel:nth-child(2){border-top-color:var(--ctm-green)}
+  .debrief-question-panel h3{margin:0 0 8px;color:#0b1f35;font-size:21px}
+  .debrief-question-panel p{margin:0 0 14px;color:#667085;line-height:1.5;font-size:14px}
+  .debrief-question-list{display:grid;gap:10px;margin-top:12px}
+  .debrief-question-item{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:13px 15px;color:#344054;line-height:1.45;font-size:14px}
+  .debrief-question-item b{display:block;color:#0b1f35;margin-bottom:4px}
+  .debrief-note-box{background:#eef8fb;border:1px solid #d7edf2;border-radius:16px;padding:16px 18px;color:var(--ctm-navy);line-height:1.55;margin-top:16px;font-weight:700}
+  @media(max-width:900px){.debrief-question-section{grid-template-columns:1fr}}
 
   @media(max-width:1300px){.bid-section-grid,.pipeline-board{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:1200px){.step-grid,.tile-grid,.quick-row,.dashboard-summary{grid-template-columns:repeat(2,1fr)}.site-header{grid-template-columns:1fr}}
@@ -782,6 +793,147 @@
     opacity:1;
   }
 
+
+
+  /* Region section color refresh - professional CTM palette */
+  #regions .hero{
+    background:linear-gradient(115deg,#003b49 0%,#00677b 52%,#007c94 100%) !important;
+  }
+  #regions .clean-region-intro{
+    background:linear-gradient(180deg,#ffffff 0%,#f3fafb 100%) !important;
+    border-color:#cfe3e8 !important;
+  }
+  #regions .clean-region-card{
+    position:relative;
+    overflow:hidden;
+    border:1px solid #d8e1ea !important;
+    border-left:0 !important;
+    background:#ffffff !important;
+    box-shadow:0 4px 14px rgba(15,23,42,.08) !important;
+  }
+  #regions .clean-region-card:before{
+    content:"";
+    display:block;
+    height:10px;
+    margin:-24px -24px 20px -24px;
+    background:#003b49;
+  }
+  #regions .clean-region-card:nth-child(1):before{background:linear-gradient(90deg,#003b49,#007c94) !important;}
+  #regions .clean-region-card:nth-child(2):before{background:linear-gradient(90deg,#007c94,#76bc43) !important;}
+  #regions .clean-region-card:nth-child(3):before{background:linear-gradient(90deg,#76bc43,#4f8f2f) !important;}
+  #regions .clean-region-card:nth-child(4):before{background:linear-gradient(90deg,#0b1f35,#667085) !important;}
+  #regions .clean-region-card:hover{
+    box-shadow:0 14px 30px rgba(15,23,42,.14) !important;
+    border-color:#b9c8d6 !important;
+  }
+  #regions .clean-region-card h3{color:#0b1f35 !important;}
+  #regions .clean-region-card p{color:#475467 !important;}
+  #regions .clean-region-card:nth-child(1) .simple-region-arrow,
+  #regions .clean-region-card:nth-child(1) .clean-region-primary{
+    background:#003b49 !important;
+    border-color:#003b49 !important;
+    color:#ffffff !important;
+  }
+  #regions .clean-region-card:nth-child(2) .simple-region-arrow,
+  #regions .clean-region-card:nth-child(2) .clean-region-primary{
+    background:#007c94 !important;
+    border-color:#007c94 !important;
+    color:#ffffff !important;
+  }
+  #regions .clean-region-card:nth-child(3) .simple-region-arrow,
+  #regions .clean-region-card:nth-child(3) .clean-region-primary{
+    background:#76bc43 !important;
+    border-color:#76bc43 !important;
+    color:#173100 !important;
+  }
+  #regions .clean-region-card:nth-child(4) .simple-region-arrow,
+  #regions .clean-region-card:nth-child(4) .clean-region-primary{
+    background:#667085 !important;
+    border-color:#667085 !important;
+    color:#ffffff !important;
+  }
+  #regions .clean-region-primary{
+    border-radius:999px !important;
+    letter-spacing:.01em;
+  }
+  #regions .clean-region-card:nth-child(1) .clean-region-primary:hover{background:#002f3a !important;border-color:#002f3a !important;}
+  #regions .clean-region-card:nth-child(2) .clean-region-primary:hover{background:#00697d !important;border-color:#00697d !important;}
+  #regions .clean-region-card:nth-child(3) .clean-region-primary:hover{background:#5fa332 !important;border-color:#5fa332 !important;color:#ffffff !important;}
+  #regions .clean-region-card:nth-child(4) .clean-region-primary:hover{background:#475467 !important;border-color:#475467 !important;}
+
+
+
+  /* FIXED: Visible Region section colors applied to the actual view id: #view-regions */
+  #view-regions .clean-region-grid{
+    align-items:stretch;
+  }
+  #view-regions .clean-region-card{
+    position:relative !important;
+    overflow:hidden !important;
+    border:0 !important;
+    border-radius:24px !important;
+    padding:0 !important;
+    color:#ffffff !important;
+    box-shadow:0 8px 22px rgba(15,23,42,.12) !important;
+  }
+  #view-regions .clean-region-card:before{
+    content:"" !important;
+    position:absolute !important;
+    inset:0 !important;
+    z-index:0 !important;
+  }
+  #view-regions .clean-region-card:after{
+    content:"" !important;
+    position:absolute !important;
+    right:-70px !important;
+    top:-85px !important;
+    width:230px !important;
+    height:230px !important;
+    border-radius:50% !important;
+    border:1px solid rgba(255,255,255,.30) !important;
+    box-shadow:0 0 0 34px rgba(255,255,255,.05),0 0 0 68px rgba(255,255,255,.025) !important;
+    z-index:1 !important;
+  }
+  #view-regions .clean-region-card:nth-child(1):before{background:linear-gradient(135deg,#003b49 0%,#007c94 100%) !important;}
+  #view-regions .clean-region-card:nth-child(2):before{background:linear-gradient(135deg,#007c94 0%,#76bc43 100%) !important;}
+  #view-regions .clean-region-card:nth-child(3):before{background:linear-gradient(135deg,#76bc43 0%,#4f8f2f 100%) !important;}
+  #view-regions .clean-region-card:nth-child(4):before{background:linear-gradient(135deg,#0b1f35 0%,#667085 100%) !important;}
+  #view-regions .clean-region-card .simple-region-top{
+    position:relative !important;
+    z-index:2 !important;
+    padding:26px 24px 8px !important;
+  }
+  #view-regions .clean-region-card h3{
+    color:#ffffff !important;
+    font-size:27px !important;
+  }
+  #view-regions .clean-region-card p{
+    color:rgba(255,255,255,.92) !important;
+  }
+  #view-regions .simple-region-arrow{
+    background:rgba(255,255,255,.18) !important;
+    color:#ffffff !important;
+    border:1px solid rgba(255,255,255,.28) !important;
+  }
+  #view-regions .clean-region-primary{
+    position:relative !important;
+    z-index:2 !important;
+    margin:18px 24px 24px !important;
+    background:rgba(255,255,255,.95) !important;
+    color:#003b49 !important;
+    border:1px solid rgba(255,255,255,.55) !important;
+    border-radius:999px !important;
+    box-shadow:0 4px 12px rgba(15,23,42,.12) !important;
+  }
+  #view-regions .clean-region-card:hover{
+    transform:translateY(-4px) !important;
+    box-shadow:0 14px 32px rgba(15,23,42,.20) !important;
+  }
+  #view-regions .clean-region-card:hover .clean-region-primary{
+    background:#ffffff !important;
+    box-shadow:0 7px 16px rgba(15,23,42,.18) !important;
+  }
+
 </style>
 </head>
 <body>
@@ -1035,82 +1187,64 @@
       <section class="hero">
         <div class="eyebrow">Regional Sales Hubs</div>
         <h1>Regions</h1>
-        <p>Use this page to quickly open the main Global Sales Toolkit hub or jump into a regional resource area.</p>
+        <p>Select a region to open its dedicated sales toolkit hub.</p>
         <span class="owner">Page owner: Global Sales / Regional Sales Leadership</span>
       </section>
 
       <section class="clean-region-intro">
-        <h2>Select a Region</h2>
-        <p>Each region now uses the same card format with a primary hub link and quick links to the most-used regional sections.</p>
+        <h2>Select a Region Hub</h2>
+        <p>This page is intentionally simplified so users can quickly choose a region and open the matching regional hub.</p>
       </section>
 
       <section class="clean-region-layout">
         <div class="clean-region-grid">
-          <div class="clean-region-card">
-            <h3>North America</h3>
-            <p>Regional resources, owners, templates, partner guidance, and customer proof.</p>
+          <div class="clean-region-card" data-target="north-america" role="button" tabindex="0" aria-label="Open North America Hub">
+            <div class="simple-region-top">
+              <div>
+                <h3>North America</h3>
+                <p>Open the North America sales toolkit hub.</p>
+              </div>
+              <div class="simple-region-arrow">›</div>
+            </div>
             <span class="clean-region-primary" data-target="north-america">Open North America Hub</span>
-            <div class="clean-region-links">
-              <span class="clean-region-link" data-target="north-america-overview">Overview</span>
-              <span class="clean-region-link" data-target="north-america-contacts">Contacts</span>
-              <span class="clean-region-link" data-target="north-america-bid-toolkit">Bid Toolkit</span>
-              <span class="clean-region-link" data-target="north-america-templates">Templates</span>
-              <span class="clean-region-link" data-target="north-america-win-loss">Win / Loss</span>
-              <span class="clean-region-link" data-target="north-america-training">Training</span>
-            </div>
-            <div class="clean-region-more">Additional tabs remain available inside the North America hub.</div>
           </div>
 
-          <div class="clean-region-card">
-            <h3>ANZ</h3>
-            <p>Regional resources, owners, templates, partner guidance, and customer proof.</p>
+          <div class="clean-region-card" data-target="anz" role="button" tabindex="0" aria-label="Open ANZ Hub">
+            <div class="simple-region-top">
+              <div>
+                <h3>ANZ</h3>
+                <p>Open the ANZ sales toolkit hub.</p>
+              </div>
+              <div class="simple-region-arrow">›</div>
+            </div>
             <span class="clean-region-primary" data-target="anz">Open ANZ Hub</span>
-            <div class="clean-region-links">
-              <span class="clean-region-link" data-target="anz-overview">Overview</span>
-              <span class="clean-region-link" data-target="anz-contacts">Contacts</span>
-              <span class="clean-region-link" data-target="anz-bid-toolkit">Bid Toolkit</span>
-              <span class="clean-region-link" data-target="anz-templates">Templates</span>
-              <span class="clean-region-link" data-target="anz-win-loss">Win / Loss</span>
-              <span class="clean-region-link" data-target="anz-training">Training</span>
-            </div>
-            <div class="clean-region-more">Additional tabs remain available inside the ANZ hub.</div>
           </div>
 
-          <div class="clean-region-card">
-            <h3>Asia</h3>
-            <p>Regional sales guidance, pursuit support, contacts, templates, and training.</p>
+          <div class="clean-region-card" data-target="asia" role="button" tabindex="0" aria-label="Open Asia Hub">
+            <div class="simple-region-top">
+              <div>
+                <h3>Asia</h3>
+                <p>Open the Asia sales toolkit hub.</p>
+              </div>
+              <div class="simple-region-arrow">›</div>
+            </div>
             <span class="clean-region-primary" data-target="asia">Open Asia Hub</span>
-            <div class="clean-region-links">
-              <span class="clean-region-link" data-target="asia-overview">Overview</span>
-              <span class="clean-region-link" data-target="asia-contacts">Contacts</span>
-              <span class="clean-region-link" data-target="asia-bid-toolkit">Bid Toolkit</span>
-              <span class="clean-region-link" data-target="asia-templates">Templates</span>
-              <span class="clean-region-link" data-target="asia-win-loss">Win / Loss</span>
-              <span class="clean-region-link" data-target="asia-training">Training</span>
-            </div>
-            <div class="clean-region-more">Additional tabs remain available inside the Asia hub.</div>
           </div>
 
-          <div class="clean-region-card">
-            <h3>EMEA</h3>
-            <p>Sales enablement resources, bid support, contacts, proof points, and templates.</p>
-            <span class="clean-region-primary" data-target="emea">Open EMEA Hub</span>
-            <div class="clean-region-links">
-              <span class="clean-region-link" data-target="emea-overview">Overview</span>
-              <span class="clean-region-link" data-target="emea-contacts">Contacts</span>
-              <span class="clean-region-link" data-target="emea-bid-toolkit">Bid Toolkit</span>
-              <span class="clean-region-link" data-target="emea-templates">Templates</span>
-              <span class="clean-region-link" data-target="emea-win-loss">Win / Loss</span>
-              <span class="clean-region-link" data-target="emea-training">Training</span>
+          <div class="clean-region-card" data-target="emea" role="button" tabindex="0" aria-label="Open EMEA Hub">
+            <div class="simple-region-top">
+              <div>
+                <h3>EMEA</h3>
+                <p>Open the EMEA sales toolkit hub.</p>
+              </div>
+              <div class="simple-region-arrow">›</div>
             </div>
-            <div class="clean-region-more">Additional tabs remain available inside the EMEA hub.</div>
+            <span class="clean-region-primary" data-target="emea">Open EMEA Hub</span>
           </div>
         </div>
       </section>
 
       <section class="content-card" style="margin-top:20px">
-        <h2>Recommended SharePoint Setup</h2>
-        <p>Use Quick Links for region hubs and metadata filters for Region, Owner, Topic, Status, Review Date, and Audience.</p>
         <a class="backtop" data-target="home">Back to Home ↑</a>
       </section>
     </section>
@@ -3029,29 +3163,40 @@
 
       <section class="content-card">
         <h2>2. Closing Questionnaire</h2>
-        <p>Recommended as a SharePoint List or Microsoft Form so responses can be filtered by account, region, sales agent, supplier, outcome, and sales stage.</p>
-        <div class="questionnaire">
-          <div class="question-card">
-            <div class="question-label">Question 01</div>
-            <h3>Why did you choose CTM?</h3>
-            <p>Capture the client’s primary decision drivers, including service model, technology, relationship, pricing, global fit, implementation confidence, or overall value.</p>
+        <p>Use this section as a guided client debrief. Recommended setup: Microsoft Form or SharePoint List with required fields for account, region, sales agent, outcome, selected supplier, and decision date.</p>
+        <div class="debrief-question-section">
+          <div class="debrief-question-panel">
+            <div class="question-label">Decision &amp; Selection</div>
+            <h3>Understand why the client made their final decision</h3>
+            <p>Capture the decision story in a consistent way so Sales, Marketing, and Leadership can identify trends by region, segment, competitor, and opportunity type.</p>
+            <div class="debrief-question-list">
+              <div class="debrief-question-item"><b>Why did you choose CTM?</b>Document the strongest reasons CTM was selected, including service, technology, relationship, pricing, global alignment, implementation confidence, or overall value.</div>
+              <div class="debrief-question-item"><b>Which supplier or competitor did you choose?</b>Record whether CTM was selected or identify the selected supplier / competitor for future comparison and competitive tracking.</div>
+              <div class="debrief-question-item"><b>What were the top factors that influenced the final decision?</b>Capture the primary decision drivers, buying committee priorities, must-have requirements, and any deal-breakers.</div>
+              <div class="debrief-question-item"><b>Was there anything CTM did especially well?</b>Highlight strengths, differentiators, team actions, proposal elements, presentations, or relationship points that helped the pursuit.</div>
+              <div class="debrief-question-item"><b>Was there anything CTM could have done differently?</b>Identify improvement opportunities, missed expectations, timing issues, unclear messaging, gaps, or additional support needed for future pursuits.</div>
+            </div>
           </div>
-          <div class="question-card">
-            <div class="question-label">Question 02</div>
-            <h3>Which supplier did you choose?</h3>
-            <p>Document whether CTM was selected or which competitor/supplier was chosen so the team can compare positioning, pricing, service, and differentiators.</p>
-          </div>
-          <div class="question-card">
-            <div class="question-label">Question 03</div>
-            <h3>How well was the proposal prepared?</h3>
-            <p>Rate proposal quality, clarity, responsiveness, accuracy, presentation, pricing support, and whether the submission addressed the client’s stated needs.</p>
+
+          <div class="debrief-question-panel">
+            <div class="question-label">Proposal &amp; Presentation</div>
+            <h3>Review the quality and clarity of CTM’s response</h3>
+            <p>Use these questions to understand whether the proposal and presentation clearly addressed the client’s needs and supported the final decision.</p>
+            <div class="debrief-question-list">
+              <div class="debrief-question-item"><b>How well was the proposal prepared?</b>Rate the quality, accuracy, organization, professionalism, completeness, and readiness of the final response.</div>
+              <div class="debrief-question-item"><b>Did the proposal clearly address business needs and priorities?</b>Confirm whether CTM connected the solution to the client’s goals, pain points, regional needs, and decision criteria.</div>
+              <div class="debrief-question-item"><b>Was pricing, service model, and value proposition clear?</b>Assess whether the commercial model, support structure, implementation approach, and value story were easy to understand.</div>
+              <div class="debrief-question-item"><b>Did the presentation provide enough detail?</b>Capture feedback on presentation depth, storytelling, audience alignment, executive messaging, and supporting proof points.</div>
+              <div class="debrief-question-item"><b>Were there gaps in the proposal or presentation?</b>Document missing information, unclear sections, unanswered questions, weak proof points, or topics that required additional follow-up.</div>
+            </div>
           </div>
         </div>
+        <div class="debrief-note-box">Tip: Ask for specific examples whenever possible. Specific feedback is easier to turn into proposal improvements, battlecard updates, coaching, and pursuit planning actions.</div>
       </section>
 
       <section class="content-card">
-        <h2>3. Proposal Quality Rating</h2>
-        <p>Use the scale below to rate the overall proposal experience.</p>
+        <h2>3. Proposal &amp; Presentation Rating</h2>
+        <p>Use the scale below to score the overall proposal and presentation experience. Add notes so the rating is actionable for future pursuits.</p>
         <div class="rating-row">
           <div class="rating">1<br>Needs Improvement</div>
           <div class="rating">2<br>Fair</div>
@@ -3060,8 +3205,10 @@
           <div class="rating">5<br>Excellent</div>
         </div>
         <div class="debrief-field-list">
-          <div class="debrief-field"><b>Proposal Strengths:</b> What worked well?</div>
-          <div class="debrief-field"><b>Improvement Opportunities:</b> What should change next time?</div>
+          <div class="debrief-field"><b>Proposal Strengths:</b> What was clear, compelling, well organized, or client-focused?</div>
+          <div class="debrief-field"><b>Presentation Strengths:</b> What landed well with the client or buying committee?</div>
+          <div class="debrief-field"><b>Proposal Gaps:</b> What information, proof points, pricing detail, or service model clarity was missing?</div>
+          <div class="debrief-field"><b>Improvement Actions:</b> What should be changed before the next pursuit?</div>
         </div>
       </section>
 
