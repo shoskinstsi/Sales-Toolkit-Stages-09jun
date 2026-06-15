@@ -527,6 +527,20 @@
   .global-tools-arrow{width:42px;height:42px;min-width:42px;border-radius:50%;background:#eef8fb;color:var(--ctm-navy);display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:900}
   .global-tools-pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
   .global-tools-pill{background:#f8fafc;border:1px solid var(--line);border-radius:999px;padding:7px 10px;color:#475467;font-size:12px;font-weight:800}
+
+  .global-tools-tab-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0 22px}
+  .global-tools-tab-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;text-decoration:none;color:var(--ink);box-shadow:0 2px 8px rgba(15,23,42,.06);cursor:pointer;transition:.15s ease;border-top:7px solid var(--ctm-teal);display:block}
+  .global-tools-tab-card:nth-child(2n){border-top-color:var(--ctm-green)}
+  .global-tools-tab-card:nth-child(3n){border-top-color:#f0b429}
+  .global-tools-tab-card:nth-child(4n){border-top-color:#667085}
+  .global-tools-tab-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(15,23,42,.12)}
+  .global-tools-tab-top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+  .global-tools-tab-card h3{margin:0 0 8px;color:#0b1f35;font-size:19px}
+  .global-tools-tab-card p{margin:0;color:#667085;line-height:1.45;font-size:13px}
+  .global-tools-tab-arrow{width:36px;height:36px;min-width:36px;border-radius:50%;background:#eef8fb;color:var(--ctm-navy);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900}
+  .global-tools-tab-label{display:inline-block;margin-top:14px;background:#eef8fb;border:1px solid #d7edf2;border-radius:999px;padding:7px 10px;color:var(--ctm-navy);font-size:12px;font-weight:900}
+  @media(max-width:1100px){.global-tools-tab-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:700px){.global-tools-tab-grid{grid-template-columns:1fr}}
   .tools-detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
   .tools-detail-box{background:#f8fafc;border:1px solid var(--line);border-radius:14px;padding:16px;color:#344054;line-height:1.5}
   .tools-detail-box b{display:block;color:#0b1f35;margin-bottom:8px}
@@ -2030,94 +2044,196 @@
       <section class="hero">
         <div class="eyebrow">Global Tools</div>
         <h1>Global Tools</h1>
-        <p>Use this section to quickly access shared tools, resources, reporting, proposal support, partner resources, and enablement materials.</p>
+        <p>Use this section to quickly access the approved sales tools, proposal resources, prospecting platforms, content libraries, reporting, and outreach support used across global sales.</p>
         <span class="owner">Page owner: Global Sales / Sales Enablement</span>
       </section>
 
       <section class="global-tools-intro">
-        <h2>Tool Categories</h2>
-        <p>This section is simplified into clear categories so users can find the right tool area without scanning a crowded list of links.</p>
+        <h2>Sales Tool Tabs</h2>
+        <p>Select a tool below to open only that tool section. Each tab includes the purpose, when to use it, what to store or link, and recommended SharePoint setup.</p>
+      </section>
+
+      <section class="global-tools-tab-grid">
+        <a class="global-tools-tab-card" data-target="win-opportunity-workbook"><div class="global-tools-tab-top"><div><h3>Win Opportunity Workbook</h3><p>Use for strategic opportunity planning, account qualification, pursuit strategy, and opportunity readiness.</p></div><div class="global-tools-tab-arrow">›</div></div><span class="global-tools-tab-label">Open Tool</span></a>
+        <a class="global-tools-tab-card" data-target="loopio"><div class="global-tools-tab-top"><div><h3>Loopio</h3><p>Use for RFP response support, approved answer library content, proposal collaboration, and response quality control.</p></div><div class="global-tools-tab-arrow">›</div></div><span class="global-tools-tab-label">Open Tool</span></a>
+        <a class="global-tools-tab-card" data-target="linkedin-sales-navigator"><div class="global-tools-tab-top"><div><h3>LinkedIn Sales Navigator</h3><p>Use for prospecting, stakeholder research, account mapping, relationship insights, and lead identification.</p></div><div class="global-tools-tab-arrow">›</div></div><span class="global-tools-tab-label">Open Tool</span></a>
+        <a class="global-tools-tab-card" data-target="zoominfo"><div class="global-tools-tab-top"><div><h3>ZoomInfo</h3><p>Use for company research, contact discovery, account intelligence, enrichment, and prospect validation.</p></div><div class="global-tools-tab-arrow">›</div></div><span class="global-tools-tab-label">Open Tool</span></a>
+        <a class="global-tools-tab-card" data-target="slidecamp"><div class="global-tools-tab-top"><div><h3>SlideCamp</h3><p>Use for approved sales decks, presentation slides, proposal visuals, and brand-compliant storytelling.</p></div><div class="global-tools-tab-arrow">›</div></div><span class="global-tools-tab-label">Open Tool</span></a>
+        <a class="global-tools-tab-card" data-target="powerbi"><div class="global-tools-tab-top"><div><h3>Power BI</h3><p>Use for dashboards, pipeline visibility, regional reporting, sales performance insights, and leadership views.</p></div><div class="global-tools-tab-arrow">›</div></div><span class="global-tools-tab-label">Open Tool</span></a>
+        <a class="global-tools-tab-card" data-target="instantly"><div class="global-tools-tab-top"><div><h3>Instantly</h3><p>Use for approved outbound campaign support, prospecting workflows, sequencing, and outreach tracking.</p></div><div class="global-tools-tab-arrow">›</div></div><span class="global-tools-tab-label">Open Tool</span></a>
+      </section>
+
+      <section class="global-tools-intro">
+        <h2>Supporting Tool Categories</h2>
+        <p>Use these categories to organize additional global tool links, documents, reports, and support resources.</p>
       </section>
 
       <section class="global-tools-clean-grid">
-        <a class="global-tools-clean-card" data-target="crm-tools">
-          <div class="global-tools-top">
-            <div>
-              <h3>CRM Tools</h3>
-              <p>CRM links, update guidance, opportunity tracking, dashboard access, and pipeline visibility.</p>
-            </div>
-            <div class="global-tools-arrow">›</div>
-          </div>
-          <div class="global-tools-pill-row">
-            <span class="global-tools-pill">CRM</span><span class="global-tools-pill">Pipeline</span><span class="global-tools-pill">Dashboards</span>
-          </div>
-        </a>
-        <a class="global-tools-clean-card" data-target="sales-enablement-tools">
-          <div class="global-tools-top">
-            <div>
-              <h3>Sales Enablement</h3>
-              <p>Enablement resources, sales process guidance, onboarding support, and readiness materials.</p>
-            </div>
-            <div class="global-tools-arrow">›</div>
-          </div>
-          <div class="global-tools-pill-row">
-            <span class="global-tools-pill">Training</span><span class="global-tools-pill">Guidance</span><span class="global-tools-pill">Readiness</span>
-          </div>
-        </a>
-        <a class="global-tools-clean-card" data-target="proposal-tools">
-          <div class="global-tools-top">
-            <div>
-              <h3>Proposal Tools</h3>
-              <p>Proposal templates, bid-writing resources, executive briefing tools, and response support.</p>
-            </div>
-            <div class="global-tools-arrow">›</div>
-          </div>
-          <div class="global-tools-pill-row">
-            <span class="global-tools-pill">RFP</span><span class="global-tools-pill">Templates</span><span class="global-tools-pill">Briefings</span>
-          </div>
-        </a>
-        <a class="global-tools-clean-card" data-target="reporting-insights">
-          <div class="global-tools-top">
-            <div>
-              <h3>Reporting & Insights</h3>
-              <p>Sales reporting, pipeline metrics, customer proof outcomes, win/loss insights, and leadership views.</p>
-            </div>
-            <div class="global-tools-arrow">›</div>
-          </div>
-          <div class="global-tools-pill-row">
-            <span class="global-tools-pill">Reports</span><span class="global-tools-pill">Metrics</span><span class="global-tools-pill">Insights</span>
-          </div>
-        </a>
-        <a class="global-tools-clean-card" data-target="resource-library">
-          <div class="global-tools-top">
-            <div>
-              <h3>Resource Library</h3>
-              <p>Approved documents, playbooks, job aids, templates, decks, and supporting sales materials.</p>
-            </div>
-            <div class="global-tools-arrow">›</div>
-          </div>
-          <div class="global-tools-pill-row">
-            <span class="global-tools-pill">Library</span><span class="global-tools-pill">Playbooks</span><span class="global-tools-pill">Job Aids</span>
-          </div>
-        </a>
-        <a class="global-tools-clean-card" data-target="partner-tools">
-          <div class="global-tools-top">
-            <div>
-              <h3>Partner Tools</h3>
-              <p>Partner agency guidance, referral resources, shared pursuit materials, and collaboration support.</p>
-            </div>
-            <div class="global-tools-arrow">›</div>
-          </div>
-          <div class="global-tools-pill-row">
-            <span class="global-tools-pill">Partners</span><span class="global-tools-pill">Referrals</span><span class="global-tools-pill">Pursuits</span>
-          </div>
-        </a>
+        <a class="global-tools-clean-card" data-target="crm-tools"><div class="global-tools-top"><div><h3>CRM Tools</h3><p>CRM links, update guidance, opportunity tracking, dashboard access, and pipeline visibility.</p></div><div class="global-tools-arrow">›</div></div><div class="global-tools-pill-row"><span class="global-tools-pill">CRM</span><span class="global-tools-pill">Pipeline</span><span class="global-tools-pill">Dashboards</span></div></a>
+        <a class="global-tools-clean-card" data-target="sales-enablement-tools"><div class="global-tools-top"><div><h3>Sales Enablement</h3><p>Enablement resources, sales process guidance, onboarding support, and readiness materials.</p></div><div class="global-tools-arrow">›</div></div><div class="global-tools-pill-row"><span class="global-tools-pill">Training</span><span class="global-tools-pill">Guidance</span><span class="global-tools-pill">Readiness</span></div></a>
+        <a class="global-tools-clean-card" data-target="proposal-tools"><div class="global-tools-top"><div><h3>Proposal Tools</h3><p>Proposal templates, bid-writing resources, executive briefing tools, and response support.</p></div><div class="global-tools-arrow">›</div></div><div class="global-tools-pill-row"><span class="global-tools-pill">RFP</span><span class="global-tools-pill">Templates</span><span class="global-tools-pill">Briefings</span></div></a>
+        <a class="global-tools-clean-card" data-target="reporting-insights"><div class="global-tools-top"><div><h3>Reporting & Insights</h3><p>Sales reporting, pipeline metrics, customer proof outcomes, win/loss insights, and leadership views.</p></div><div class="global-tools-arrow">›</div></div><div class="global-tools-pill-row"><span class="global-tools-pill">Reports</span><span class="global-tools-pill">Metrics</span><span class="global-tools-pill">Insights</span></div></a>
+        <a class="global-tools-clean-card" data-target="resource-library"><div class="global-tools-top"><div><h3>Resource Library</h3><p>Approved documents, playbooks, job aids, templates, decks, and supporting sales materials.</p></div><div class="global-tools-arrow">›</div></div><div class="global-tools-pill-row"><span class="global-tools-pill">Library</span><span class="global-tools-pill">Playbooks</span><span class="global-tools-pill">Job Aids</span></div></a>
+        <a class="global-tools-clean-card" data-target="partner-tools"><div class="global-tools-top"><div><h3>Partner Tools</h3><p>Partner agency guidance, referral resources, shared pursuit materials, and collaboration support.</p></div><div class="global-tools-arrow">›</div></div><div class="global-tools-pill-row"><span class="global-tools-pill">Partners</span><span class="global-tools-pill">Referrals</span><span class="global-tools-pill">Pursuits</span></div></a>
       </section>
 
       <section class="content-card" style="margin-top:20px">
         <h2>Suggested SharePoint Setup</h2>
         <p>Recommended web parts: Quick Links, Document Library, Highlighted Content, List, Power BI, File Viewer, and People. Recommended metadata: Tool Type, Owner, Audience, Status, Region, Review Date, and Resource Type.</p>
         <a class="backtop" data-target="home">Back to Home ↑</a>
+      </section>
+    </section>
+
+    <section id="view-win-opportunity-workbook" class="view">
+      <section class="hero">
+        <div class="eyebrow">Global Tools</div>
+        <h1>Win Opportunity Workbook</h1>
+        <p>Use this tool to qualify, plan, and manage strategic pursuits before proposal development begins.</p>
+        <span class="owner">Page owner: Sales owner with support from regional leadership and Sales Enablement.</span>
+      </section>
+      <section class="content-card">
+        <h2>Purpose</h2>
+        <p>The Win Opportunity Workbook provides a structured place to capture opportunity details, client priorities, stakeholder insights, pursuit strategy, competitive position, risks, and next steps.</p>
+        <div class="tools-detail-grid">
+          <div class="tools-detail-box"><b>Use For</b>Opportunity qualification, pursuit planning, stakeholder mapping, win strategy, and bid readiness.</div>
+          <div class="tools-detail-box"><b>Include</b>Client needs, decision criteria, deal size, timeline, competitors, CTM differentiators, action owners, and next steps.</div>
+          <div class="tools-detail-box"><b>Owner</b>Sales owner with support from regional leadership and Sales Enablement.</div>
+        </div>
+        <h2 style="margin-top:22px">Recommended SharePoint Setup</h2>
+        <p>Add the tool link, access instructions, owner contacts, usage standards, request process, and review cadence. Recommended metadata: Tool Type, Owner, Audience, Status, Region, Access Required, and Review Date.</p>
+        <a class="backtop" data-target="global-tools">Back to Global Tools ↑</a>
+      </section>
+    </section>
+
+
+    <section id="view-loopio" class="view">
+      <section class="hero">
+        <div class="eyebrow">Global Tools</div>
+        <h1>Loopio</h1>
+        <p>Use Loopio for RFP response support, approved answer library content, proposal collaboration, and response consistency.</p>
+        <span class="owner">Page owner: Proposal team with Sales Enablement support.</span>
+      </section>
+      <section class="content-card">
+        <h2>Purpose</h2>
+        <p>Loopio helps teams build stronger proposal responses by reusing approved content, collaborating on assigned questions, and keeping response language consistent across regions.</p>
+        <div class="tools-detail-grid">
+          <div class="tools-detail-box"><b>Use For</b>RFP responses, questionnaires, proposal answers, content reuse, and response quality review.</div>
+          <div class="tools-detail-box"><b>Include</b>Approved answer library links, usage guidance, proposal owner contacts, response standards, and review expectations.</div>
+          <div class="tools-detail-box"><b>Owner</b>Proposal team with Sales Enablement support.</div>
+        </div>
+        <h2 style="margin-top:22px">Recommended SharePoint Setup</h2>
+        <p>Add the tool link, access instructions, owner contacts, usage standards, request process, and review cadence. Recommended metadata: Tool Type, Owner, Audience, Status, Region, Access Required, and Review Date.</p>
+        <a class="backtop" data-target="global-tools">Back to Global Tools ↑</a>
+      </section>
+    </section>
+
+
+    <section id="view-linkedin-sales-navigator" class="view">
+      <section class="hero">
+        <div class="eyebrow">Global Tools</div>
+        <h1>LinkedIn Sales Navigator</h1>
+        <p>Use LinkedIn Sales Navigator for prospecting, account research, stakeholder mapping, and relationship insights.</p>
+        <span class="owner">Page owner: Sales owner with regional sales leadership support.</span>
+      </section>
+      <section class="content-card">
+        <h2>Purpose</h2>
+        <p>LinkedIn Sales Navigator supports sales teams with lead discovery, stakeholder research, account alerts, buying committee visibility, and relationship-based outreach planning.</p>
+        <div class="tools-detail-grid">
+          <div class="tools-detail-box"><b>Use For</b>Prospecting, account mapping, stakeholder research, lead lists, and relationship intelligence.</div>
+          <div class="tools-detail-box"><b>Include</b>Access guidance, best practices, saved searches, account list standards, and outreach planning tips.</div>
+          <div class="tools-detail-box"><b>Owner</b>Sales owner with regional sales leadership support.</div>
+        </div>
+        <h2 style="margin-top:22px">Recommended SharePoint Setup</h2>
+        <p>Add the tool link, access instructions, owner contacts, usage standards, request process, and review cadence. Recommended metadata: Tool Type, Owner, Audience, Status, Region, Access Required, and Review Date.</p>
+        <a class="backtop" data-target="global-tools">Back to Global Tools ↑</a>
+      </section>
+    </section>
+
+
+    <section id="view-zoominfo" class="view">
+      <section class="hero">
+        <div class="eyebrow">Global Tools</div>
+        <h1>ZoomInfo</h1>
+        <p>Use ZoomInfo for company research, contact discovery, prospect validation, and account intelligence.</p>
+        <span class="owner">Page owner: Sales Operations with regional sales leadership support.</span>
+      </section>
+      <section class="content-card">
+        <h2>Purpose</h2>
+        <p>ZoomInfo helps sales teams identify target companies, validate contacts, enrich account data, and prepare for outreach or pursuit planning.</p>
+        <div class="tools-detail-grid">
+          <div class="tools-detail-box"><b>Use For</b>Contact discovery, account research, prospect validation, data enrichment, and market targeting.</div>
+          <div class="tools-detail-box"><b>Include</b>Access instructions, usage standards, data validation guidance, export rules, and CRM update expectations.</div>
+          <div class="tools-detail-box"><b>Owner</b>Sales Operations with regional sales leadership support.</div>
+        </div>
+        <h2 style="margin-top:22px">Recommended SharePoint Setup</h2>
+        <p>Add the tool link, access instructions, owner contacts, usage standards, request process, and review cadence. Recommended metadata: Tool Type, Owner, Audience, Status, Region, Access Required, and Review Date.</p>
+        <a class="backtop" data-target="global-tools">Back to Global Tools ↑</a>
+      </section>
+    </section>
+
+
+    <section id="view-slidecamp" class="view">
+      <section class="hero">
+        <div class="eyebrow">Global Tools</div>
+        <h1>SlideCamp</h1>
+        <p>Use SlideCamp for approved sales decks, presentation slides, proposal visuals, and brand-compliant content.</p>
+        <span class="owner">Page owner: Marketing and Sales Enablement.</span>
+      </section>
+      <section class="content-card">
+        <h2>Purpose</h2>
+        <p>SlideCamp provides a centralized library for approved presentation content so sales teams can build polished, consistent, and brand-aligned presentations.</p>
+        <div class="tools-detail-grid">
+          <div class="tools-detail-box"><b>Use For</b>Sales presentations, proposal decks, executive briefings, client-facing slides, and reusable visuals.</div>
+          <div class="tools-detail-box"><b>Include</b>Approved deck links, usage guidance, brand standards, content owner contacts, and update request process.</div>
+          <div class="tools-detail-box"><b>Owner</b>Marketing and Sales Enablement.</div>
+        </div>
+        <h2 style="margin-top:22px">Recommended SharePoint Setup</h2>
+        <p>Add the tool link, access instructions, owner contacts, usage standards, request process, and review cadence. Recommended metadata: Tool Type, Owner, Audience, Status, Region, Access Required, and Review Date.</p>
+        <a class="backtop" data-target="global-tools">Back to Global Tools ↑</a>
+      </section>
+    </section>
+
+
+    <section id="view-powerbi" class="view">
+      <section class="hero">
+        <div class="eyebrow">Global Tools</div>
+        <h1>Power BI</h1>
+        <p>Use Power BI for pipeline visibility, sales reporting, dashboard views, regional insights, and leadership reporting.</p>
+        <span class="owner">Page owner: Sales Operations / Reporting team.</span>
+      </section>
+      <section class="content-card">
+        <h2>Purpose</h2>
+        <p>Power BI gives sales leaders and teams a visual way to monitor pipeline, sales activity, customer proof outcomes, win/loss trends, and regional performance.</p>
+        <div class="tools-detail-grid">
+          <div class="tools-detail-box"><b>Use For</b>Pipeline dashboards, regional metrics, performance reporting, activity visibility, and leadership summaries.</div>
+          <div class="tools-detail-box"><b>Include</b>Dashboard links, report descriptions, refresh cadence, owner contacts, data definitions, and access request steps.</div>
+          <div class="tools-detail-box"><b>Owner</b>Sales Operations / Reporting team.</div>
+        </div>
+        <h2 style="margin-top:22px">Recommended SharePoint Setup</h2>
+        <p>Add the tool link, access instructions, owner contacts, usage standards, request process, and review cadence. Recommended metadata: Tool Type, Owner, Audience, Status, Region, Access Required, and Review Date.</p>
+        <a class="backtop" data-target="global-tools">Back to Global Tools ↑</a>
+      </section>
+    </section>
+
+
+    <section id="view-instantly" class="view">
+      <section class="hero">
+        <div class="eyebrow">Global Tools</div>
+        <h1>Instantly</h1>
+        <p>Use Instantly for approved outbound campaign support, sequencing, prospecting workflows, and outreach tracking.</p>
+        <span class="owner">Page owner: Sales Operations with regional sales leadership support.</span>
+      </section>
+      <section class="content-card">
+        <h2>Purpose</h2>
+        <p>Instantly supports outbound prospecting by helping teams manage approved outreach sequences, campaign activity, contact lists, and follow-up workflows.</p>
+        <div class="tools-detail-grid">
+          <div class="tools-detail-box"><b>Use For</b>Outbound campaigns, sales sequences, prospecting workflows, follow-up tracking, and campaign visibility.</div>
+          <div class="tools-detail-box"><b>Include</b>Access guidance, approved templates, campaign standards, compliance reminders, owner contacts, and reporting expectations.</div>
+          <div class="tools-detail-box"><b>Owner</b>Sales Operations with regional sales leadership support.</div>
+        </div>
+        <h2 style="margin-top:22px">Recommended SharePoint Setup</h2>
+        <p>Add the tool link, access instructions, owner contacts, usage standards, request process, and review cadence. Recommended metadata: Tool Type, Owner, Audience, Status, Region, Access Required, and Review Date.</p>
+        <a class="backtop" data-target="global-tools">Back to Global Tools ↑</a>
       </section>
     </section>
 <section id="view-bid-toolkit" class="view">
@@ -4954,7 +5070,7 @@
     if (directPill) return target;
     if (/^(north-america|anz|asia|emea)(-|$)/.test(target)) return 'regions';
     if (/^(about-ctm|ctm-value-proposition|sales-team|goals-expectations|territories|sales-strategy|sales-cycles|partner-agency)(-|$)?/.test(target)) return 'global-sales';
-    if (/^(crm-tools|reporting-dashboards|sales-enablement-tools|proposal-tools|technology-sales-tools|global-resource-library|partner-tools|reporting-insights|resource-library)$/.test(target)) return 'global-tools';
+    if (/^(crm-tools|reporting-dashboards|sales-enablement-tools|proposal-tools|technology-sales-tools|global-resource-library|partner-tools|reporting-insights|resource-library|win-opportunity-workbook|loopio|linkedin-sales-navigator|zoominfo|slidecamp|powerbi|instantly)$/.test(target)) return 'global-tools';
     if (/^(bid-no-bid|executive-briefing|kickoff|pricing-intake|bid-writing-checklist|rfp-intake|risk-review|finance-pricing|proposal-development|final-submission)$/.test(target)) return 'bid-toolkit';
     if (/^(sales-plan-template|sales-toolkit-deck|executive-briefing-template|bid-writing-checklist-template|crm-update-guide-template|customer-proof-hub-template|crm-update-guide)$/.test(target)) return 'templates';
     if (/^(new-hire-onboarding|thirty-sixty-ninety|recorded-training|job-aids|refresher-content|onboarding-)/.test(target)) return 'training';
